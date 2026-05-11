@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+.build/
+DerivedData/
+
+# Xcode
+*.xcuserdata
+*.xcworkspace/xcuserdata/
+xcuserdata/
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# Temporary files
+*.tmp

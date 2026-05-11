@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09BC4796645C7ACC7977F953 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219658127F21647502CE9F0 /* SettingsRepository.swift */; };
+		14899FC48AA395FF35DA72D9 /* OllamaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91702F653FC771B795108DD /* OllamaError.swift */; };
+		203C56279C92EB1F6900D38C /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FED1AF2A26DE621FFB8AF9 /* MessageBubble.swift */; };
+		26DDA390287C66BDB6F2C27B /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983921CC2B1022F983332A8 /* DrawerView.swift */; };
+		2A668FDB5B7221ED95407A54 /* ConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258A13E55ABA92275377EA90 /* ConnectionConfig.swift */; };
+		2A831D6BFA3E1B06A1B97F37 /* ExpandableSettingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA3F3848E667155F8205BD /* ExpandableSettingsCard.swift */; };
+		3255099DDA04AA94A0ECD3D6 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519E757A16E977FEDB98F81 /* WelcomeCard.swift */; };
+		374B9F3027041F9E7935175A /* TavilyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C967D35404767363E2AFD3 /* TavilyClient.swift */; };
+		4656F263FD2FC259E7A36473 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28629BC6A14A286CA9EA56FF /* ChatMessage.swift */; };
+		4A7119730D7ECC52A10BCA04 /* OllamaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93108C42FE3C05EB3AE36DA0 /* OllamaModels.swift */; };
+		61ABA14AF774859419ABC530 /* StreamParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2EDB9D71F45522EAF4AA8 /* StreamParser.swift */; };
+		67195A65C84690346D97D491 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5EB315ABD22DA6D83F0444 /* Assets.xcassets */; };
+		70A3EC77679C8E93736A0464 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAD87B3C730CDECFF650A8 /* ChatService.swift */; };
+		7F6AAE3D762FAACF85476B81 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBD6920E932BF20FB4BA136 /* ChatSession.swift */; };
+		83133FF022A2BB88BEED81C0 /* SessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E92D221610FC09D68BFE6 /* SessionsViewModel.swift */; };
+		86AEE4E53002CE8E5B3F0575 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */; };
+		86DE2CE6CF068FDD8144E5D4 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997177EE8DF95B17B848F18 /* SearchService.swift */; };
+		8AAFA6430B43D30C54F41AC2 /* InputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1874CBD75BABEC120F510 /* InputBar.swift */; };
+		8BEA2D857AAD0E4CA12A8D86 /* OllamaChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */; };
+		8D8558EA49ACA35942F82A0F /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EFDE363B231ED02FF1946 /* AvailableModels.swift */; };
+		9179C282675A453273D37D5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4939FF05614ADCD94A131A64 /* ContentView.swift */; };
+		9AEF66769045F45C4539812B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C438DE048795C36B036E2 /* ApiClient.swift */; };
+		A0C207ED327E84B629922CB1 /* RecentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AE83B6C147352F0210F7BD /* RecentsScreen.swift */; };
+		A1998D1956349BDE7E6D7060 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4B369E2D07696451CD1E6 /* ChatRepository.swift */; };
+		A6748F7369583E3A6A1AFBFD /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70B9936675CB1A98F36B64 /* AppSettings.swift */; };
+		A8F783D7C007E81C0C3EE983 /* BackupRestoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B477688908895B9337D8AE18 /* BackupRestoreScreen.swift */; };
+		BFE57EB070A06EED9F3B81F5 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */; };
+		C6B5827F9D5260F57D65D404 /* AttachmentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36135D4645E5171D24BEFEBA /* AttachmentMenu.swift */; };
+		CD9CC747572535B755EF634D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E6244771CAFDFDF0427D1 /* Theme.swift */; };
+		D0BBA0A26B88B739C7A79F3C /* ModelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357EE3DFAD734F2E5F7CE832 /* ModelSelector.swift */; };
+		D2241D3F72103731E7D811AB /* StreamingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4673C9C28C1125D21EF0C67 /* StreamingIndicator.swift */; };
+		DAC5E150CB574B820C1FFD37 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F35AEE8C7946FD6CDAB953 /* SettingsScreen.swift */; };
+		E442FD7609B543C947FD8766 /* DisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE9673DE85EEE20FA7BCDA6 /* DisplayModel.swift */; };
+		EB1A42627EA219F8461EE280 /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F237804BD9811D9F25BF2C /* BackupService.swift */; };
+		F92575A57A20BAE7C6BE9D12 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691223994967795498FFD19 /* SettingsViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07E1874CBD75BABEC120F510 /* InputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBar.swift; sourceTree = "<group>"; };
+		09BAD87B3C730CDECFF650A8 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		0A4C438DE048795C36B036E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		1519E757A16E977FEDB98F81 /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
+		179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaChatApp.swift; sourceTree = "<group>"; };
+		258A13E55ABA92275377EA90 /* ConnectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConfig.swift; sourceTree = "<group>"; };
+		28629BC6A14A286CA9EA56FF /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		296E6244771CAFDFDF0427D1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		2EE2EDB9D71F45522EAF4AA8 /* StreamParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamParser.swift; sourceTree = "<group>"; };
+		357EE3DFAD734F2E5F7CE832 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
+		36135D4645E5171D24BEFEBA /* AttachmentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentMenu.swift; sourceTree = "<group>"; };
+		365121E65F2298F495D3E3A6 /* OllamaChat.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OllamaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C967D35404767363E2AFD3 /* TavilyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TavilyClient.swift; sourceTree = "<group>"; };
+		38F237804BD9811D9F25BF2C /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
+		4939FF05614ADCD94A131A64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4983921CC2B1022F983332A8 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		7BBD6920E932BF20FB4BA136 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
+		7E70B9936675CB1A98F36B64 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		815EFDE363B231ED02FF1946 /* AvailableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableModels.swift; sourceTree = "<group>"; };
+		93108C42FE3C05EB3AE36DA0 /* OllamaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaModels.swift; sourceTree = "<group>"; };
+		98AE83B6C147352F0210F7BD /* RecentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsScreen.swift; sourceTree = "<group>"; };
+		9DE9673DE85EEE20FA7BCDA6 /* DisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModel.swift; sourceTree = "<group>"; };
+		AC4E92D221610FC09D68BFE6 /* SessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModel.swift; sourceTree = "<group>"; };
+		B477688908895B9337D8AE18 /* BackupRestoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreScreen.swift; sourceTree = "<group>"; };
+		B7EA3F3848E667155F8205BD /* ExpandableSettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSettingsCard.swift; sourceTree = "<group>"; };
+		C3F35AEE8C7946FD6CDAB953 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		C3FED1AF2A26DE621FFB8AF9 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		C4673C9C28C1125D21EF0C67 /* StreamingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingIndicator.swift; sourceTree = "<group>"; };
+		CE5EB315ABD22DA6D83F0444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEA4B369E2D07696451CD1E6 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		D219658127F21647502CE9F0 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		D691223994967795498FFD19 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		D997177EE8DF95B17B848F18 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OllamaChat.entitlements; sourceTree = "<group>"; };
+		F91702F653FC771B795108DD /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
+		FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		05E4B40527E65F4CA45454C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28629BC6A14A286CA9EA56FF /* ChatMessage.swift */,
+				7BBD6920E932BF20FB4BA136 /* ChatSession.swift */,
+				9DE9673DE85EEE20FA7BCDA6 /* DisplayModel.swift */,
+				F91702F653FC771B795108DD /* OllamaError.swift */,
+				93108C42FE3C05EB3AE36DA0 /* OllamaModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06DE9BC698DB7FA4C6E2AFC8 /* Components,Theme,Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Components,Theme,Utils";
+			sourceTree = "<group>";
+		};
+		1755ADE562A9E25BF16A9694 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */,
+				AC4E92D221610FC09D68BFE6 /* SessionsViewModel.swift */,
+				D691223994967795498FFD19 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2F8DE00A17A8DF5DD025CC7C /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7E70B9936675CB1A98F36B64 /* AppSettings.swift */,
+				815EFDE363B231ED02FF1946 /* AvailableModels.swift */,
+				258A13E55ABA92275377EA90 /* ConnectionConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		4894D90547A4B319C816947B /* OllamaChat */ = {
+			isa = PBXGroup;
+			children = (
+				CE5EB315ABD22DA6D83F0444 /* Assets.xcassets */,
+				F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */,
+				CA1CBF08CECCB7B57BAEB49C /* {App,Models,Config,Repositories,Services,Runtime,ViewModels,Views */,
+				F46A244DEEBF02FD15880A37 /* App */,
+				2F8DE00A17A8DF5DD025CC7C /* Config */,
+				05E4B40527E65F4CA45454C1 /* Models */,
+				E693DE44296D4DC525A55A78 /* Repositories */,
+				9DD145544C4737CD64F3DD1E /* Runtime */,
+				FBBFF662B6F19E1371035D06 /* Services */,
+				EFF6147865BCC6D8F0E0A9D7 /* Theme */,
+				1755ADE562A9E25BF16A9694 /* ViewModels */,
+				742637A9777CB0A3B3651801 /* Views */,
+			);
+			path = OllamaChat;
+			sourceTree = "<group>";
+		};
+		72119221A9D7BEAE46319D30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				365121E65F2298F495D3E3A6 /* OllamaChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		742637A9777CB0A3B3651801 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */,
+				98AE83B6C147352F0210F7BD /* RecentsScreen.swift */,
+				C3F35AEE8C7946FD6CDAB953 /* SettingsScreen.swift */,
+				A875934A7C2FF7ECDBAB072D /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7835065FE3C87EE00C8DE55E = {
+			isa = PBXGroup;
+			children = (
+				4894D90547A4B319C816947B /* OllamaChat */,
+				72119221A9D7BEAE46319D30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DD145544C4737CD64F3DD1E /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				0A4C438DE048795C36B036E2 /* ApiClient.swift */,
+				2EE2EDB9D71F45522EAF4AA8 /* StreamParser.swift */,
+				36C967D35404767363E2AFD3 /* TavilyClient.swift */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		A875934A7C2FF7ECDBAB072D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				36135D4645E5171D24BEFEBA /* AttachmentMenu.swift */,
+				B477688908895B9337D8AE18 /* BackupRestoreScreen.swift */,
+				4983921CC2B1022F983332A8 /* DrawerView.swift */,
+				B7EA3F3848E667155F8205BD /* ExpandableSettingsCard.swift */,
+				07E1874CBD75BABEC120F510 /* InputBar.swift */,
+				C3FED1AF2A26DE621FFB8AF9 /* MessageBubble.swift */,
+				357EE3DFAD734F2E5F7CE832 /* ModelSelector.swift */,
+				C4673C9C28C1125D21EF0C67 /* StreamingIndicator.swift */,
+				1519E757A16E977FEDB98F81 /* WelcomeCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CA1CBF08CECCB7B57BAEB49C /* {App,Models,Config,Repositories,Services,Runtime,ViewModels,Views */ = {
+			isa = PBXGroup;
+			children = (
+				06DE9BC698DB7FA4C6E2AFC8 /* Components,Theme,Utils */,
+			);
+			path = "{App,Models,Config,Repositories,Services,Runtime,ViewModels,Views";
+			sourceTree = "<group>";
+		};
+		E693DE44296D4DC525A55A78 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CEA4B369E2D07696451CD1E6 /* ChatRepository.swift */,
+				D219658127F21647502CE9F0 /* SettingsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		EFF6147865BCC6D8F0E0A9D7 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				296E6244771CAFDFDF0427D1 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		F46A244DEEBF02FD15880A37 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4939FF05614ADCD94A131A64 /* ContentView.swift */,
+				179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FBBFF662B6F19E1371035D06 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				38F237804BD9811D9F25BF2C /* BackupService.swift */,
+				09BAD87B3C730CDECFF650A8 /* ChatService.swift */,
+				D997177EE8DF95B17B848F18 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C0ED799FB18C9EE9C914851 /* OllamaChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "OllamaChat" */;
+			buildPhases = (
+				4D6D336C2A4C0C8BFB8C4FE6 /* Sources */,
+				4FA0C6F466C3944D14DD33A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OllamaChat;
+			packageProductDependencies = (
+			);
+			productName = OllamaChat;
+			productReference = 365121E65F2298F495D3E3A6 /* OllamaChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FD311B0C8E502E7F9935C34 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					2C0ED799FB18C9EE9C914851 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "OllamaChat" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 7835065FE3C87EE00C8DE55E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 72119221A9D7BEAE46319D30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C0ED799FB18C9EE9C914851 /* OllamaChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FA0C6F466C3944D14DD33A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67195A65C84690346D97D491 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D6D336C2A4C0C8BFB8C4FE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9AEF66769045F45C4539812B /* ApiClient.swift in Sources */,
+				A6748F7369583E3A6A1AFBFD /* AppSettings.swift in Sources */,
+				C6B5827F9D5260F57D65D404 /* AttachmentMenu.swift in Sources */,
+				8D8558EA49ACA35942F82A0F /* AvailableModels.swift in Sources */,
+				A8F783D7C007E81C0C3EE983 /* BackupRestoreScreen.swift in Sources */,
+				EB1A42627EA219F8461EE280 /* BackupService.swift in Sources */,
+				4656F263FD2FC259E7A36473 /* ChatMessage.swift in Sources */,
+				A1998D1956349BDE7E6D7060 /* ChatRepository.swift in Sources */,
+				BFE57EB070A06EED9F3B81F5 /* ChatScreen.swift in Sources */,
+				70A3EC77679C8E93736A0464 /* ChatService.swift in Sources */,
+				7F6AAE3D762FAACF85476B81 /* ChatSession.swift in Sources */,
+				86AEE4E53002CE8E5B3F0575 /* ChatViewModel.swift in Sources */,
+				2A668FDB5B7221ED95407A54 /* ConnectionConfig.swift in Sources */,
+				9179C282675A453273D37D5E /* ContentView.swift in Sources */,
+				E442FD7609B543C947FD8766 /* DisplayModel.swift in Sources */,
+				26DDA390287C66BDB6F2C27B /* DrawerView.swift in Sources */,
+				2A831D6BFA3E1B06A1B97F37 /* ExpandableSettingsCard.swift in Sources */,
+				8AAFA6430B43D30C54F41AC2 /* InputBar.swift in Sources */,
+				203C56279C92EB1F6900D38C /* MessageBubble.swift in Sources */,
+				D0BBA0A26B88B739C7A79F3C /* ModelSelector.swift in Sources */,
+				8BEA2D857AAD0E4CA12A8D86 /* OllamaChatApp.swift in Sources */,
+				14899FC48AA395FF35DA72D9 /* OllamaError.swift in Sources */,
+				4A7119730D7ECC52A10BCA04 /* OllamaModels.swift in Sources */,
+				A0C207ED327E84B629922CB1 /* RecentsScreen.swift in Sources */,
+				86DE2CE6CF068FDD8144E5D4 /* SearchService.swift in Sources */,
+				83133FF022A2BB88BEED81C0 /* SessionsViewModel.swift in Sources */,
+				09BC4796645C7ACC7977F953 /* SettingsRepository.swift in Sources */,
+				DAC5E150CB574B820C1FFD37 /* SettingsScreen.swift in Sources */,
+				F92575A57A20BAE7C6BE9D12 /* SettingsViewModel.swift in Sources */,
+				61ABA14AF774859419ABC530 /* StreamParser.swift in Sources */,
+				D2241D3F72103731E7D811AB /* StreamingIndicator.swift in Sources */,
+				374B9F3027041F9E7935175A /* TavilyClient.swift in Sources */,
+				CD9CC747572535B755EF634D /* Theme.swift in Sources */,
+				3255099DDA04AA94A0ECD3D6 /* WelcomeCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4C11DBEF1E0A32DD33FB9728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5BDB7802E69B922056BABC28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openclaw.ollamachat;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDC97EC0582945EC8794ABB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.openclaw.ollamachat;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E7CE11F9E0BC1C59568573AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "OllamaChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7CE11F9E0BC1C59568573AD /* Debug */,
+				4C11DBEF1E0A32DD33FB9728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "OllamaChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDB7802E69B922056BABC28 /* Debug */,
+				DDC97EC0582945EC8794ABB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FD311B0C8E502E7F9935C34 /* Project object */;
+}
