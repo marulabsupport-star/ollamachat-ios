@@ -2,23 +2,38 @@ import SwiftUI
 
 /// Expandable settings card matching Android's SettingsExpandableCard.
 /// Shows a title row with icon and chevron, expanding to reveal content.
+/// Works as an accordion: managed by parent via expandedCard binding.
 struct ExpandableSettingsCard<Content: View>: View {
     let title: String
     let icon: String
-    @Binding var isExpanded: Bool
+    let cardId: String
+    @Binding var expandedCard: String?
     let content: Content
     
-    init(title: String, icon: String, isExpanded: Binding<Bool>, @ViewBuilder content: () -> Content) {
+    init(title: String, icon: String, cardId: String, expandedCard: Binding<String?>, @ViewBuilder content: () -> Content) {
         self.title = title
         self.icon = icon
-        self._isExpanded = isExpanded
+        self.cardId = cardId
+        self._expandedCard = expandedCard
         self.content = content()
+    }
+    
+    private var isExpanded: Bool {
+        expandedCard == cardId
     }
     
     var body: some View {
         VStack(spacing: 0) {
             // Header row
-            Button(action: { withAnimation(.easeInOut(duration: 0.25)) { isExpanded.toggle() } }) {
+            Button(action: {
+                withAnimation(.easeInOut(duration: 0.25)) {
+                    if isExpanded {
+                        expandedCard = nil
+                    } else {
+                        expandedCard = cardId
+                    }
+                }
+            }) {
                 HStack(spacing: 14) {
                     // Icon in circle
                     ZStack {
@@ -42,6 +57,7 @@ struct ExpandableSettingsCard<Content: View>: View {
                         .rotationEffect(.degrees(isExpanded ? 90 : 0))
                         .animation(.easeInOut(duration: 0.25), value: isExpanded)
                 }
+                .contentShape(Rectangle())
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)
             }

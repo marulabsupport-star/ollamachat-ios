@@ -2,6 +2,7 @@ import SwiftUI
 import SwiftData
 
 /// Main app container with drawer navigation.
+/// Uses a single NavigationStack to prevent navigation stack issues.
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     
@@ -26,14 +27,53 @@ struct ContentView: View {
         )
     }()
     
-    @AppStorage("currentRoute") private var currentRoute: String = "chat"
+    // Navigation path — single source of truth for where we are
+    @State private var navigationPath = NavigationPath()
+    
+    // Shared sessions VM — created once with modelContext, survives navigation
+    @State private var sessionsViewModel: SessionsViewModel?
+    
     @State private var showDrawer = false
     @State private var selectedSession: ChatSession?
     
+    /// App routes for type-safe navigation
+    enum Route: Hashable {
+        case recents
+        case settings
+    }
+    
     var body: some View {
-        ZStack {
-            currentScreen
-            
+        NavigationStack(path: $navigationPath) {
+            ChatScreen(
+                viewModel: chatViewModel,
+                onOpenDrawer: { showDrawer = true },
+                onNavigateToSettings: { navigationPath.append(Route.settings) }
+            )
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .recents:
+                    RecentsScreen(
+                        viewModel: sessionsViewModel ?? makeSessionsViewModel(),
+                        onSelectSession: { session in
+                            selectedSession = session
+                            chatViewModel.loadSession(session)
+                            navigationPath.removeLast()
+                        },
+                        onNewChat: {
+                            startNewChat()
+                            navigationPath.removeLast()
+                        },
+                        onOpenDrawer: { showDrawer = true }
+                    )
+                case .settings:
+                    SettingsScreen(
+                        viewModel: makeSettingsViewModel(),
+                        onNavigateBack: { navigationPath.removeLast() }
+                    )
+                }
+            }
+        }
+        .overlay {
             // Drawer overlay
             if showDrawer {
                 Color.black.opacity(0.4)
@@ -42,23 +82,32 @@ struct ContentView: View {
                 
                 HStack(spacing: 0) {
                     DrawerView(
-                        currentRoute: currentRoute,
+                        currentRoute: navigationPath.isEmpty ? "chat" : "recents",
                         selectedModelName: selectedModelName,
                         onNewChat: {
                             withAnimation(.easeInOut(duration: 0.25)) { showDrawer = false }
                             startNewChat()
+                            if !navigationPath.isEmpty {
+                                navigationPath = NavigationPath()
+                            }
                         },
                         onRecents: {
                             withAnimation(.easeInOut(duration: 0.25)) { showDrawer = false }
+                            navigationPath = NavigationPath()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                currentRoute = "recents"
+                                navigationPath.append(Route.recents)
                             }
                         },
                         onSettings: {
                             withAnimation(.easeInOut(duration: 0.25)) { showDrawer = false }
+                            navigationPath = NavigationPath()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                currentRoute = "settings"
+                                navigationPath.append(Route.settings)
                             }
+                        },
+                        onFeedback: {
+                            withAnimation(.easeInOut(duration: 0.25)) { showDrawer = false }
+                            openFeedbackEmail()
                         }
                     )
                     .transition(.move(edge: .leading))
@@ -73,6 +122,11 @@ struct ContentView: View {
         .onAppear {
             chatViewModel.updateModelContext(modelContext)
             
+            // Create sessions VM once with modelContext
+            if sessionsViewModel == nil {
+                sessionsViewModel = SessionsViewModel(chatRepo: ChatRepository(modelContext: modelContext))
+            }
+            
             // Fetch cloud models if API key is available
             if let apiKey = SettingsRepository.shared.ollamaAPIKey, !apiKey.isEmpty {
                 Task {
@@ -81,49 +135,16 @@ struct ContentView: View {
                 }
             }
         }
-        // Sync selected model when navigating back to chat (e.g., from Settings)
-        .onChange(of: currentRoute) { _, newValue in
-            if newValue == "chat" {
+        // Sync selected model when navigating back to chat
+        .onChange(of: navigationPath) { _, newPath in
+            if newPath.isEmpty {
+                // Back at root (chat screen)
                 chatViewModel.updateDefaultModelIfNeeded()
             }
         }
     }
     
     // MARK: - Computed
-    
-    @ViewBuilder
-    private var currentScreen: some View {
-        switch currentRoute {
-        case "recents":
-            NavigationStack {
-                RecentsScreen(
-                    viewModel: makeSessionsViewModel(),
-                    onSelectSession: { session in
-                        selectedSession = session
-                        chatViewModel.loadSession(session)
-                        currentRoute = "chat"
-                    },
-                    onNewChat: { startNewChat() },
-                    onOpenDrawer: { showDrawer = true }
-                )
-            }
-        case "settings":
-            NavigationStack {
-                SettingsScreen(
-                    viewModel: makeSettingsViewModel(),
-                    onNavigateBack: { currentRoute = "chat" }
-                )
-            }
-        default:
-            NavigationStack {
-                ChatScreen(
-                    viewModel: chatViewModel,
-                    onOpenDrawer: { showDrawer = true },
-                    onNavigateToSettings: { currentRoute = "settings" }
-                )
-            }
-        }
-    }
     
     private var selectedModelName: String {
         if let session = selectedSession {
@@ -135,7 +156,12 @@ struct ContentView: View {
     // MARK: - Factory Methods
     
     private func makeSessionsViewModel() -> SessionsViewModel {
-        SessionsViewModel(chatRepo: ChatRepository(modelContext: modelContext))
+        if let existing = sessionsViewModel {
+            return existing
+        }
+        let vm = SessionsViewModel(chatRepo: ChatRepository(modelContext: modelContext))
+        sessionsViewModel = vm
+        return vm
     }
     
     private func makeSettingsViewModel() -> SettingsViewModel {
@@ -147,7 +173,16 @@ struct ContentView: View {
     
     private func startNewChat() {
         selectedSession = nil
-        currentRoute = "chat"
         chatViewModel.startNewChat()
+    }
+    
+    private func openFeedbackEmail() {
+        let email = "marulabsupport@gmail.com"
+        let subject = "OllamaChat Feedback"
+        let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject
+        guard let url = URL(string: "mailto:\(email)?subject=\(encodedSubject)") else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
 }

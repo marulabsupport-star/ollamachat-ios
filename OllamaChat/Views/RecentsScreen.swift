@@ -37,6 +37,7 @@ struct RecentsScreen: View {
         .navigationTitle("Recents")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         #endif
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

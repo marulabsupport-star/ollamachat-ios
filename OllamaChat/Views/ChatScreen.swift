@@ -42,20 +42,19 @@ struct ChatScreen: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                 }
-                // Only scroll when a NEW message is added (not on every content update)
+                #if os(iOS)
+                .scrollDismissesKeyboard(.immediately)
+                #endif
+                // Only auto-scroll when a NEW message is added (not on every content update)
                 .onChange(of: viewModel.messages.count) { oldCount, newCount in
                     if newCount > oldCount, let lastMessage = viewModel.messages.last {
-                        withAnimation(.easeOut(duration: 0.2)) {
-                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
-                        }
+                        proxy.scrollTo(lastMessage.id, anchor: .bottom)
                     }
                 }
                 // Initial scroll when streaming starts
                 .onChange(of: viewModel.isStreaming) { _, isStreaming in
                     if isStreaming {
-                        withAnimation(.easeOut(duration: 0.2)) {
-                            proxy.scrollTo("streaming", anchor: .bottom)
-                        }
+                        proxy.scrollTo("streaming", anchor: .bottom)
                     }
                 }
             }
@@ -98,6 +97,12 @@ struct ChatScreen: View {
                 onAttachFile: { showDocumentPicker = true }
             )
         }
+        #if os(iOS)
+        .scrollDismissesKeyboard(.immediately)
+        .onTapGesture {
+            dismissKeyboard()
+        }
+        #endif
         .navigationTitle(viewModel.currentSession?.title ?? "Ollama Chat")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
@@ -201,6 +206,12 @@ struct ChatScreen: View {
         }.joined(separator: "\n\n")
         UIPasteboard.general.string = shareText
     }
+    
+    #if os(iOS)
+    private func dismissKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    #endif
 }
 
 // MARK: - Error Banner

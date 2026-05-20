@@ -136,22 +136,30 @@ final class ChatService {
     
     // MARK: - Private
     
+    /// Default system prompt injected when user hasn't set a custom one.
+    /// Ensures models always produce runnable single-file code artifacts.
+    private static let defaultSystemPrompt = """
+    You are a helpful assistant inside Ollama Chat, an iOS app with a built-in web preview.
+    
+    When writing code (web apps, tools, widgets, games, visualizations, etc.):
+    1. Always produce a SINGLE, SELF-CONTAINED HTML file with all CSS and JavaScript inline.
+    2. Use <!DOCTYPE html> and include <meta name="viewport" content="width=device-width, initial-scale=1">.
+    3. Make it mobile-friendly and visually polished — this runs on an iPhone screen.
+    4. Do NOT split into separate files. Do NOT reference external CDN links unless absolutely necessary.
+    5. Put the complete code in a single ```html code block so it can be previewed instantly.
+    
+    For non-code responses, respond normally.
+    """
+    
     private func buildChatRequest(session: ChatSession, userText: String, searchContext: String? = nil, images: [Data]?) -> OllamaChatRequest {
         var ollamaMessages: [OllamaMessage] = []
         
-        // System prompt
-        var systemPrompt = session.systemPrompt
+        // System prompt: user custom > default
+        var systemPrompt = session.systemPrompt.isEmpty ? Self.defaultSystemPrompt : session.systemPrompt
         if let search = searchContext {
-            // Inject search context into system prompt
-            if systemPrompt.isEmpty {
-                systemPrompt = search
-            } else {
-                systemPrompt += "\n\n" + search
-            }
+            systemPrompt += "\n\n" + search
         }
-        if !systemPrompt.isEmpty {
-            ollamaMessages.append(OllamaMessage(role: "system", content: systemPrompt))
-        }
+        ollamaMessages.append(OllamaMessage(role: "system", content: systemPrompt))
         
         // History (images from previous messages not stored, so text-only for history)
         for msg in messages.dropLast() {  // Exclude the just-added assistant placeholder

@@ -23,10 +23,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "API Key",
                     icon: "key.fill",
-                    isExpanded: Binding(
-                        get: { expandedCard == "apikey" },
-                        set: { expandedCard = $0 ? "apikey" : nil }
-                    )
+                    cardId: "apikey",
+                    expandedCard: $expandedCard
                 ) {
                     apiKeyContent
                 }
@@ -35,10 +33,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "Local Server",
                     icon: "server.rack",
-                    isExpanded: Binding(
-                        get: { expandedCard == "serverurl" },
-                        set: { expandedCard = $0 ? "serverurl" : nil }
-                    )
+                    cardId: "serverurl",
+                    expandedCard: $expandedCard
                 ) {
                     serverUrlContent
                 }
@@ -47,10 +43,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "Model",
                     icon: "cpu",
-                    isExpanded: Binding(
-                        get: { expandedCard == "model" },
-                        set: { expandedCard = $0 ? "model" : nil }
-                    )
+                    cardId: "model",
+                    expandedCard: $expandedCard
                 ) {
                     modelContent
                 }
@@ -59,10 +53,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "Web Search",
                     icon: "magnifyingglass",
-                    isExpanded: Binding(
-                        get: { expandedCard == "search" },
-                        set: { expandedCard = $0 ? "search" : nil }
-                    )
+                    cardId: "search",
+                    expandedCard: $expandedCard
                 ) {
                     webSearchContent
                 }
@@ -71,10 +63,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "System Prompt",
                     icon: "sparkles",
-                    isExpanded: Binding(
-                        get: { expandedCard == "prompt" },
-                        set: { expandedCard = $0 ? "prompt" : nil }
-                    )
+                    cardId: "prompt",
+                    expandedCard: $expandedCard
                 ) {
                     systemPromptContent
                 }
@@ -83,10 +73,8 @@ struct SettingsScreen: View {
                 ExpandableSettingsCard(
                     title: "Theme",
                     icon: "moon.fill",
-                    isExpanded: Binding(
-                        get: { expandedCard == "theme" },
-                        set: { expandedCard = $0 ? "theme" : nil }
-                    )
+                    cardId: "theme",
+                    expandedCard: $expandedCard
                 ) {
                     themeContent
                 }
@@ -94,11 +82,9 @@ struct SettingsScreen: View {
                 // 7. Backup & Restore
                 ExpandableSettingsCard(
                     title: "Backup & Restore",
-                    icon: "arrow.up.arrow.down.icloud",
-                    isExpanded: Binding(
-                        get: { expandedCard == "backup" },
-                        set: { expandedCard = $0 ? "backup" : nil }
-                    )
+                    icon: "internaldrive.fill",
+                    cardId: "backup",
+                    expandedCard: $expandedCard
                 ) {
                     backupContent
                 }
@@ -131,13 +117,6 @@ struct SettingsScreen: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button(action: { onNavigateBack?() }) {
-                    Image(systemName: "arrow.left")
-                }
-            }
-        }
     }
     
     // MARK: - Header Card

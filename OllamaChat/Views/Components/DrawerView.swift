@@ -8,6 +8,7 @@ struct DrawerView: View {
     let onNewChat: () -> Void
     let onRecents: () -> Void
     let onSettings: () -> Void
+    let onFeedback: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -47,6 +48,13 @@ struct DrawerView: View {
                     title: "Settings",
                     isSelected: currentRoute == "settings",
                     action: onSettings
+                )
+                
+                DrawerItem(
+                    icon: "envelope.fill",
+                    title: "Send Feedback",
+                    isSelected: false,
+                    action: onFeedback
                 )
             }
             .padding(.horizontal, 12)

@@ -49,7 +49,7 @@ func wrapForWebView(_ block: CodeBlock) -> String {
         <html><head><meta name="viewport" content="width=device-width, initial-scale=1">
         <style>body{font-family:-apple-system,sans-serif;padding:16px;margin:0}.output{background:#1e1e1e;color:#d4d4d4;padding:12px;border-radius:8px;font-family:monospace;white-space:pre-wrap}</style>
         </head><body><div id="output" class="output"></div><script>
-        const output=document.getElementById('output');function _print(msg){output.textContent+=msg+'\\n';output.scrollTop=output.scrollHeight}
+        const output=document.getElementById('output');function _print(msg){output.textContent+=msg+'\n';output.scrollTop=output.scrollHeight}
         console.log=(...a)=>_print(a.map(x=>typeof x==='object'?JSON.stringify(x,null,2):String(x)).join(' '));
         console.error=(...a)=>_print('❌ '+a.join(' '));try{\(code)}catch(e){_print('❌ Error: '+e.message)}</script></body></html>
         """
@@ -70,8 +70,12 @@ struct MessageBubble: View {
     
     var isUser: Bool { message.role == "user" }
     
+    /// During streaming, skip code block parsing to avoid lag.
+    /// Once streaming ends, parse and show code blocks with webview preview.
     private var codeBlocks: [CodeBlock] {
-        guard let content = message.content else { return [] }
+        guard !message.isStreaming, let content = message.content, !content.isEmpty else {
+            return []
+        }
         return extractCodeBlocks(content)
     }
     
@@ -109,7 +113,7 @@ struct MessageBubble: View {
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
                 } else if !codeBlocks.isEmpty {
-                    // AI message with code blocks
+                    // AI message with code blocks (not during streaming)
                     VStack(alignment: .leading, spacing: 4) {
                         CodeBlockRichContent(content: content, codeBlocks: codeBlocks)
                     }
@@ -119,7 +123,7 @@ struct MessageBubble: View {
                     .background(Color(.secondarySystemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 } else {
-                    // AI message without code blocks
+                    // AI message — plain text or streaming
                     Text(content)
                         .font(.body)
                         .textSelection(.enabled)

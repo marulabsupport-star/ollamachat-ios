@@ -10,6 +10,7 @@ struct InputBar: View {
     let onAttachFile: () -> Void
     
     @FocusState private var isFocused: Bool
+    @State private var hasAppeared = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -69,7 +70,19 @@ struct InputBar: View {
             .padding(.vertical, 10)
             .background(.bar)
             .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .padding(.bottom, 4)
+        }
+        .padding(.bottom, 4)
+        .onTapGesture {
+            isFocused = true
+        }
+        .onAppear {
+            // Auto-focus keyboard when input bar first appears
+            if !hasAppeared {
+                hasAppeared = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    isFocused = true
+                }
+            }
         }
     }
     
@@ -261,7 +274,7 @@ enum PDFRenderer {
             let image = renderer.image { ctx in
                 UIColor.white.setFill()
                 ctx.fill(CGRect(origin: .zero, size: size))
-                ctx.cgContext.concatenate(CGAffineTransform(a: scale, b: 0, c: 0, d: scale, tx: 0, ty: 0))
+                ctx.cgContext.concatenate(CGAffineTransform(a: scale, b: 0, c: scale, d: scale, tx: 0, ty: 0))
                 ctx.cgContext.drawPDFPage(page)
             }
             
@@ -288,7 +301,7 @@ enum PDFRenderer {
         return renderer.image { ctx in
             UIColor.white.setFill()
             ctx.fill(CGRect(origin: .zero, size: size))
-            ctx.cgContext.concatenate(CGAffineTransform(a: scale, b: 0, c: 0, d: scale, tx: 0, ty: 0))
+            ctx.cgContext.concatenate(CGAffineTransform(a: scale, b: 0, c: scale, d: scale, tx: 0, ty: 0))
             ctx.cgContext.drawPDFPage(page)
         }
     }
