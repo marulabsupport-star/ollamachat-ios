@@ -15,6 +15,7 @@
 		2A831D6BFA3E1B06A1B97F37 /* ExpandableSettingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA3F3848E667155F8205BD /* ExpandableSettingsCard.swift */; };
 		3255099DDA04AA94A0ECD3D6 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519E757A16E977FEDB98F81 /* WelcomeCard.swift */; };
 		374B9F3027041F9E7935175A /* TavilyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C967D35404767363E2AFD3 /* TavilyClient.swift */; };
+		425D450082206DC33B4B1FA0 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */; };
 		4656F263FD2FC259E7A36473 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28629BC6A14A286CA9EA56FF /* ChatMessage.swift */; };
 		4A7119730D7ECC52A10BCA04 /* OllamaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93108C42FE3C05EB3AE36DA0 /* OllamaModels.swift */; };
 		61ABA14AF774859419ABC530 /* StreamParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2EDB9D71F45522EAF4AA8 /* StreamParser.swift */; };
@@ -33,6 +34,7 @@
 		A1998D1956349BDE7E6D7060 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4B369E2D07696451CD1E6 /* ChatRepository.swift */; };
 		A6748F7369583E3A6A1AFBFD /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70B9936675CB1A98F36B64 /* AppSettings.swift */; };
 		A8F783D7C007E81C0C3EE983 /* BackupRestoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B477688908895B9337D8AE18 /* BackupRestoreScreen.swift */; };
+		AC8D4A68893D5B5700AF1E38 /* PrivacyConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */; };
 		BFE57EB070A06EED9F3B81F5 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */; };
 		C6B5827F9D5260F57D65D404 /* AttachmentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36135D4645E5171D24BEFEBA /* AttachmentMenu.swift */; };
 		CD9CC747572535B755EF634D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296E6244771CAFDFDF0427D1 /* Theme.swift */; };
@@ -61,6 +63,7 @@
 		38F237804BD9811D9F25BF2C /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
 		4939FF05614ADCD94A131A64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4983921CC2B1022F983332A8 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyPolicyView.swift; path = OllamaChat/Views/Components/PrivacyPolicyView.swift; sourceTree = SOURCE_ROOT; };
 		7BBD6920E932BF20FB4BA136 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
 		7E70B9936675CB1A98F36B64 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		815EFDE363B231ED02FF1946 /* AvailableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableModels.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		D691223994967795498FFD19 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		D997177EE8DF95B17B848F18 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyConsentView.swift; path = OllamaChat/Views/Components/PrivacyConsentView.swift; sourceTree = SOURCE_ROOT; };
 		F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OllamaChat.entitlements; sourceTree = "<group>"; };
 		F91702F653FC771B795108DD /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
 		FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 			children = (
 				4894D90547A4B319C816947B /* OllamaChat */,
 				72119221A9D7BEAE46319D30 /* Products */,
+				E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */,
+				69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,6 +345,8 @@
 				374B9F3027041F9E7935175A /* TavilyClient.swift in Sources */,
 				CD9CC747572535B755EF634D /* Theme.swift in Sources */,
 				3255099DDA04AA94A0ECD3D6 /* WelcomeCard.swift in Sources */,
+				AC8D4A68893D5B5700AF1E38 /* PrivacyConsentView.swift in Sources */,
+				425D450082206DC33B4B1FA0 /* PrivacyPolicyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
