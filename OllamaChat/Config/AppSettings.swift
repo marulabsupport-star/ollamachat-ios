@@ -55,6 +55,20 @@ final class AppSettings {
         didSet { UserDefaults.standard.set(webSearchMode, forKey: "webSearchMode") }
     }
     
+    // MARK: - Privacy Consent
+    
+    var privacyConsentGiven: Bool {
+        didSet { UserDefaults.standard.set(privacyConsentGiven, forKey: "privacyConsentGiven") }
+    }
+    
+    static func markPrivacyConsentGiven() {
+        UserDefaults.standard.set(true, forKey: "privacyConsentGiven")
+    }
+    
+    static func hasPrivacyConsent() -> Bool {
+        UserDefaults.standard.bool(forKey: "privacyConsentGiven")
+    }
+    
     // MARK: - Init
     
     init() {
@@ -66,5 +80,6 @@ final class AppSettings {
         self.showWelcomeCard = UserDefaults.standard.object(forKey: "showWelcomeCard") as? Bool ?? true
         self.showThinkingByDefault = UserDefaults.standard.object(forKey: "showThinkingByDefault") as? Bool ?? false
         self.webSearchMode = UserDefaults.standard.string(forKey: "webSearchMode") ?? "auto"
+        self.privacyConsentGiven = UserDefaults.standard.bool(forKey: "privacyConsentGiven")
     }
 }

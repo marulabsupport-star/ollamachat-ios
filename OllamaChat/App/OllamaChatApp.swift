@@ -14,6 +14,10 @@ struct OllamaChatApp: App {
     static let connectionConfig = ConnectionConfig()
     static let availableModels = AvailableModels.shared
     
+    // MARK: - Privacy Consent
+    
+    @AppStorage("privacyConsentGiven") private var privacyConsentGiven = false
+    
     // MARK: - Init
     
     init() {
@@ -30,10 +34,18 @@ struct OllamaChatApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(Self.settings)
-                .environment(Self.connectionConfig)
-                .environment(Self.availableModels)
+            if privacyConsentGiven {
+                ContentView()
+                    .environment(Self.settings)
+                    .environment(Self.connectionConfig)
+                    .environment(Self.availableModels)
+            } else {
+                PrivacyConsentView(onConsentGiven: {
+                    withAnimation {
+                        privacyConsentGiven = true
+                    }
+                })
+            }
         }
         .modelContainer(modelContainer)
     }

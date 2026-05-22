@@ -89,6 +89,23 @@ struct SettingsScreen: View {
                     backupContent
                 }
                 
+                // 8. Privacy Policy
+                NavigationLink {
+                    PrivacyPolicyView()
+                } label: {
+                    HStack {
+                        Label("Privacy Policy", systemImage: "hand.raised.fill")
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                    }
+                    .padding(16)
+                    .background(Color(.secondarySystemBackground))
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .padding(.horizontal, 16)
+                
                 // Clear Data
                 Button(role: .destructive) {
                     viewModel.clearAllData(modelContext: modelContext)
