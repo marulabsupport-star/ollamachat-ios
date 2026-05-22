@@ -150,7 +150,7 @@ struct ContentView: View {
         if let session = selectedSession {
             return session.modelName
         }
-        return chatViewModel.selectedModel?.displayName ?? "None"
+        return chatViewModel.selectedModel?.attributedDisplayName ?? "None"
     }
     
     // MARK: - Factory Methods

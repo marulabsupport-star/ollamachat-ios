@@ -244,7 +244,7 @@ struct SettingsScreen: View {
             ForEach(groups, id: \.title) { group in
                 Section(group.title) {
                     ForEach(group.models) { model in
-                        Text(model.displayName).tag(model.id)
+                        Text(model.attributedDisplayName).tag(model.id)
                     }
                 }
             }

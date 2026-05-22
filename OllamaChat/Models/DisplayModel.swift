@@ -9,6 +9,19 @@ struct DisplayModel: Identifiable, Hashable {
     let isCloud: Bool
     var supportsVision: Bool  // set from /api/show capabilities or families heuristic
     
+    /// Brand attribution for known model families (e.g. "by Meta", "by Google")
+    var attribution: String? {
+        ModelAttribution.forModel(id)
+    }
+    
+    /// Display name with attribution when available (e.g. "Llama 3.2 (by Meta)")
+    var attributedDisplayName: String {
+        if let attr = attribution {
+            return "\(displayName) (\(attr))"
+        }
+        return displayName
+    }
+    
     var subtitle: String {
         if let size = sizeLabel {
             return isCloud ? "Cloud • \(size)" : "Local • \(size)"

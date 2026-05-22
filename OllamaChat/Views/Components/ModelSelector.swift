@@ -14,7 +14,7 @@ struct ModelSelectorButton: View {
                     .fill((selectedModel?.isCloud ?? true) ? Color.blue : Color.green)
                     .frame(width: 8, height: 8)
                 
-                Text(selectedModel?.displayName ?? "Select Model")
+                Text(selectedModel?.attributedDisplayName ?? "Select Model")
                     .font(.subheadline)
                     .fontWeight(.medium)
                 
@@ -68,7 +68,7 @@ struct ModelRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(model.displayName)
+                Text(model.attributedDisplayName)
                     .font(.subheadline)
                     .fontWeight(isSelected ? .bold : .regular)
                 

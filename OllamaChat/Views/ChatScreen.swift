@@ -68,7 +68,7 @@ struct ChatScreen: View {
             
             // Vision warning banner
             if !viewModel.currentModelSupportsVision && !attachmentManager.attachments.isEmpty {
-                VisionWarningBanner(modelName: viewModel.selectedModel?.displayName ?? "Unknown") {
+                VisionWarningBanner(modelName: viewModel.selectedModel?.attributedDisplayName ?? "Unknown") {
                     viewModel.showModelPicker = true
                 }
             }
@@ -127,7 +127,7 @@ struct ChatScreen: View {
                             Circle()
                                 .fill(viewModel.selectedModel?.isCloud ?? true ? Color.blue : Color.green)
                                 .frame(width: 6, height: 6)
-                            Text(viewModel.selectedModel?.displayName ?? "Select Model")
+                            Text(viewModel.selectedModel?.attributedDisplayName ?? "Select Model")
                                 .font(.caption2)
                                 .foregroundStyle(.secondary)
                             Image(systemName: "chevron.down")
@@ -327,7 +327,7 @@ struct ModelPickerRow: View {
                 .frame(width: 8, height: 8)
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 4) {
-                    Text(model.displayName)
+                    Text(model.attributedDisplayName)
                         .font(.subheadline)
                         .fontWeight(isSelected ? .bold : .regular)
                     if model.supportsVision {

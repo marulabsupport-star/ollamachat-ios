@@ -29,6 +29,7 @@
 		8BEA2D857AAD0E4CA12A8D86 /* OllamaChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */; };
 		8D8558EA49ACA35942F82A0F /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EFDE363B231ED02FF1946 /* AvailableModels.swift */; };
 		9179C282675A453273D37D5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4939FF05614ADCD94A131A64 /* ContentView.swift */; };
+		959A4469B6B8E96A20A4A8D0 /* ModelAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */; };
 		9AEF66769045F45C4539812B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C438DE048795C36B036E2 /* ApiClient.swift */; };
 		A0C207ED327E84B629922CB1 /* RecentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AE83B6C147352F0210F7BD /* RecentsScreen.swift */; };
 		A1998D1956349BDE7E6D7060 /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA4B369E2D07696451CD1E6 /* ChatRepository.swift */; };
@@ -83,6 +84,7 @@
 		D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		D997177EE8DF95B17B848F18 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyConsentView.swift; path = OllamaChat/Views/Components/PrivacyConsentView.swift; sourceTree = SOURCE_ROOT; };
+		EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelAttribution.swift; path = OllamaChat/Models/ModelAttribution.swift; sourceTree = SOURCE_ROOT; };
 		F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OllamaChat.entitlements; sourceTree = "<group>"; };
 		F91702F653FC771B795108DD /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
 		FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				72119221A9D7BEAE46319D30 /* Products */,
 				E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */,
 				69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */,
+				EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +350,7 @@
 				3255099DDA04AA94A0ECD3D6 /* WelcomeCard.swift in Sources */,
 				AC8D4A68893D5B5700AF1E38 /* PrivacyConsentView.swift in Sources */,
 				425D450082206DC33B4B1FA0 /* PrivacyPolicyView.swift in Sources */,
+				959A4469B6B8E96A20A4A8D0 /* ModelAttribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
