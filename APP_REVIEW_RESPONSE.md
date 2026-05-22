@@ -12,19 +12,24 @@ Specifically:
 - OllamaChat is a **client** that connects to a user's own Ollama server instance
 - The app does **not** ship with any AI model embedded or included
 - When a user's Ollama server lists available models, the app displays the model names as provided by that server (via the `/api/tags` API endpoint)
-- "Llama" is displayed as one of many available models that the user's own server reports — the app does not brand itself as Llama or claim any association with Meta
+- **We have now added brand attribution** to all known model families. For example:
+  - "Llama 3.2" now displays as **"Llama 3.2 (by Meta)"**
+  - "Gemma 2" now displays as **"Gemma 2 (by Google)"**
+  - "Mistral" now displays as **"Mistral (by Mistral AI)"**
+  - And so on for all known model families
+- This makes it unmistakably clear that these are third-party models created by their respective owners, not products of this app
 - The app's name, icon, and branding are entirely original and do not mimic Llama or any other brand
 - We have no affiliation with Meta Platforms, Inc. or the Llama brand
 
-The model names shown in the app (such as "llama3", "gemma", "mistral", etc.) are simply displayed as the user's Ollama server reports them. The app is a generic client — similar to how a terminal app might display names of programs installed on a remote server.
+The model names shown in the app are displayed as the user's Ollama server reports them — similar to how a terminal app might display names of programs installed on a remote server. By adding explicit brand attribution, we make it clear that these models belong to their respective creators.
 
-We have updated our app metadata and Privacy Policy to explicitly clarify that OllamaChat is an independent client application with no affiliation to any AI model or brand.
+We have also updated our app metadata and Privacy Policy to explicitly clarify that OllamaChat is an independent client application with no affiliation to any AI model or brand.
 
 ---
 
 ## Issue 2: Guidelines 5.1.1(i) + 5.1.2(i) — Privacy / Data Collection and Use
 
-**Reviewer's Concern:** The app shares user data with a third-party AI service without clearly explaining what data is sent, who it's sent to, and without asking permission.
+**Reviewer's Concern:** The app shares user data with a third-party AI service without clearly explaining what data is sent, who it is sent to, and without asking permission.
 
 **Our Response:**
 
@@ -46,8 +51,8 @@ A **Privacy Policy** page is now accessible from Settings, which includes:
 - Statement that no analytics, tracking, or advertising SDKs are used
 - Contact information for questions
 
-### 3. Privacy Policy for App Store Connect
-The full privacy policy is also available at: [Add your hosted URL here]
+### 3. Privacy Policy URL
+https://marulabsupport-star.github.io/ollamachat-privacy/
 
 The privacy policy identifies:
 - What data the app collects (local storage only)
