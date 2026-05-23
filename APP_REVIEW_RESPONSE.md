@@ -28,7 +28,7 @@ We have fully addressed this concern:
 
 We provide the following for review:
 
-- **Demo API Key**: `[API_KEY_TO_BE_PROVIDED]`
+- **Demo API Key**: `fd26b4057c9e4e809c1f0f85ea3dded0.i8JlI6iu8dW2dPgqA9Zp_1Cs`
 - **How to use**: On first launch, accept the privacy consent, then go to Settings → enter the API key above → select "Cloud" mode → choose any model and start chatting.
 - No self-hosted server is required. The cloud API key provides full functionality for testing.
 
