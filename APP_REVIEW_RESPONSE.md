@@ -41,7 +41,7 @@ We provide the following for review:
 **Our Response:**
 
 The support URL is now accessible:
-- **Support URL**: https://github.com/marulabsupport-star/ollamachat_ios
+- **Support URL**: https://github.com/marulabsupport-star/ollamachat-ios
 
 The GitHub repository has been made public and contains:
 - Issue tracker for bug reports and questions
