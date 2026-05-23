@@ -13,7 +13,7 @@ Private AI chat app for iOS. Connect to your own Ollama server or use cloud API 
 
 ## Support
 
-Found a bug? Have a question? Open an [Issue](https://github.com/marulabsupport-star/ollamachat_ios/issues/new).
+Found a bug? Have a question? Open an [Issue](https://github.com/marulabsupport-star/ollamachat-ios/issues/new).
 
 ## Requirements
 
