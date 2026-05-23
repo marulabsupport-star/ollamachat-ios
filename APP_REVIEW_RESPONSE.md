@@ -1,63 +1,60 @@
-# App Store Review Response — OllamaChat v1.0
+# App Store Review Response — LLM Chat v1.0
 
-## Issue 1: Guideline 4.1(b) — Copycats
+## Issue 1: Guideline 4.1(c) — Copycats / Brand Misuse
 
-**Reviewer's Concern:** The app includes content that resembles Llama 3 without authorization.
+**Reviewer's Concern:** The app name "OllamaChat" included "Ollama," a third-party brand, without authorization.
 
 **Our Response:**
 
-OllamaChat is a **client application** for Ollama, an open-source local AI server. It does not include, bundle, redistribute, or represent any AI model — including Llama.
+We have fully addressed this concern:
 
-Specifically:
-- OllamaChat is a **client** that connects to a user's own Ollama server instance
-- The app does **not** ship with any AI model embedded or included
-- When a user's Ollama server lists available models, the app displays the model names as provided by that server (via the `/api/tags` API endpoint)
-- **We have now added brand attribution** to all known model families. For example:
-  - "Llama 3.2" now displays as **"Llama 3.2 (by Meta)"**
-  - "Gemma 2" now displays as **"Gemma 2 (by Google)"**
-  - "Mistral" now displays as **"Mistral (by Mistral AI)"**
-  - And so on for all known model families
-- This makes it unmistakably clear that these are third-party models created by their respective owners, not products of this app
-- The app's name, icon, and branding are entirely original and do not mimic Llama or any other brand
-- We have no affiliation with Meta Platforms, Inc. or the Llama brand
+1. **App renamed from "OllamaChat" to "LLM Chat"** — The app name and all branding no longer include "Ollama" or any third-party brand name.
 
-The model names shown in the app are displayed as the user's Ollama server reports them — similar to how a terminal app might display names of programs installed on a remote server. By adding explicit brand attribution, we make it clear that these models belong to their respective creators.
+2. **All user-facing text updated** — Every instance of "OllamaChat" in the app UI, privacy policy, and App Store metadata has been replaced with "LLM Chat."
 
-We have also updated our app metadata and Privacy Policy to explicitly clarify that OllamaChat is an independent client application with no affiliation to any AI model or brand.
+3. **No brand confusion** — "LLM Chat" is a generic, descriptive name that refers to the technology (Large Language Models) and does not reference or imitate any third-party brand.
+
+4. **Bundle ID changed** — The bundle identifier has been updated from `com.marulab.ollamachat` to `com.marulab.llmchat`.
+
+5. **Model attribution** — All AI model names displayed in the app include proper brand attribution (e.g., "Llama 3.2 (by Meta)," "Gemma 2 (by Google)," etc.) to make it clear these are third-party models, not products of this app.
 
 ---
 
-## Issue 2: Guidelines 5.1.1(i) + 5.1.2(i) — Privacy / Data Collection and Use
+## Issue 2: Guideline 2.1 — Performance / Demo Account
 
-**Reviewer's Concern:** The app shares user data with a third-party AI service without clearly explaining what data is sent, who it is sent to, and without asking permission.
+**Reviewer's Concern:** The app requires a server or API key to function, and reviewers could not test it.
 
 **Our Response:**
 
-We have made the following updates to address this concern:
+We provide the following for review:
 
-### 1. Privacy Consent Screen (Added)
-On first launch, the app now presents a clear **Privacy Consent Screen** that explains:
-- **What data is sent**: Chat messages, images (for vision models), system prompts, and search queries
-- **Who data is sent to**: The user's own Ollama server, Ollama Cloud API (if API key provided), and Tavily Search API (if enabled)
-- **How data is protected**: Chat history stored locally, API keys in Keychain, no analytics or tracking
+- **Demo API Key**: `[API_KEY_TO_BE_PROVIDED]`
+- **How to use**: On first launch, accept the privacy consent, then go to Settings → enter the API key above → select "Cloud" mode → choose any model and start chatting.
+- No self-hosted server is required. The cloud API key provides full functionality for testing.
 
-The user must explicitly agree before the app proceeds to the main interface.
+---
 
-### 2. In-App Privacy Policy (Added)
-A **Privacy Policy** page is now accessible from Settings, which includes:
-- Detailed description of all data collected by the app
-- Clear identification of each third-party service and what data is sent to each
-- Links to each third-party service's own privacy policy
-- Statement that no analytics, tracking, or advertising SDKs are used
-- Contact information for questions
+## Issue 3: Guideline 1.5 — Developer Website / Support URL
 
-### 3. Privacy Policy URL
-https://marulabsupport-star.github.io/ollamachat-privacy/
+**Reviewer's Concern:** The support URL was not accessible (returned 404).
 
-The privacy policy identifies:
-- What data the app collects (local storage only)
-- How it collects data (user input stored on-device)
-- All uses of data (displayed in the app, sent to user-configured servers)
-- Each third-party service the app shares data with, and that those services provide equal protection per their own privacy policies
+**Our Response:**
 
-We believe these changes fully address the requirements of Guidelines 5.1.1(i) and 5.1.2(i).
+The support URL is now accessible:
+- **Support URL**: https://github.com/marulabsupport-star/ollamachat_ios
+
+The GitHub repository has been made public and contains:
+- Issue tracker for bug reports and questions
+- README with app description and requirements
+
+---
+
+## Summary of Changes
+
+| Issue | Guideline | Change |
+|-------|-----------|--------|
+| Brand misuse | 4.1(c) | Renamed app from "OllamaChat" to "LLM Chat"; updated all branding, bundle ID, and display strings |
+| Demo access | 2.1 | Providing cloud API key for reviewer testing |
+| Support URL | 1.5 | Made GitHub support repo public |
+
+All changes have been applied and the app is ready for re-review.
