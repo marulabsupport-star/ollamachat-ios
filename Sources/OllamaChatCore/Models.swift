@@ -12,7 +12,7 @@ struct ChatResponse: Codable {
 }
 
 /// Ollama API request models
-struct OllamaChatRequest: Codable {
+struct LLMChatRequest: Codable {
     let model: String
     let messages: [OllamaMessage]
     let stream: Bool

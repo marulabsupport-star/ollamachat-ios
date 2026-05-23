@@ -1,6 +1,6 @@
 import Foundation
 import Testing
-@testable import OllamaChatCore
+@testable import LLMChatCore
 
 @Suite("StreamParser Tests")
 struct StreamParserTests {

@@ -2,14 +2,21 @@ import Foundation
 import os
 
 /// HTTP client for Ollama API with dual connection (cloud/local) support.
+/// Handles URL switching, authentication, and streaming.
 actor ApiClient {
     
     private let logger = Logger(subsystem: "com.marulab.llmchat", category: "network")
     
+    // MARK: - Dependencies
+    
     private let connectionConfig: ConnectionConfig
     private let settingsRepo: SettingsRepository
     
+    // MARK: - URLSession
+    
     private let session: URLSession
+    
+    // MARK: - Init
     
     init(connectionConfig: ConnectionConfig, settingsRepo: SettingsRepository = .shared) {
         self.connectionConfig = connectionConfig
@@ -17,10 +24,13 @@ actor ApiClient {
         
         let config = URLSessionConfiguration.default
         config.timeoutIntervalForRequest = 30
-        config.timeoutIntervalForResource = 300
+        config.timeoutIntervalForResource = 300  // 5 min for streaming
         self.session = URLSession(configuration: config)
     }
     
+    // MARK: - Health Check
+    
+    /// Check if the local server is reachable (5s timeout)
     func checkLocalServerHealth() async -> Bool {
         guard let url = connectionConfig.resolvedLocalURL?.appendingPathComponent("api/tags") else {
             return false
@@ -40,6 +50,8 @@ actor ApiClient {
         }
     }
     
+    // MARK: - Fetch Local Models
+    
     func fetchLocalModels() async throws -> [OllamaModelInfo] {
         guard let url = connectionConfig.resolvedLocalURL?.appendingPathComponent("api/tags") else {
             throw OllamaError.invalidURL(url: connectionConfig.localServerURL)
@@ -54,8 +66,29 @@ actor ApiClient {
         return tagsResponse.models
     }
     
+    // MARK: - Chat (Non-Streaming)
+    
+    func sendChat(request: LLMChatRequest) async throws -> OllamaStreamLine {
+        let url = baseURL.appendingPathComponent("api/chat")
+        var req = buildRequest(url: url, method: "POST")
+        req.httpBody = try JSONEncoder().encode(request)
+        
+        let (data, response) = try await session.data(for: req)
+        try validateResponse(response)
+        
+        return try JSONDecoder().decode(OllamaStreamLine.self, from: data)
+    }
+    
+    // MARK: - Chat (Streaming)
+    
+    /// Stream chat responses using makeStream() for proper type inference
     func streamChat(request: LLMChatRequest) -> AsyncThrowingStream<StreamEvent, Error> {
         let (stream, continuation) = AsyncThrowingStream<StreamEvent, Error>.makeStream()
+        
+        // Capture actor-isolated values before spawning the task
+        let baseURL = self.baseURL
+        var urlRequest = self.buildRequest(url: baseURL.appendingPathComponent("api/chat"), method: "POST")
+        urlRequest.httpBody = try? JSONEncoder().encode(request)
         
         Task { [weak self] in
             guard let self = self else {
@@ -64,12 +97,8 @@ actor ApiClient {
             }
             
             do {
-                let url = self.baseURL.appendingPathComponent("api/chat")
-                var req = self.buildRequest(url: url, method: "POST")
-                req.httpBody = try JSONEncoder().encode(request)
-                
-                let (bytes, response) = try await self.session.bytes(for: req)
-                try self.validateResponse(response)
+                let (bytes, response) = try await self.session.bytes(for: urlRequest)
+                try await self.validateResponse(response)
                 
                 let parser = StreamParser()
                 
@@ -123,15 +152,18 @@ actor ApiClient {
         return stream
     }
     
-    nonisolated private var baseURL: URL {
+    // MARK: - Private Helpers
+    
+    private var baseURL: URL {
         connectionConfig.activeBaseURL
     }
     
-    nonisolated private func buildRequest(url: URL, method: String) -> URLRequest {
+    private func buildRequest(url: URL, method: String) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        // Add API key for cloud requests
         if connectionConfig.activeMode == "cloud",
            let apiKey = settingsRepo.ollamaAPIKey {
             request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
@@ -140,7 +172,7 @@ actor ApiClient {
         return request
     }
     
-    nonisolated private func validateResponse(_ response: URLResponse) throws {
+    private func validateResponse(_ response: URLResponse) throws {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw OllamaError.unexpected("Invalid response type")
         }

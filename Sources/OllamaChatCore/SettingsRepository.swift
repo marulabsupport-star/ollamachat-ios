@@ -4,8 +4,8 @@ import Security
 /// Manages API keys in Keychain. Not actor-isolated — thread-safe via Keychain's own serialization.
 final class SettingsRepository {
     
-    private let ollamaKeyService = "com.openclaw.ollamachat.ollama-key"
-    private let tavilyKeyService = "com.openclaw.ollamachat.tavily-key"
+    private let ollamaKeyService = "com.marulab.llmchat.ollama-key"
+    private let tavilyKeyService = "com.marulab.llmchat.tavily-key"
     private let keychainAccount = "api-key"
     
     static let shared = SettingsRepository()

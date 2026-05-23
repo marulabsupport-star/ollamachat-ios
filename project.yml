@@ -1,4 +1,4 @@
-name: OllamaChat
+name: LLMChat
 options:
   bundleIdPrefix: com.openclaw
   deploymentTarget:
@@ -12,17 +12,17 @@ settings:
     DEVELOPMENT_TEAM: ""
 
 targets:
-  OllamaChat:
+  LLMChat:
     type: application
     platform: iOS
     sources:
-      - path: OllamaChat
+      - path: LLMChat
         excludes:
           - "Info.plist"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.openclaw.ollamachat
-        INFOPLIST_FILE: OllamaChat/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.marulab.llmchat
+        INFOPLIST_FILE: LLMChat/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1,2"
         CODE_SIGN_STYLE: Automatic
@@ -40,4 +40,4 @@ targets:
           SWIFT_COMPILATION_MODE: wholemodule
           SWIFT_OPTIMIZATION_LEVEL: "-O"
     entitlements:
-      path: OllamaChat/OllamaChat.entitlements
+      path: LLMChat/LLMChat.entitlements

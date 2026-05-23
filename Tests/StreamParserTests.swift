@@ -1,5 +1,5 @@
 import Testing
-@testable import OllamaChat
+@testable import LLMChat
 
 @Suite("StreamParser Tests")
 struct StreamParserTests {

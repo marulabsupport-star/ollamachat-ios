@@ -1,15 +1,15 @@
-// OllamaChatiOS - Package.swift (Swift Package Manager approach)
+// LLM Chat iOS - Package.swift (Swift Package Manager approach)
 // This serves as a reference. The actual Xcode project should be created 
 // via `xcodebuild` or Xcode UI for proper signing configuration.
 
-// Package: com.openclaw.ollamachat
+// Package: com.marulab.llmchat
 // Target: iOS 17.0+
 // Swift: 5.9+
 
 // Project structure:
-// OllamaChat/
+// LLMChat/
 // ├── App/
-// │   ├── OllamaChatApp.swift
+// │   ├── LLMChatApp.swift
 // │   └── ContentView.swift
 // ├── Models/
 // │   ├── ChatSession.swift
@@ -55,7 +55,7 @@
 // To create the Xcode project:
 // 1. Open Xcode
 // 2. File → New → Project → App
-// 3. Product Name: OllamaChat
+// 3. Product Name: LLMChat
 // 4. Organization Identifier: com.openclaw
 // 5. Interface: SwiftUI
 // 6. Storage: SwiftData
