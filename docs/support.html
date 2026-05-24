@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OllamaChat — Support</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            color: #1d1d1f;
+            line-height: 1.6;
+            background: #f5f5f7;
+        }
+        h1 { font-size: 28px; margin-bottom: 4px; }
+        .subtitle { color: #86868b; font-size: 15px; margin-bottom: 24px; }
+        h2 { font-size: 20px; margin-top: 32px; color: #1d1d1f; }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .section h3 { margin-top: 0; font-size: 17px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        a { color: #0066cc; }
+        .badge {
+            display: inline-block;
+            background: #007aff;
+            color: white;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        .badge.green { background: #34c759; }
+        .badge.orange { background: #ff9500; }
+        footer { text-align: center; color: #86868b; font-size: 13px; margin-top: 40px; }
+        .faq-question { font-weight: 600; margin-bottom: 4px; }
+        .faq-answer { color: #424245; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+    <h1>OllamaChat Support</h1>
+    <p class="subtitle">Private AI chat for iOS — Connect to your own Ollama server or Ollama Cloud</p>
+
+    <div class="section">
+        <h3>Getting Started</h3>
+        <ul>
+            <li><strong>Cloud mode:</strong> Go to Settings → enter your Ollama Cloud API key → select "Cloud" → choose a model and start chatting.</li>
+            <li><strong>Local mode:</strong> Go to Settings → enter your Ollama server URL (e.g., <code>192.168.1.100</code> or a Cloudflare Tunnel URL) → select "Local" → choose a model.</li>
+            <li><strong>Cloudflare Tunnel:</strong> To access your Ollama server remotely, you can use <a href="https://developers.cloudflare.com/tunnel/" target="_blank">Cloudflare Tunnel</a> to create a secure URL.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Requirements</h3>
+        <ul>
+            <li>iOS 17.0 or later</li>
+            <li>An Ollama server (local or remote) or an Ollama Cloud API key</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Features</h3>
+        <ul>
+            <li><span class="badge green">New</span> <strong>Cloud & Local connection</strong> — Switch between cloud and local servers</li>
+            <li><span class="badge">AI</span> <strong>Multi-model support</strong> — Switch between models with one tap</li>
+            <li><span class="badge">Chat</span> <strong>Real-time streaming</strong> — Watch responses flow in naturally</li>
+            <li><span class="badge orange">Web</span> <strong>Built-in web search</strong> — Grounded responses with Tavily</li>
+            <li><span class="badge">Code</span> <strong>Code preview</strong> — Syntax highlighting and full Markdown rendering</li>
+            <li>🌙 <strong>Dark mode</strong> — Follows your system settings</li>
+            <li>🔒 <strong>Private by default</strong> — Self-hosted? Nothing leaves your server</li>
+        </ul>
+    </div>
+
+    <h2>FAQ</h2>
+
+    <div class="section">
+        <div class="faq-question">How do I connect to my local Ollama server?</div>
+        <div class="faq-answer">Go to Settings → enter your server's IP address (e.g., <code>192.168.1.100</code>). The app automatically adds <code>http://</code> and port 11434. For remote access, use a Cloudflare Tunnel URL.</div>
+
+        <div class="faq-question">What is a Cloud API key?</div>
+        <div class="faq-answer">An Ollama Cloud API key lets you use cloud-hosted AI models without running your own server. You can get one at <a href="https://ollama.com" target="_blank">ollama.com</a>.</div>
+
+        <div class="faq-question">Is my data collected by the app?</div>
+        <div class="faq-answer">No. All chat data is stored locally on your device. The app developer has no access to your conversations, API keys, or server configurations. See our <a href="https://marulabsupport-star.github.io/ollamachat-privacy/">Privacy Policy</a> for details.</div>
+
+        <div class="faq-question">How do I report a bug or request a feature?</div>
+        <div class="faq-answer">Open an issue on our <a href="https://github.com/marulabsupport-star/ollamachat-ios/issues/new" target="_blank">GitHub Issues page</a>.</div>
+    </div>
+
+    <div class="section">
+        <h3>Contact</h3>
+        <p>For support inquiries, email <a href="mailto:marulabsupport@gmail.com">marulabsupport@gmail.com</a></p>
+        <p>Bug reports and feature requests: <a href="https://github.com/marulabsupport-star/ollamachat-ios/issues/new" target="_blank">GitHub Issues</a></p>
+    </div>
+
+    <footer>
+        <p>OllamaChat is an independent client application. It is not affiliated with Ollama, Inc. or any AI model provider.</p>
+        <p><a href="https://marulabsupport-star.github.io/ollamachat-privacy/">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

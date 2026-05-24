@@ -49,7 +49,7 @@ We provide the following for review:
 **Our Response:**
 
 The support URL is now accessible:
-- **Support URL**: https://github.com/marulabsupport-star/ollamachat-ios
+- **Support URL**: https://marulabsupport-star.github.io/ollamachat-privacy/support.html
 - **Privacy Policy**: https://marulabsupport-star.github.io/ollamachat-privacy/
 
 The GitHub repository has been made public and contains:
