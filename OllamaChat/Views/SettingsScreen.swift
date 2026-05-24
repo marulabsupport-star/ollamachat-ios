@@ -186,15 +186,16 @@ struct SettingsScreen: View {
     
     private var serverUrlContent: some View {
         VStack(spacing: 12) {
-            TextField("Server URL (e.g. 192.168.1.100 or https://tunnel.trycloudflare.com)", text: $viewModel.localURLInput)
+            TextField("Server URL (e.g. 192.168.1.100)", text: $viewModel.localURLInput)
                 .textContentType(.URL)
                 .autocapitalization(.none)
                 .keyboardType(.URL)
             
-            Text("Tip: Enter a local IP like 192.168.1.100 (http:// added automatically) or a full URL like https://your-tunnel.trycloudflare.com for Cloudflare Tunnel access.")
+            Text("Tip: Enter a local IP like 192.168.1.100 (http:// added automatically) or a full URL for Cloudflare Tunnel access.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .padding(.bottom, 2)
+            Link("What is Cloudflare Tunnel?", destination: URL(string: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/doom-quick-start/")!)
             
             HStack {
                 Button("Save URL") {
