@@ -1,6 +1,14 @@
-# App Store Appeal — OllamaChat v1.0
+# App Store Appeal & Review Response — OllamaChat v1.0
 
-We are appealing the rejection under Guideline 4.1(c) — Copycats / Brand Misuse. Our app name "OllamaChat" does not violate this guideline for the following reasons:
+**Submission ID:** a3b84c10-f139-465e-8c2b-5b153d1cb437
+**Bundle ID:** com.marulab.ollamachat
+**App Name:** OllamaChat
+
+---
+
+## Appeal: Guideline 4.1(c) — Copycats / Brand Misuse
+
+We are appealing the rejection under Guideline 4.1(c). Our app name "OllamaChat" does not violate this guideline for the following reasons:
 
 **1. "Ollama" is used descriptively, not as brand imitation**
 
@@ -20,15 +28,34 @@ Ollama is an open-source project (github.com/ollama/ollama, MIT license). Using 
 
 ---
 
-**Other issues addressed:**
+## Issue 2: Guideline 2.1 — Performance / Demo Account
 
-- **Guideline 2.1 (Demo Account)**: We provide a demo cloud API key for full testing: fd26b4057c9e4e809c1f0f85ea3dded0.i8JlI6iu8dW2dPgqA9Zp_1Cs. On first launch, accept the privacy consent, go to Settings, enter the API key, select "Cloud" mode, choose any model and start chatting. No self-hosted server required.
+**Reviewer's Concern:** The app requires a server or API key to function, and reviewers could not test it.
 
-- **Guideline 1.5 (Support URL)**: Our support URL https://github.com/marulabsupport-star/ollamachat-ios is now public and accessible.
+**Our Response:**
+
+We provide the following for review:
+
+- **Demo API Key**: fd26b4057c9e4e809c1f0f85ea3dded0.i8JlI6iu8dW2dPgqA9Zp_1Cs
+- **How to use**: On first launch, accept the privacy consent, then go to Settings, enter the API key above, select "Cloud" mode, choose any model and start chatting.
+- No self-hosted server is required. The cloud API key provides full functionality for testing.
 
 ---
 
-Submission ID: a3b84c10-f139-465e-8c2b-5b153d1cb437
-Bundle ID: com.marulab.ollamachat
-Support URL: https://github.com/marulabsupport-star/ollamachat-ios
-Privacy Policy: https://marulabsupport-star.github.io/ollamachat-privacy/
+## Issue 3: Guideline 1.5 — Developer Website / Support URL
+
+**Reviewer's Concern:** The support URL was not accessible (returned 404).
+
+**Our Response:**
+
+The support URL is now accessible:
+- **Support URL**: https://github.com/marulabsupport-star/ollamachat-ios
+- **Privacy Policy**: https://marulabsupport-star.github.io/ollamachat-privacy/
+
+The GitHub repository has been made public and contains:
+- Issue tracker for bug reports and questions
+- README with app description and requirements
+
+---
+
+We believe the 4.1(c) rejection should be reconsidered given the precedent of other "Ollama"-named apps on the App Store. The other two issues (2.1 and 1.5) have been fully addressed. We respectfully request re-review.
