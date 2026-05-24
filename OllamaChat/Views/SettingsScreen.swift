@@ -195,7 +195,7 @@ struct SettingsScreen: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .padding(.bottom, 2)
-            Link("What is Cloudflare Tunnel?", destination: URL(string: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/doom-quick-start/")!)
+            Link("What is Cloudflare Tunnel?", destination: URL(string: "https://developers.cloudflare.com/tunnel/")!)
             
             HStack {
                 Button("Save URL") {
