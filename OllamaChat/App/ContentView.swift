@@ -10,20 +10,20 @@ struct ContentView: View {
     // For @Observable class, @State preserves object identity across view rebuilds.
     @State private var chatViewModel: ChatViewModel = {
         let chatRepo = ChatRepository()
-        let apiClient = ApiClient(connectionConfig: LLMChatApp.connectionConfig)
+        let apiClient = ApiClient(connectionConfig: OllamaChatApp.connectionConfig)
         let chatService = ChatService(
             apiClient: apiClient,
             chatRepo: chatRepo,
-            connectionConfig: LLMChatApp.connectionConfig,
-            settings: LLMChatApp.settings
+            connectionConfig: OllamaChatApp.connectionConfig,
+            settings: OllamaChatApp.settings
         )
         let searchService = SearchService()
         return ChatViewModel(
             chatService: chatService,
             searchService: searchService,
             availableModels: AvailableModels.shared,
-            connectionConfig: LLMChatApp.connectionConfig,
-            settings: LLMChatApp.settings
+            connectionConfig: OllamaChatApp.connectionConfig,
+            settings: OllamaChatApp.settings
         )
     }()
     
@@ -118,7 +118,7 @@ struct ContentView: View {
             }
         }
         .animation(.easeInOut(duration: 0.25), value: showDrawer)
-        .preferredColorScheme(LLMChatApp.settings.colorScheme)
+        .preferredColorScheme(OllamaChatApp.settings.colorScheme)
         .onAppear {
             chatViewModel.updateModelContext(modelContext)
             
@@ -166,8 +166,8 @@ struct ContentView: View {
     
     private func makeSettingsViewModel() -> SettingsViewModel {
         SettingsViewModel(
-            settings: LLMChatApp.settings,
-            connectionConfig: LLMChatApp.connectionConfig
+            settings: OllamaChatApp.settings,
+            connectionConfig: OllamaChatApp.connectionConfig
         )
     }
     
@@ -178,7 +178,7 @@ struct ContentView: View {
     
     private func openFeedbackEmail() {
         let email = "marulabsupport@gmail.com"
-        let subject = "LLM Chat Feedback"
+        let subject = "Ollama Chat Feedback"
         let encodedSubject = subject.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? subject
         guard let url = URL(string: "mailto:\(email)?subject=\(encodedSubject)") else { return }
         if UIApplication.shared.canOpenURL(url) {

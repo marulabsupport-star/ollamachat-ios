@@ -54,7 +54,7 @@ actor ApiClient {
         return tagsResponse.models
     }
     
-    func streamChat(request: LLMChatRequest) -> AsyncThrowingStream<StreamEvent, Error> {
+    func streamChat(request: OllamaChatRequest) -> AsyncThrowingStream<StreamEvent, Error> {
         let (stream, continuation) = AsyncThrowingStream<StreamEvent, Error>.makeStream()
         
         Task { [weak self] in

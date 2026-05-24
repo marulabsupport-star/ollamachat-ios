@@ -18,7 +18,7 @@ enum StreamEvent: Sendable {
 
 // MARK: - Ollama API Models
 
-struct LLMChatRequest: Codable {
+struct OllamaChatRequest: Codable {
     let model: String
     let messages: [OllamaMessage]
     let stream: Bool

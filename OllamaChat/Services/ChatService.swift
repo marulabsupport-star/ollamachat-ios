@@ -139,7 +139,7 @@ final class ChatService {
     /// Default system prompt injected when user hasn't set a custom one.
     /// Ensures models always produce runnable single-file code artifacts.
     private static let defaultSystemPrompt = """
-    You are a helpful assistant inside LLM Chat, an iOS app with a built-in web preview.
+    You are a helpful assistant inside Ollama Chat, an iOS app with a built-in web preview.
     
     When writing code (web apps, tools, widgets, games, visualizations, etc.):
     1. Always produce a SINGLE, SELF-CONTAINED HTML file with all CSS and JavaScript inline.
@@ -151,7 +151,7 @@ final class ChatService {
     For non-code responses, respond normally.
     """
     
-    private func buildChatRequest(session: ChatSession, userText: String, searchContext: String? = nil, images: [Data]?) -> LLMChatRequest {
+    private func buildChatRequest(session: ChatSession, userText: String, searchContext: String? = nil, images: [Data]?) -> OllamaChatRequest {
         var ollamaMessages: [OllamaMessage] = []
         
         // System prompt: user custom > default
@@ -181,7 +181,7 @@ final class ChatService {
             options = OllamaOptions(temperature: settings.temperature, numPredict: settings.maxTokens)
         }
         
-        return LLMChatRequest(
+        return OllamaChatRequest(
             model: session.modelName,
             messages: ollamaMessages,
             stream: true,

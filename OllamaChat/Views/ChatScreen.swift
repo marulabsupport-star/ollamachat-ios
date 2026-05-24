@@ -103,7 +103,7 @@ struct ChatScreen: View {
             dismissKeyboard()
         }
         #endif
-        .navigationTitle(viewModel.currentSession?.title ?? "LLM Chat")
+        .navigationTitle(viewModel.currentSession?.title ?? "Ollama Chat")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif

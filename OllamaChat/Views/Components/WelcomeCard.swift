@@ -28,7 +28,7 @@ struct WelcomeCard: View {
                 .buttonStyle(.borderedProminent)
                 .padding(.top, 4)
             } else {
-                Text("Welcome to LLM Chat")
+                Text("Welcome to Ollama Chat")
                     .font(.title2)
                     .fontWeight(.bold)
                 

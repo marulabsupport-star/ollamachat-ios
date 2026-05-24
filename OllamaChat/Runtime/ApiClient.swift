@@ -68,7 +68,7 @@ actor ApiClient {
     
     // MARK: - Chat (Non-Streaming)
     
-    func sendChat(request: LLMChatRequest) async throws -> OllamaStreamLine {
+    func sendChat(request: OllamaChatRequest) async throws -> OllamaStreamLine {
         let url = baseURL.appendingPathComponent("api/chat")
         var req = buildRequest(url: url, method: "POST")
         req.httpBody = try JSONEncoder().encode(request)
@@ -82,7 +82,7 @@ actor ApiClient {
     // MARK: - Chat (Streaming)
     
     /// Stream chat responses using makeStream() for proper type inference
-    func streamChat(request: LLMChatRequest) -> AsyncThrowingStream<StreamEvent, Error> {
+    func streamChat(request: OllamaChatRequest) -> AsyncThrowingStream<StreamEvent, Error> {
         let (stream, continuation) = AsyncThrowingStream<StreamEvent, Error>.makeStream()
         
         // Capture actor-isolated values before spawning the task

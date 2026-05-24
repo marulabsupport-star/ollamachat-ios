@@ -83,7 +83,7 @@ struct PrivacyConsentView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("I understand and agree")
                             .font(.subheadline.bold())
-                        Text("My chat messages will be sent to the server I configure. I can change server settings at any time in Settings.")
+                        Text("My chat messages will be sent to the Ollama server I configure. I can change server settings at any time in Settings.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

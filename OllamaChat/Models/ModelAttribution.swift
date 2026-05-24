@@ -2,7 +2,7 @@ import Foundation
 
 /// Provides brand attribution for known AI model families.
 /// This ensures proper credit to model creators and clarifies that
-/// LLMChat is a client app — not the creator of these models.
+/// OllamaChat is a client app — not the creator of these models.
 enum ModelAttribution {
     
     /// Known model family prefixes and their brand attributions.

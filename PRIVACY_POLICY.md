@@ -1,10 +1,10 @@
-# LLM Chat Privacy Policy
+# OllamaChat Privacy Policy
 
 **Last updated: May 2026**
 
 ## 1. Overview
 
-LLM Chat ("the App") is a client application that connects to LLM servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
+OllamaChat ("the App") is a client application that connects to Ollama servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
 
 ## 2. Data Collected by the App
 
@@ -70,4 +70,4 @@ If you have questions about this privacy policy or your data, please contact:
 
 ---
 
-*This privacy policy applies to the LLM Chat iOS application only. The App is a client for Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model including Llama, which is a trademark of Meta Platforms, Inc.*
+*This privacy policy applies to the OllamaChat iOS application only. The App is a client for Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model including Llama, which is a trademark of Meta Platforms, Inc.*

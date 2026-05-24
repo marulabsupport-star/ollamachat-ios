@@ -2,25 +2,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "LLMChatCore",
+    name: "OllamaChatCore",
     platforms: [
         .macOS(.v14)
     ],
     products: [
         .library(
-            name: "LLMChatCore",
-            targets: ["LLMChatCore"]
+            name: "OllamaChatCore",
+            targets: ["OllamaChatCore"]
         )
     ],
     targets: [
         .target(
-            name: "LLMChatCore",
+            name: "OllamaChatCore",
             path: "Sources/OllamaChatCore",
             exclude: ["Info.plist"]
         ),
         .testTarget(
-            name: "LLMChatCoreTests",
-            dependencies: ["LLMChatCore"],
+            name: "OllamaChatCoreTests",
+            dependencies: ["OllamaChatCore"],
             path: "Tests/Core"
         )
     ]

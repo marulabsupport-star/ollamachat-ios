@@ -26,7 +26,7 @@
 		86AEE4E53002CE8E5B3F0575 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */; };
 		86DE2CE6CF068FDD8144E5D4 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D997177EE8DF95B17B848F18 /* SearchService.swift */; };
 		8AAFA6430B43D30C54F41AC2 /* InputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1874CBD75BABEC120F510 /* InputBar.swift */; };
-		8BEA2D857AAD0E4CA12A8D86 /* LLMChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E90FAD19092F9B8DD40E8 /* LLMChatApp.swift */; };
+		8BEA2D857AAD0E4CA12A8D86 /* OllamaChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */; };
 		8D8558EA49ACA35942F82A0F /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815EFDE363B231ED02FF1946 /* AvailableModels.swift */; };
 		9179C282675A453273D37D5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4939FF05614ADCD94A131A64 /* ContentView.swift */; };
 		959A4469B6B8E96A20A4A8D0 /* ModelAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */; };
@@ -52,19 +52,19 @@
 		09BAD87B3C730CDECFF650A8 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		0A4C438DE048795C36B036E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		1519E757A16E977FEDB98F81 /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
-		179E90FAD19092F9B8DD40E8 /* LLMChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMChatApp.swift; sourceTree = "<group>"; };
+		179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaChatApp.swift; sourceTree = "<group>"; };
 		258A13E55ABA92275377EA90 /* ConnectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConfig.swift; sourceTree = "<group>"; };
 		28629BC6A14A286CA9EA56FF /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		296E6244771CAFDFDF0427D1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		2EE2EDB9D71F45522EAF4AA8 /* StreamParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamParser.swift; sourceTree = "<group>"; };
 		357EE3DFAD734F2E5F7CE832 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
 		36135D4645E5171D24BEFEBA /* AttachmentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentMenu.swift; sourceTree = "<group>"; };
-		365121E65F2298F495D3E3A6 /* LLMChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLMChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		365121E65F2298F495D3E3A6 /* OllamaChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OllamaChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C967D35404767363E2AFD3 /* TavilyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TavilyClient.swift; sourceTree = "<group>"; };
 		38F237804BD9811D9F25BF2C /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
 		4939FF05614ADCD94A131A64 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4983921CC2B1022F983332A8 /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
-		69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyPolicyView.swift; path = LLMChat/Views/Components/PrivacyPolicyView.swift; sourceTree = SOURCE_ROOT; };
+		69F64E80947CAA9811300D3F /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyPolicyView.swift; path = OllamaChat/Views/Components/PrivacyPolicyView.swift; sourceTree = SOURCE_ROOT; };
 		7BBD6920E932BF20FB4BA136 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
 		7E70B9936675CB1A98F36B64 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		815EFDE363B231ED02FF1946 /* AvailableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableModels.swift; sourceTree = "<group>"; };
@@ -83,9 +83,9 @@
 		D691223994967795498FFD19 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D69DB5ACD5130C362517B5A2 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		D997177EE8DF95B17B848F18 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
-		E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyConsentView.swift; path = LLMChat/Views/Components/PrivacyConsentView.swift; sourceTree = SOURCE_ROOT; };
-		EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelAttribution.swift; path = LLMChat/Models/ModelAttribution.swift; sourceTree = SOURCE_ROOT; };
-		F3CA90EB9283FF4922C51EC9 /* LLMChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LLMChat.entitlements; sourceTree = "<group>"; };
+		E6CD4E3BBDD42068051E3381 /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivacyConsentView.swift; path = OllamaChat/Views/Components/PrivacyConsentView.swift; sourceTree = SOURCE_ROOT; };
+		EE4B4C3CA21BEFB75DFE3BD1 /* ModelAttribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModelAttribution.swift; path = OllamaChat/Models/ModelAttribution.swift; sourceTree = SOURCE_ROOT; };
+		F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OllamaChat.entitlements; sourceTree = "<group>"; };
 		F91702F653FC771B795108DD /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
 		FE7B7A6F37B147D6A9E18EBE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5EB315ABD22DA6D83F0444 /* Assets.xcassets */,
-				F3CA90EB9283FF4922C51EC9 /* LLMChat.entitlements */,
+				F3CA90EB9283FF4922C51EC9 /* OllamaChat.entitlements */,
 				CA1CBF08CECCB7B57BAEB49C /* {App,Models,Config,Repositories,Services,Runtime,ViewModels,Views */,
 				F46A244DEEBF02FD15880A37 /* App */,
 				2F8DE00A17A8DF5DD025CC7C /* Config */,
@@ -146,13 +146,13 @@
 				1755ADE562A9E25BF16A9694 /* ViewModels */,
 				742637A9777CB0A3B3651801 /* Views */,
 			);
-			path = LLMChat;
+			path = OllamaChat;
 			sourceTree = "<group>";
 		};
 		72119221A9D7BEAE46319D30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				365121E65F2298F495D3E3A6 /* LLMChat.app */,
+				365121E65F2298F495D3E3A6 /* OllamaChat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				4939FF05614ADCD94A131A64 /* ContentView.swift */,
-				179E90FAD19092F9B8DD40E8 /* LLMChatApp.swift */,
+				179E90FAD19092F9B8DD40E8 /* OllamaChatApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -254,7 +254,7 @@
 /* Begin PBXNativeTarget section */
 		2C0ED799FB18C9EE9C914851 /* LLMChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "LLMChat" */;
+			buildConfigurationList = 43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "OllamaChat" */;
 			buildPhases = (
 				4D6D336C2A4C0C8BFB8C4FE6 /* Sources */,
 				4FA0C6F466C3944D14DD33A0 /* Resources */,
@@ -263,11 +263,11 @@
 			);
 			dependencies = (
 			);
-			name = LLMChat;
+			name = OllamaChat;
 			packageProductDependencies = (
 			);
-			productName = LLMChat;
-			productReference = 365121E65F2298F495D3E3A6 /* LLMChat.app */;
+			productName = OllamaChat;
+			productReference = 365121E65F2298F495D3E3A6 /* OllamaChat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -279,7 +279,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
 			};
-			buildConfigurationList = 3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "LLMChat" */;
+			buildConfigurationList = 3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "OllamaChat" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -334,7 +334,7 @@
 				8AAFA6430B43D30C54F41AC2 /* InputBar.swift in Sources */,
 				203C56279C92EB1F6900D38C /* MessageBubble.swift in Sources */,
 				D0BBA0A26B88B739C7A79F3C /* ModelSelector.swift in Sources */,
-				8BEA2D857AAD0E4CA12A8D86 /* LLMChatApp.swift in Sources */,
+				8BEA2D857AAD0E4CA12A8D86 /* OllamaChatApp.swift in Sources */,
 				14899FC48AA395FF35DA72D9 /* OllamaError.swift in Sources */,
 				4A7119730D7ECC52A10BCA04 /* OllamaModels.swift in Sources */,
 				A0C207ED327E84B629922CB1 /* RecentsScreen.swift in Sources */,
@@ -421,12 +421,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = LLMChat/LLMChat.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8N7B23Q966;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = LLMChat/Info.plist;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,12 +448,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGNING_ALLOWED = YES;
 				CODE_SIGNING_REQUIRED = YES;
-				CODE_SIGN_ENTITLEMENTS = LLMChat/LLMChat.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8N7B23Q966;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = LLMChat/Info.plist;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +535,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "LLMChat" */ = {
+		3CF8545EDADE2240BBB41030 /* Build configuration list for PBXProject "OllamaChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E7CE11F9E0BC1C59568573AD /* Debug */,
@@ -544,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "LLMChat" */ = {
+		43C82720F3C14BB59932FF91 /* Build configuration list for PBXNativeTarget "OllamaChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5BDB7802E69B922056BABC28 /* Debug */,

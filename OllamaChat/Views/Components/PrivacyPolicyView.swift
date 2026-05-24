@@ -15,7 +15,7 @@ struct PrivacyPolicyView: View {
                     .foregroundStyle(.secondary)
                 
                 policySection("1. Overview") {
-                    Text("LLM Chat (\"the App\") is a client application that connects to Ollama servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the Ollama server you choose to connect to.")
+                    Text("Ollama Chat (\"the App\") is a client application that connects to Ollama servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.")
                 }
                 
                 policySection("2. Data Collected by the App") {

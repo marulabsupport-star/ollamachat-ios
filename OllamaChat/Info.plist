@@ -5,11 +5,11 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>LLM Chat</string>
+    <string>Ollama Chat</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
-    <string>com.marulab.llmchat</string>
+    <string>com.marulab.ollamachat</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
@@ -23,7 +23,7 @@
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSLocalNetworkUsageDescription</key>
-    <string>LLM Chat needs local network access to connect to your Ollama server running on the same network.</string>
+    <string>Ollama Chat needs local network access to connect to your Ollama server running on the same network.</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
