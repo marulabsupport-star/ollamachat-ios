@@ -15,7 +15,7 @@ struct PrivacyPolicyView: View {
                     .foregroundStyle(.secondary)
                 
                 policySection("1. Overview") {
-                    Text("Ollama Chat (\"the App\") is a client application that connects to Ollama servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.")
+                    Text("LocalLLM Chat (\"the App\") is a client application that connects to LLM servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.")
                 }
                 
                 policySection("2. Data Collected by the App") {
@@ -32,15 +32,15 @@ struct PrivacyPolicyView: View {
                         Text("When you use the App, data is sent to third-party services that you configure:")
                         
                         thirdPartyBlock(
-                            name: "Ollama Server (Local or Cloud)",
-                            description: "Your Ollama server, configured by you",
+                            name: "LLM Server (Local or Cloud)",
+                            description: "Your server, configured by you",
                             dataSent: ["Chat messages and prompts", "Images (when using vision-capable models)", "System prompts"],
                             purpose: "To generate AI responses to your queries"
                         )
                         
                         thirdPartyBlock(
-                            name: "Ollama Cloud API",
-                            description: "Ollama, Inc. (https://ollama.com)",
+                            name: "Cloud LLM API",
+                            description: "Cloud API provider (e.g., ollama.com)",
                             dataSent: ["Chat messages and prompts", "Images (when using vision-capable models)", "API key for authentication"],
                             purpose: "To access cloud-hosted AI models"
                         )

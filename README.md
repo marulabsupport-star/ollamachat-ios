@@ -1,10 +1,10 @@
-# OllamaChat iOS
+# LocalLLM Chat iOS
 
-Private AI chat app for iOS. Connect to your own Ollama server or Ollama Cloud.
+Private AI chat app for iOS. Connect to your own LLM server or cloud API.
 
 ## Features
 
-- 🔗 **Dual Connection** — Connect to your own Ollama server or use Ollama Cloud
+- 🔗 **Dual Connection** — Connect to your own server or use a cloud API
 - 💬 **Real-time Streaming** — Watch responses flow in naturally
 - 🤖 **Multi-Model** — Switch between models with one tap
 - 🎨 **Code Preview** — Syntax highlighting and full Markdown rendering
@@ -13,12 +13,12 @@ Private AI chat app for iOS. Connect to your own Ollama server or Ollama Cloud.
 
 ## Support
 
-Found a bug? Have a question? Open an [Issue](https://github.com/marulabsupport-star/ollamachat-ios/issues/new).
+Found a bug? Have a question? Email <a href="mailto:marulabsupport@gmail.com">marulabsupport@gmail.com</a> or open an [Issue](https://github.com/marulabsupport-star/ollamachat-ios/issues/new).
 
 ## Requirements
 
 - iOS 17.0+
-- An Ollama server or Ollama Cloud access
+- An LLM server or cloud API access
 
 ## License
 

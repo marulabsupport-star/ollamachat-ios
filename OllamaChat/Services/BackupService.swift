@@ -62,7 +62,7 @@ final class BackupService {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd_HHmmss"
-        let filename = "ollamachat_backup_\(formatter.string(from: Date())).json"
+        let filename = "localllm_backup_\(formatter.string(from: Date())).json"
         
         let url = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         try data.write(to: url)

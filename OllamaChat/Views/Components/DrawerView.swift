@@ -14,7 +14,7 @@ struct DrawerView: View {
         VStack(alignment: .leading, spacing: 0) {
             // Header
             VStack(alignment: .leading, spacing: 8) {
-                Text("Ollama Chat")
+                Text("LocalLLM Chat")
                     .font(.headline)
                     .padding(.top, 24)
                 Spacer().frame(height: 4)

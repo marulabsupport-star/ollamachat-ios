@@ -143,7 +143,7 @@ struct SettingsScreen: View {
             Text("API Configuration")
                 .font(.title3)
                 .fontWeight(.semibold)
-            Text("Configure your Ollama API settings below")
+            Text("Configure your server settings below")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
         }

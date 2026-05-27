@@ -1,10 +1,10 @@
-# OllamaChat Privacy Policy
+# LocalLLM Chat Privacy Policy
 
 **Last updated: May 2026**
 
 ## 1. Overview
 
-OllamaChat ("the App") is a client application that connects to Ollama servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
+LocalLLM Chat ("the App") is a client application that connects to LLM servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
 
 ## 2. Data Collected by the App
 
@@ -17,14 +17,14 @@ OllamaChat ("the App") is a client application that connects to Ollama servers. 
 
 When you use the App, data is sent to third-party services that **you configure**:
 
-### 3.1 Ollama Server (Local or Cloud)
-- **Who**: Your own Ollama server, at the address you specify
+### 3.1 LLM Server (Local or Cloud)
+- **Who**: Your own server, at the address you specify
 - **What is sent**: Chat messages, prompts, images (when using vision-capable models), system prompts
 - **Purpose**: To generate AI responses to your queries
 - **Your control**: You choose the server address and can change it at any time
 
-### 3.2 Ollama Cloud API
-- **Who**: Ollama, Inc. (https://ollama.com)
+### 3.2 Cloud LLM API
+- **Who**: Cloud API provider (e.g., ollama.com)
 - **What is sent**: Chat messages, prompts, images (when using vision-capable models), API key for authentication
 - **Purpose**: To access cloud-hosted AI models
 - **Your control**: Only active if you provide an API key; you can remove it at any time
@@ -70,4 +70,4 @@ If you have questions about this privacy policy or your data, please contact:
 
 ---
 
-*This privacy policy applies to the OllamaChat iOS application only. The App is a client for Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model including Llama, which is a trademark of Meta Platforms, Inc.*
+*This privacy policy applies to the LocalLLM Chat iOS application. The App is a client for LLM servers including Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model. LocalLLM Chat is not affiliated with Ollama, Inc. or any AI model provider.*

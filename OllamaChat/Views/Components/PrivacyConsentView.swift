@@ -45,8 +45,8 @@ struct PrivacyConsentView: View {
                     icon: "server.rack",
                     title: "Where Your Data Goes",
                     details: [
-                        "Your own Ollama server (local or cloud)",
-                        "Ollama Cloud API (if you provide an API key)",
+                        "Your own LLM server (local or cloud)",
+                        "Cloud LLM API (if you provide an API key)",
                         "Tavily Search API (if you enable web search)"
                     ]
                 )
@@ -68,7 +68,7 @@ struct PrivacyConsentView: View {
                         .font(.subheadline.bold())
                         .foregroundStyle(.orange)
                     
-                    Text("When you connect to an Ollama server or Ollama Cloud API, your messages are sent to that service for processing. That service may have its own privacy policy regarding how it handles your data. This app does not control third-party data practices.")
+                    Text("When you connect to a server or cloud API, your messages are sent to that service for processing. That service may have its own privacy policy regarding how it handles your data. This app does not control third-party data practices.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
@@ -83,7 +83,7 @@ struct PrivacyConsentView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("I understand and agree")
                             .font(.subheadline.bold())
-                        Text("My chat messages will be sent to the Ollama server I configure. I can change server settings at any time in Settings.")
+                        Text("My chat messages will be sent to the server I configure. I can change server settings at any time in Settings.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
