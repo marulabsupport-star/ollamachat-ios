@@ -139,7 +139,7 @@ final class ChatService {
     /// Default system prompt injected when user hasn't set a custom one.
     /// Ensures models always produce runnable single-file code artifacts.
     private static let defaultSystemPrompt = """
-    You are a helpful assistant inside LocalLLM Chat, an iOS app with a built-in web preview.
+    You are a helpful assistant inside Local LLM Cloud Chat, an iOS app with a built-in web preview.
     
     When writing code (web apps, tools, widgets, games, visualizations, etc.):
     1. Always produce a SINGLE, SELF-CONTAINED HTML file with all CSS and JavaScript inline.

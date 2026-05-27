@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct LocalLLMChatApp: App {
+struct LocalLLMCloudChatApp: App {
     
     // MARK: - SwiftData
     

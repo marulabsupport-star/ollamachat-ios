@@ -1,10 +1,10 @@
-# LocalLLM Chat Privacy Policy
+# Local LLM Cloud Chat Privacy Policy
 
 **Last updated: May 2026**
 
 ## 1. Overview
 
-LocalLLM Chat ("the App") is a client application that connects to LLM servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
+Local LLM Cloud Chat ("the App") is a client application that connects to LLM servers. The App itself does not collect, store, or transmit any personal data to its developer. All data processing occurs between your device and the server you choose to connect to.
 
 ## 2. Data Collected by the App
 
@@ -70,4 +70,4 @@ If you have questions about this privacy policy or your data, please contact:
 
 ---
 
-*This privacy policy applies to the LocalLLM Chat iOS application. The App is a client for LLM servers including Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model. LocalLLM Chat is not affiliated with Ollama, Inc. or any AI model provider.*
+*This privacy policy applies to the Local LLM Cloud Chat iOS application. The App is a client for LLM servers including Ollama, an open-source AI server. It does not include, redistribute, or represent any AI model. Local LLM Cloud Chat is not affiliated with Ollama, Inc. or any AI model provider.*

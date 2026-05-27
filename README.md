@@ -1,4 +1,4 @@
-# LocalLLM Chat iOS
+# Local LLM Cloud Chat iOS
 
 Private AI chat app for iOS. Connect to your own LLM server or cloud API.
 

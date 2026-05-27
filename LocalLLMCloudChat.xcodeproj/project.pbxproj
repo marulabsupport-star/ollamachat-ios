@@ -1,0 +1,561 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		089D580FE5111F6E61603C91 /* StreamParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578D212AC989AF539481D76 /* StreamParser.swift */; };
+		18E7D7B43132D37AA029635B /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A537F11F526C155B8F18B6D9 /* BackupService.swift */; };
+		27C3E190DD50CD0ACD5F68D9 /* AttachmentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59E792A0684217AB12CC26E /* AttachmentMenu.swift */; };
+		29141B72C09E907BEE6FE315 /* ModelAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */; };
+		3580BBF878AC9BBF076C3A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AA487200332172B3B97B47 /* Assets.xcassets */; };
+		382BA2A92BE51EA6546FC40F /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD0F06BC25E56B44F3918B /* ChatScreen.swift */; };
+		48BC5533560438DB562C886A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B79A4FD0FD5D8603BF4820 /* Theme.swift */; };
+		68F279AD7BD27E7F82F8CD78 /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7D36C3C8C9AC0D173EBB0B /* AvailableModels.swift */; };
+		6AAE3E89A2D3D874EB811E8B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */; };
+		6D59420EA828C7FF0B52097B /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */; };
+		709756681F9E3347DE27099F /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */; };
+		7B3646F5E77143E204D6A253 /* BackupRestoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */; };
+		94909469A92F6A9EC2543919 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */; };
+		977D25361A84FA17B417AADE /* ConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770390F3070AD5439005A10 /* ConnectionConfig.swift */; };
+		995D5008E61DE7C9709A4D96 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C1F42D47B620D6B3B78488 /* SearchService.swift */; };
+		99A76D6E3D853BDA7584412D /* TavilyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A39AFBF04ACC963F966741 /* TavilyClient.swift */; };
+		9E31EEC5F23D4D858A3C1444 /* OllamaChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F9FF3EFE52FBD9379221B /* OllamaChatApp.swift */; };
+		AA3E40814384FCC7AF503263 /* OllamaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126D59951AA1A7581ED4DF87 /* OllamaError.swift */; };
+		AF43378E81942DFA404BD16E /* InputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175B21D6F2BB4459AB7EA4D /* InputBar.swift */; };
+		B03470AF532DF4D3036D6FF0 /* WelcomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC15982C8A1D9DB520811E /* WelcomeCard.swift */; };
+		B6C39DBD18F9AE8F40B088F2 /* ModelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE72120B008DADB210E5F587 /* ModelSelector.swift */; };
+		BFA63FF7EFF835B5724983DA /* DisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E901F4B33D5091055107CE14 /* DisplayModel.swift */; };
+		C11DCF1C808DEAF8D02332DD /* ExpandableSettingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */; };
+		C5E964C81B3388257534AB69 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD57429BB6857F72CF9C5DC /* DrawerView.swift */; };
+		CB33EDDEAF370D2BC4D6288F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269B34A42612D26DE0554EB9 /* SettingsScreen.swift */; };
+		CF373B8933EBE2458F18712D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B547FDD5FB4A9038818D9 /* ContentView.swift */; };
+		D14337E20EF3EF5939B6987B /* OllamaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */; };
+		D350269BFADF3A8FABCA4599 /* RecentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC4638FC0E97769714C86D /* RecentsScreen.swift */; };
+		D932071DDA960AC43D075F26 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9E952F61B81CA86EB89D /* MessageBubble.swift */; };
+		E95FDA0C5010CCE4F3597A9C /* SessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466442D8013150A192494FA /* SessionsViewModel.swift */; };
+		EC1096D8A30864FD56351248 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0580118ACEE07DB516272E /* ChatMessage.swift */; };
+		ED59B24D0F27909B8A2B5D53 /* StreamingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0496664AE8B3455F570284 /* StreamingIndicator.swift */; };
+		ED7C014958A184ED205A404D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AAC648486ED1B81586A15 /* ApiClient.swift */; };
+		F029D599E9E5311F4602CBB1 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE37103C983355FB64836B /* PrivacyPolicyView.swift */; };
+		F19652F2EAF41E799DF659B8 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E38D85E0332D112C33CD8 /* AppSettings.swift */; };
+		F2D41A1BC5C8C90F0056C794 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29220B921F7B406871C2EE79 /* ChatService.swift */; };
+		F636E887FE8D3DECBC7BAB38 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E309985D2284C7ED6E878 /* ChatSession.swift */; };
+		FE2C2C5629655FB528C08347 /* PrivacyConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00AA487200332172B3B97B47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		011AAC648486ED1B81586A15 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		082E38D85E0332D112C33CD8 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		0CD57429BB6857F72CF9C5DC /* DrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerView.swift; sourceTree = "<group>"; };
+		126D59951AA1A7581ED4DF87 /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
+		15CD0F06BC25E56B44F3918B /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		1770390F3070AD5439005A10 /* ConnectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConfig.swift; sourceTree = "<group>"; };
+		26234D2DD53F7CEBB3046484 /* LocalLLMCloudChat.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalLLMCloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		269B34A42612D26DE0554EB9 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		26CC15982C8A1D9DB520811E /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
+		29220B921F7B406871C2EE79 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyConsentView.swift; sourceTree = "<group>"; };
+		3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaModels.swift; sourceTree = "<group>"; };
+		4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAttribution.swift; sourceTree = "<group>"; };
+		5A7D36C3C8C9AC0D173EBB0B /* AvailableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableModels.swift; sourceTree = "<group>"; };
+		5D9F9FF3EFE52FBD9379221B /* OllamaChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaChatApp.swift; sourceTree = "<group>"; };
+		6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		6466442D8013150A192494FA /* SessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModel.swift; sourceTree = "<group>"; };
+		69CC4638FC0E97769714C86D /* RecentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsScreen.swift; sourceTree = "<group>"; };
+		7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8578D212AC989AF539481D76 /* StreamParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamParser.swift; sourceTree = "<group>"; };
+		85A39AFBF04ACC963F966741 /* TavilyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TavilyClient.swift; sourceTree = "<group>"; };
+		923E309985D2284C7ED6E878 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
+		97C1F42D47B620D6B3B78488 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		A537F11F526C155B8F18B6D9 /* BackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupService.swift; sourceTree = "<group>"; };
+		A59E792A0684217AB12CC26E /* AttachmentMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentMenu.swift; sourceTree = "<group>"; };
+		AE4F9E952F61B81CA86EB89D /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		BA0580118ACEE07DB516272E /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		BB3B547FDD5FB4A9038818D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C175B21D6F2BB4459AB7EA4D /* InputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBar.swift; sourceTree = "<group>"; };
+		CDB25A770176B5D260B07359 /* OllamaChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OllamaChat.entitlements; sourceTree = "<group>"; };
+		CECE37103C983355FB64836B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreScreen.swift; sourceTree = "<group>"; };
+		DC0496664AE8B3455F570284 /* StreamingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingIndicator.swift; sourceTree = "<group>"; };
+		E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		E901F4B33D5091055107CE14 /* DisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModel.swift; sourceTree = "<group>"; };
+		E9B79A4FD0FD5D8603BF4820 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		EE72120B008DADB210E5F587 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
+		F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSettingsCard.swift; sourceTree = "<group>"; };
+		F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0F6A5EB1F245A5BDDA78D736 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				011AAC648486ED1B81586A15 /* ApiClient.swift */,
+				8578D212AC989AF539481D76 /* StreamParser.swift */,
+				85A39AFBF04ACC963F966741 /* TavilyClient.swift */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		17A3EAD7A3AB662133688B22 = {
+			isa = PBXGroup;
+			children = (
+				857DD117E733905CE6B6CB35 /* OllamaChat */,
+				80D586091EC8144A28890997 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		359DB72C5E384A241630C54B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BB3B547FDD5FB4A9038818D9 /* ContentView.swift */,
+				5D9F9FF3EFE52FBD9379221B /* OllamaChatApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		40E30FE699BCF18CE465BF23 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A537F11F526C155B8F18B6D9 /* BackupService.swift */,
+				29220B921F7B406871C2EE79 /* ChatService.swift */,
+				97C1F42D47B620D6B3B78488 /* SearchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4562EA5F16F6889E46829E11 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				E9B79A4FD0FD5D8603BF4820 /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		5F359D2B9B9D083702E79611 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */,
+				6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		75811FC5221007BF31484352 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				15CD0F06BC25E56B44F3918B /* ChatScreen.swift */,
+				69CC4638FC0E97769714C86D /* RecentsScreen.swift */,
+				269B34A42612D26DE0554EB9 /* SettingsScreen.swift */,
+				AE5059DEDB490F89D1448C26 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78ACD7FF71C25E90E2794939 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */,
+				6466442D8013150A192494FA /* SessionsViewModel.swift */,
+				7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		80D586091EC8144A28890997 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26234D2DD53F7CEBB3046484 /* LocalLLMCloudChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		857DD117E733905CE6B6CB35 /* OllamaChat */ = {
+			isa = PBXGroup;
+			children = (
+				00AA487200332172B3B97B47 /* Assets.xcassets */,
+				CDB25A770176B5D260B07359 /* OllamaChat.entitlements */,
+				D9351F9CADC14016AF45F6CC /* {App,Models,Config,Repositories,Services,Runtime,ViewModels,Views */,
+				359DB72C5E384A241630C54B /* App */,
+				E20AAD4620B4F4439152C7DF /* Config */,
+				E144AE4EBFB972907D386F58 /* Models */,
+				5F359D2B9B9D083702E79611 /* Repositories */,
+				0F6A5EB1F245A5BDDA78D736 /* Runtime */,
+				40E30FE699BCF18CE465BF23 /* Services */,
+				4562EA5F16F6889E46829E11 /* Theme */,
+				78ACD7FF71C25E90E2794939 /* ViewModels */,
+				75811FC5221007BF31484352 /* Views */,
+			);
+			path = OllamaChat;
+			sourceTree = "<group>";
+		};
+		92DE5D65C4C2A63C8CA9F8E6 /* Components,Theme,Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Components,Theme,Utils";
+			sourceTree = "<group>";
+		};
+		AE5059DEDB490F89D1448C26 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A59E792A0684217AB12CC26E /* AttachmentMenu.swift */,
+				D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */,
+				0CD57429BB6857F72CF9C5DC /* DrawerView.swift */,
+				F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */,
+				C175B21D6F2BB4459AB7EA4D /* InputBar.swift */,
+				AE4F9E952F61B81CA86EB89D /* MessageBubble.swift */,
+				EE72120B008DADB210E5F587 /* ModelSelector.swift */,
+				3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */,
+				CECE37103C983355FB64836B /* PrivacyPolicyView.swift */,
+				DC0496664AE8B3455F570284 /* StreamingIndicator.swift */,
+				26CC15982C8A1D9DB520811E /* WelcomeCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D9351F9CADC14016AF45F6CC /* {App,Models,Config,Repositories,Services,Runtime,ViewModels,Views */ = {
+			isa = PBXGroup;
+			children = (
+				92DE5D65C4C2A63C8CA9F8E6 /* Components,Theme,Utils */,
+			);
+			path = "{App,Models,Config,Repositories,Services,Runtime,ViewModels,Views";
+			sourceTree = "<group>";
+		};
+		E144AE4EBFB972907D386F58 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA0580118ACEE07DB516272E /* ChatMessage.swift */,
+				923E309985D2284C7ED6E878 /* ChatSession.swift */,
+				E901F4B33D5091055107CE14 /* DisplayModel.swift */,
+				4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */,
+				126D59951AA1A7581ED4DF87 /* OllamaError.swift */,
+				3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E20AAD4620B4F4439152C7DF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				082E38D85E0332D112C33CD8 /* AppSettings.swift */,
+				5A7D36C3C8C9AC0D173EBB0B /* AvailableModels.swift */,
+				1770390F3070AD5439005A10 /* ConnectionConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0C3A1A349D732CEEB58E2B97 /* LocalLLMCloudChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 729872B55CFD6C694F41621A /* Build configuration list for PBXNativeTarget "LocalLLMCloudChat" */;
+			buildPhases = (
+				573EB95E73B161984DCFF4D3 /* Sources */,
+				9662EBEF70E9C1B303078382 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocalLLMCloudChat;
+			packageProductDependencies = (
+			);
+			productName = LocalLLMCloudChat;
+			productReference = 26234D2DD53F7CEBB3046484 /* LocalLLMCloudChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD8059E5D2E67142E7859568 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0C3A1A349D732CEEB58E2B97 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1153B144BC28D772F37AC4FC /* Build configuration list for PBXProject "LocalLLMCloudChat" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 17A3EAD7A3AB662133688B22;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 80D586091EC8144A28890997 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C3A1A349D732CEEB58E2B97 /* LocalLLMCloudChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9662EBEF70E9C1B303078382 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3580BBF878AC9BBF076C3A90 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		573EB95E73B161984DCFF4D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7C014958A184ED205A404D /* ApiClient.swift in Sources */,
+				F19652F2EAF41E799DF659B8 /* AppSettings.swift in Sources */,
+				27C3E190DD50CD0ACD5F68D9 /* AttachmentMenu.swift in Sources */,
+				68F279AD7BD27E7F82F8CD78 /* AvailableModels.swift in Sources */,
+				7B3646F5E77143E204D6A253 /* BackupRestoreScreen.swift in Sources */,
+				18E7D7B43132D37AA029635B /* BackupService.swift in Sources */,
+				EC1096D8A30864FD56351248 /* ChatMessage.swift in Sources */,
+				6D59420EA828C7FF0B52097B /* ChatRepository.swift in Sources */,
+				382BA2A92BE51EA6546FC40F /* ChatScreen.swift in Sources */,
+				F2D41A1BC5C8C90F0056C794 /* ChatService.swift in Sources */,
+				F636E887FE8D3DECBC7BAB38 /* ChatSession.swift in Sources */,
+				6AAE3E89A2D3D874EB811E8B /* ChatViewModel.swift in Sources */,
+				977D25361A84FA17B417AADE /* ConnectionConfig.swift in Sources */,
+				CF373B8933EBE2458F18712D /* ContentView.swift in Sources */,
+				BFA63FF7EFF835B5724983DA /* DisplayModel.swift in Sources */,
+				C5E964C81B3388257534AB69 /* DrawerView.swift in Sources */,
+				C11DCF1C808DEAF8D02332DD /* ExpandableSettingsCard.swift in Sources */,
+				AF43378E81942DFA404BD16E /* InputBar.swift in Sources */,
+				D932071DDA960AC43D075F26 /* MessageBubble.swift in Sources */,
+				29141B72C09E907BEE6FE315 /* ModelAttribution.swift in Sources */,
+				B6C39DBD18F9AE8F40B088F2 /* ModelSelector.swift in Sources */,
+				9E31EEC5F23D4D858A3C1444 /* OllamaChatApp.swift in Sources */,
+				AA3E40814384FCC7AF503263 /* OllamaError.swift in Sources */,
+				D14337E20EF3EF5939B6987B /* OllamaModels.swift in Sources */,
+				FE2C2C5629655FB528C08347 /* PrivacyConsentView.swift in Sources */,
+				F029D599E9E5311F4602CBB1 /* PrivacyPolicyView.swift in Sources */,
+				D350269BFADF3A8FABCA4599 /* RecentsScreen.swift in Sources */,
+				995D5008E61DE7C9709A4D96 /* SearchService.swift in Sources */,
+				E95FDA0C5010CCE4F3597A9C /* SessionsViewModel.swift in Sources */,
+				709756681F9E3347DE27099F /* SettingsRepository.swift in Sources */,
+				CB33EDDEAF370D2BC4D6288F /* SettingsScreen.swift in Sources */,
+				94909469A92F6A9EC2543919 /* SettingsViewModel.swift in Sources */,
+				089D580FE5111F6E61603C91 /* StreamParser.swift in Sources */,
+				ED59B24D0F27909B8A2B5D53 /* StreamingIndicator.swift in Sources */,
+				99A76D6E3D853BDA7584412D /* TavilyClient.swift in Sources */,
+				48BC5533560438DB562C886A /* Theme.swift in Sources */,
+				B03470AF532DF4D3036D6FF0 /* WelcomeCard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		322BB17465AB581DF4A6013E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A39377E36454E1E07743976C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.marulab.ollamachat;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE7F656BA31963156CE8FCC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F26B4E9D17681D8D37FBC58D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_ENTITLEMENTS = OllamaChat/OllamaChat.entitlements;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = OllamaChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marulab.ollamachat;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1153B144BC28D772F37AC4FC /* Build configuration list for PBXProject "LocalLLMCloudChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE7F656BA31963156CE8FCC9 /* Debug */,
+				322BB17465AB581DF4A6013E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		729872B55CFD6C694F41621A /* Build configuration list for PBXNativeTarget "LocalLLMCloudChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F26B4E9D17681D8D37FBC58D /* Debug */,
+				A39377E36454E1E07743976C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD8059E5D2E67142E7859568 /* Project object */;
+}

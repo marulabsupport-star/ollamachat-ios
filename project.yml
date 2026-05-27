@@ -1,4 +1,4 @@
-name: LocalLLMChat
+name: LocalLLMCloudChat
 options:
   bundleIdPrefix: com.openclaw
   deploymentTarget:
@@ -12,7 +12,7 @@ settings:
     DEVELOPMENT_TEAM: ""
 
 targets:
-  LocalLLMChat:
+  LocalLLMCloudChat:
     type: application
     platform: iOS
     sources:
@@ -21,7 +21,7 @@ targets:
           - "Info.plist"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.marulab.localllmchat
+        PRODUCT_BUNDLE_IDENTIFIER: com.marulab.ollamachat
         INFOPLIST_FILE: OllamaChat/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1,2"

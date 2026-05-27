@@ -103,7 +103,7 @@ struct ChatScreen: View {
             dismissKeyboard()
         }
         #endif
-        .navigationTitle(viewModel.currentSession?.title ?? "LocalLLM Chat")
+        .navigationTitle(viewModel.currentSession?.title ?? "Local LLM Cloud Chat")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
