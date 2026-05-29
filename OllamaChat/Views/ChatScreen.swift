@@ -151,9 +151,12 @@ struct ChatScreen: View {
                     
                     Divider()
                     
-                    Button {
-                        shareChat()
-                    } label: {
+                    ShareLink(
+                        item: chatShareText,
+                        subject: Text("Chat Export"),
+                        message: Text("Exported from OllamaChat"),
+                        preview: SharePreview("Chat Export", image: Image(systemName: "bubble.left.and.bubble.right"))
+                    ) {
                         Label("Share Chat", systemImage: "square.and.arrow.up")
                     }
                 } label: {
@@ -198,13 +201,12 @@ struct ChatScreen: View {
         }
     }
     
-    private func shareChat() {
-        guard !viewModel.messages.isEmpty else { return }
-        let shareText = viewModel.messages.map { msg in
+    private var chatShareText: String {
+        guard !viewModel.messages.isEmpty else { return "" }
+        return viewModel.messages.map { msg in
             let prefix = msg.role == "user" ? "👤 User:" : "🤖 AI:"
             return "\(prefix) \(msg.content ?? "")"
         }.joined(separator: "\n\n")
-        UIPasteboard.general.string = shareText
     }
     
     #if os(iOS)
