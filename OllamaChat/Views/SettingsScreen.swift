@@ -85,6 +85,9 @@ struct SettingsScreen: View {
                     personaContent
                 }
                 
+                // 7. Memory
+                MemorySection()
+                
                 // 7. Theme
                 ExpandableSettingsCard(
                     title: "Theme",

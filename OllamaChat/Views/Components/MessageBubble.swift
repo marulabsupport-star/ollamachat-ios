@@ -68,6 +68,12 @@ struct MessageBubble: View {
     let message: ChatMessage
     let showThinking: Bool
     var onArtifactTap: ((Artifact) -> Void)? = nil
+    var onEdit: ((ChatMessage) -> Void)? = nil
+    var onRegenerate: ((ChatMessage) -> Void)? = nil
+    
+    @State private var showEditSheet = false
+    @State private var editText = ""
+    @State private var isSpeaking = false
     
     var isUser: Bool { message.role == "user" }
     
@@ -86,6 +92,11 @@ struct MessageBubble: View {
             return nil
         }
         return extractArtifact(from: content)
+    }
+    
+    private func toggleTTS() {
+        TTSService.shared.speak(message: message)
+        isSpeaking = TTSService.shared.speakingMessageId == message.id
     }
     
     var body: some View {
@@ -161,6 +172,81 @@ struct MessageBubble: View {
                     Text("Thinking...")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
+                }
+            }
+            
+            // TTS button for AI messages
+            if !isUser && !message.isStreaming, let content = message.content, !content.isEmpty {
+                HStack(spacing: 12) {
+                    Button {
+                        toggleTTS()
+                    } label: {
+                        Image(systemName: isSpeaking ? "speaker.wave.2.fill" : "speaker.wave.2")
+                            .font(.caption2)
+                            .foregroundStyle(isSpeaking ? Color.blue : .secondary)
+                    }
+                }
+                .padding(.leading, 4)
+            }
+        }
+        .onAppear {
+            isSpeaking = TTSService.shared.speakingMessageId == message.id && TTSService.shared.isSpeaking
+        }
+        .onChange(of: TTSService.shared.speakingMessageId) { _, newId in
+            isSpeaking = newId == message.id
+        }
+        .contextMenu {
+            if isUser {
+                Button {
+                    editText = message.content ?? ""
+                    showEditSheet = true
+                } label: {
+                    Label("Edit", systemImage: "pencil")
+                }
+            }
+            if !isUser {
+                Button {
+                    onRegenerate?(message)
+                } label: {
+                    Label("Regenerate", systemImage: "arrow.clockwise")
+                }
+            }
+            Button {
+                UIPasteboard.general.string = message.content ?? ""
+            } label: {
+                Label("Copy", systemImage: "doc.on.doc")
+            }
+        }
+        .sheet(isPresented: $showEditSheet) {
+            NavigationView {
+                VStack(spacing: 16) {
+                    TextEditor(text: $editText)
+                        .font(.body)
+                        .padding(8)
+                        .background(Color(.secondarySystemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .frame(minHeight: 100)
+                    
+                    Spacer()
+                }
+                .padding()
+                .navigationTitle("Edit Message")
+                #if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+                #endif
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") { showEditSheet = false }
+                    }
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Send") {
+                            let trimmed = editText.trimmingCharacters(in: .whitespacesAndNewlines)
+                            if !trimmed.isEmpty {
+                                onEdit?(message)
+                            }
+                            showEditSheet = false
+                        }
+                    }
                 }
             }
         }

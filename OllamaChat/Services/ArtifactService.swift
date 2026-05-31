@@ -12,6 +12,7 @@ enum ArtifactType: String {
         case .html: return "bolt.fill"
         case .mermaid: return "chart.bar.doc"
         case .svg: return "paintbrush"
+        }
     }
     
     var label: String {
@@ -39,13 +40,13 @@ struct Artifact: Identifiable {
 /// Supports: ```artifact, ```html, ```mermaid, ```svg code blocks.
 func extractArtifact(from content: String) -> Artifact? {
     // Pattern 1: ```artifact ... ```
-    if let match = ArtifactService.matchCodeBlock(content, language: "artifact") {
+    if let match = ArtifactHelper.matchCodeBlock(content, language: "artifact") {
         let html = match.code.trimmingCharacters(in: .whitespacesAndNewlines)
         if !html.isEmpty {
-            let title = ArtifactService.extractTitle(from: html) ?? "Artifact"
+            let title = ArtifactHelper.extractTitle(from: html) ?? "Artifact"
             return Artifact(
                 title: title,
-                htmlContent: ArtifactService.wrapInFullHtml(html),
+                htmlContent: ArtifactHelper.wrapInFullHtml(html),
                 rawContent: match.code,
                 type: .html
             )
@@ -53,13 +54,13 @@ func extractArtifact(from content: String) -> Artifact? {
     }
     
     // Pattern 2: ```html ... ``` (only interactive)
-    if let match = ArtifactService.matchCodeBlock(content, language: "html") {
+    if let match = ArtifactHelper.matchCodeBlock(content, language: "html") {
         let html = match.code.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !html.isEmpty && ArtifactService.isInteractiveHtml(html) {
-            let title = ArtifactService.extractTitle(from: html) ?? "HTML App"
+        if !html.isEmpty && ArtifactHelper.isInteractiveHtml(html) {
+            let title = ArtifactHelper.extractTitle(from: html) ?? "HTML App"
             return Artifact(
                 title: title,
-                htmlContent: ArtifactService.wrapInFullHtml(html),
+                htmlContent: ArtifactHelper.wrapInFullHtml(html),
                 rawContent: match.code,
                 type: .html
             )
@@ -67,12 +68,12 @@ func extractArtifact(from content: String) -> Artifact? {
     }
     
     // Pattern 3: ```mermaid ... ```
-    if let match = ArtifactService.matchCodeBlock(content, language: "mermaid") {
+    if let match = ArtifactHelper.matchCodeBlock(content, language: "mermaid") {
         let mermaidCode = match.code.trimmingCharacters(in: .whitespacesAndNewlines)
         if !mermaidCode.isEmpty {
             return Artifact(
                 title: "Mermaid Diagram",
-                htmlContent: ArtifactService.wrapMermaidHtml(mermaidCode),
+                htmlContent: ArtifactHelper.wrapMermaidHtml(mermaidCode),
                 rawContent: match.code,
                 type: .mermaid
             )
@@ -80,13 +81,13 @@ func extractArtifact(from content: String) -> Artifact? {
     }
     
     // Pattern 4: ```svg ... ```
-    if let match = ArtifactService.matchCodeBlock(content, language: "svg") {
+    if let match = ArtifactHelper.matchCodeBlock(content, language: "svg") {
         let svgCode = match.code.trimmingCharacters(in: .whitespacesAndNewlines)
         if !svgCode.isEmpty {
-            let title = ArtifactService.extractTitle(from: svgCode) ?? "SVG Graphic"
+            let title = ArtifactHelper.extractTitle(from: svgCode) ?? "SVG Graphic"
             return Artifact(
                 title: title,
-                htmlContent: ArtifactService.wrapSvgHtml(svgCode),
+                htmlContent: ArtifactHelper.wrapSvgHtml(svgCode),
                 rawContent: match.code,
                 type: .svg
             )
@@ -109,19 +110,10 @@ func stripArtifactBlocks(from content: String) -> String {
     return result.trimmingCharacters(in: .whitespacesAndNewlines)
 }
 
-/// Detect artifact type from content.
-func detectArtifactType(from content: String) -> ArtifactType {
-    if content.contains("```mermaid") { return .mermaid }
-    if content.contains("```svg") { return .svg }
-    if content.contains("```artifact") { return .html }
-    if content.contains("```html") { return .html }
-    return .html
-}
-
 /// Extract first few lines of code preview from artifact content.
 func extractCodePreview(from content: String, maxLines: Int = 3) -> String {
     for lang in ["artifact", "html", "mermaid", "svg"] {
-        if let match = ArtifactService.matchCodeBlock(content, language: lang) {
+        if let match = ArtifactHelper.matchCodeBlock(content, language: lang) {
             let lines = match.code
                 .components(separatedBy: .newlines)
                 .map { $0.trimmingCharacters(in: .whitespaces) }
@@ -136,9 +128,9 @@ func extractCodePreview(from content: String, maxLines: Int = 3) -> String {
         .joined(separator: "\n")
 }
 
-// MARK: - Artifact Service (internal helpers)
+// MARK: - Artifact Helper (namespace for internal functions)
 
-enum ArtifactService {
+struct ArtifactHelper {
     
     static func matchCodeBlock(_ content: String, language: String) -> CodeBlock? {
         let pattern = "```\(language)\n([\\s\\S]*?)```"
@@ -179,119 +171,72 @@ enum ArtifactService {
         if html.contains("<html") || html.contains("<!DOCTYPE") {
             return enhanceHtmlContent(html)
         }
-        return enhanceHtmlContent("""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
-                * { box-sizing: border-box; margin: 0; padding: 0; }
-                body {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                    padding: 16px;
-                    background: #0B1120;
-                    color: #E2E8F0;
-                }
-                input, button, select {
-                    font-size: 16px;
-                    padding: 8px 12px;
-                    border-radius: 8px;
-                    border: 1px solid #334155;
-                    background: #1E293B;
-                    color: #E2E8F0;
-                }
-                button {
-                    background: #3B82F6;
-                    color: white;
-                    border: none;
-                    cursor: pointer;
-                    padding: 8px 16px;
-                }
-                button:active { background: #2563EB; }
-            </style>
-        </head>
-        <body>
-            \(html)
-        </body>
-        </html>
-        """)
+        let wrapped = [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<style>",
+            "* { box-sizing: border-box; margin: 0; padding: 0; }",
+            "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 16px; background: #0B1120; color: #E2E8F0; }",
+            "input, button, select { font-size: 16px; padding: 8px 12px; border-radius: 8px; border: 1px solid #334155; background: #1E293B; color: #E2E8F0; }",
+            "button { background: #3B82F6; color: white; border: none; cursor: pointer; padding: 8px 16px; }",
+            "button:active { background: #2563EB; }",
+            "</style>",
+            "</head>",
+            "<body>",
+            html,
+            "</body>",
+            "</html>"
+        ].joined(separator: "\n")
+        return enhanceHtmlContent(wrapped)
     }
     
     static func wrapMermaidHtml(_ mermaidCode: String) -> String {
-        let html = """
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-            <style>
-                * { box-sizing: border-box; margin: 0; padding: 0; }
-                body {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                    padding: 16px;
-                    background: #0B1120;
-                    color: #E2E8F0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-height: 100vh;
-                }
-                .mermaid { max-width: 100%; overflow-x: auto; }
-                .mermaid svg { max-width: 100%; height: auto; }
-            </style>
-            <script>
-                mermaid.initialize({
-                    startOnLoad: true,
-                    theme: 'dark',
-                    themeVariables: {
-                        primaryColor: '#3B82F6',
-                        primaryTextColor: '#E2E8F0',
-                        primaryBorderColor: '#334155',
-                        lineColor: '#64748B',
-                        secondaryColor: '#1E293B',
-                        tertiaryColor: '#0F172A'
-                    }
-                });
-            </script>
-        </head>
-        <body>
-            <pre class="mermaid">
-        """
-        return html + mermaidCode + """
-            </pre>
-        </body>
-        </html>
-        """
+        let parts = [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<script src=\"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js\"></script>",
+            "<style>",
+            "* { box-sizing: border-box; margin: 0; padding: 0; }",
+            "body { font-family: -apple-system, sans-serif; padding: 16px; background: #0B1120; color: #E2E8F0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }",
+            ".mermaid { max-width: 100%; overflow-x: auto; }",
+            ".mermaid svg { max-width: 100%; height: auto; }",
+            "</style>",
+            "<script>",
+            "mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { primaryColor: '#3B82F6', primaryTextColor: '#E2E8F0', primaryBorderColor: '#334155', lineColor: '#64748B', secondaryColor: '#1E293B', tertiaryColor: '#0F172A' } });",
+            "</script>",
+            "</head>",
+            "<body>",
+            "<pre class=\"mermaid\">",
+            mermaidCode,
+            "</pre>",
+            "</body>",
+            "</html>"
+        ]
+        return parts.joined(separator: "\n")
     }
     
     static func wrapSvgHtml(_ svgCode: String) -> String {
-        let prefix = """
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
-                * { box-sizing: border-box; margin: 0; padding: 0; }
-                body {
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                    padding: 16px;
-                    background: #0B1120;
-                    color: #E2E8F0;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    min-height: 100vh;
-                }
-                svg { max-width: 100%; height: auto; }
-            </style>
-        </head>
-        <body>
-        """
-        let suffix = """
-        </body>
-        </html>
-        """
-        return prefix + svgCode + suffix
+        let parts = [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<style>",
+            "* { box-sizing: border-box; margin: 0; padding: 0; }",
+            "body { font-family: -apple-system, sans-serif; padding: 16px; background: #0B1120; color: #E2E8F0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }",
+            "svg { max-width: 100%; height: auto; }",
+            "</style>",
+            "</head>",
+            "<body>",
+            svgCode,
+            "</body>",
+            "</html>"
+        ]
+        return parts.joined(separator: "\n")
     }
     
     static func enhanceHtmlContent(_ html: String) -> String {
@@ -300,23 +245,7 @@ enum ArtifactService {
         // If HTML contains <pre class="mermaid"> but no mermaid script, inject it
         if html.contains("class=\"mermaid\"") || html.contains("class='mermaid'") {
             if !html.contains("mermaid.min.js") && !html.contains("mermaid@") {
-                let mermaidScript = """
-                <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-                <script>
-                    mermaid.initialize({
-                        startOnLoad: true,
-                        theme: 'dark',
-                        themeVariables: {
-                            primaryColor: '#3B82F6',
-                            primaryTextColor: '#E2E8F0',
-                            primaryBorderColor: '#334155',
-                            lineColor: '#64748B',
-                            secondaryColor: '#1E293B',
-                            tertiaryColor: '#0F172A'
-                        }
-                    });
-                </script>
-                """
+                let mermaidScript = "<script src=\"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js\"></script>\n<script>mermaid.initialize({ startOnLoad: true, theme: 'dark', themeVariables: { primaryColor: '#3B82F6', primaryTextColor: '#E2E8F0', primaryBorderColor: '#334155', lineColor: '#64748B', secondaryColor: '#1E293B', tertiaryColor: '#0F172A' } });</script>"
                 if enhanced.contains("</head>") {
                     enhanced = enhanced.replacingOccurrences(of: "</head>", with: "\(mermaidScript)\n</head>")
                 } else if enhanced.contains("<head>") {

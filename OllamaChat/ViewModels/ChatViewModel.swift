@@ -230,6 +230,16 @@ final class ChatViewModel {
         chatService.cancelStreaming()
     }
     
+    // MARK: - Edit & Regenerate
+    
+    func editUserMessage(_ message: ChatMessage, newContent: String) async {
+        await chatService.editUserMessage(message, newContent: newContent)
+    }
+    
+    func regenerateAiMessage(_ message: ChatMessage) async {
+        await chatService.regenerateAiMessage(message)
+    }
+    
     func dismissError() {
         errorMessage = nil
     }

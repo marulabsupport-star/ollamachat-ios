@@ -16,6 +16,11 @@ struct ChatScreen: View {
     // Artifact preview state
     @State private var selectedArtifact: Artifact?
     
+    // Edit/regenerate state
+    @State private var editTextMessage: ChatMessage?
+    @State private var regenerateMessage: ChatMessage?
+    @State private var editText = ""
+    
     var body: some View {
         VStack(spacing: 0) {
             // Message list
@@ -34,6 +39,10 @@ struct ChatScreen: View {
                                 showThinking: viewModel.showThinkingSection
                             ) {
                                 selectedArtifact = $0
+                            } onEdit: { msg in
+                                editTextMessage = msg
+                            } onRegenerate: { msg in
+                                regenerateMessage = msg
                             }
                             .id(message.id)
                         }
@@ -189,6 +198,45 @@ struct ChatScreen: View {
         }
         .sheet(item: $selectedArtifact) { artifact in
             ArtifactPreviewSheet(artifact: artifact)
+        }
+        .sheet(item: $editTextMessage) { msg in
+            NavigationView {
+                VStack(spacing: 16) {
+                    TextEditor(text: $editText)
+                        .font(.body)
+                        .padding(8)
+                        .background(Color(.secondarySystemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                        .frame(minHeight: 100)
+                    
+                    Spacer()
+                }
+                .padding()
+                .navigationTitle("Edit Message")
+                #if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+                #endif
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") { editTextMessage = nil }
+                    }
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Send") {
+                            let trimmed = editText.trimmingCharacters(in: .whitespacesAndNewlines)
+                            if !trimmed.isEmpty {
+                                Task { await viewModel.editUserMessage(msg, newContent: trimmed) }
+                            }
+                            editTextMessage = nil
+                        }
+                    }
+                }
+            }
+            .onAppear { editText = msg.content ?? "" }
+        }
+        .task(id: regenerateMessage) {
+            guard let msg = regenerateMessage else { return }
+            await viewModel.regenerateAiMessage(msg)
+            regenerateMessage = nil
         }
         .photosPicker(isPresented: $showPhotoPicker, selection: $selectedPhotoItem, matching: .images)
         .onChange(of: selectedPhotoItem) { _, newItem in

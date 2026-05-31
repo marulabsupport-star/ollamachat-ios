@@ -15,10 +15,12 @@ final class ChatService {
     private(set) var chatRepo: ChatRepository
     private let connectionConfig: ConnectionConfig
     private let settings: AppSettings
+    private var memoryRepo: MemoryRepository?
     
     /// Update model context on the repository (called from ContentView.onAppear)
     func updateModelContext(_ context: ModelContext) {
         chatRepo.modelContext = context
+        memoryRepo = MemoryRepository(modelContext: context)
     }
     
     // MARK: - State
@@ -134,6 +136,59 @@ final class ChatService {
         isStreaming = false
     }
     
+    // MARK: - Edit & Regenerate
+    
+    /// Edit a user message: delete it and all messages after it, re-insert with new content, then re-send.
+    func editUserMessage(_ message: ChatMessage, newContent: String) async {
+        guard let session = currentSession else { return }
+        guard message.role == "user" else { return }
+        guard !isStreaming else { return }
+        
+        // Find messages before the edited one
+        let editedIndex = messages.firstIndex(where: { $0.id == message.id }) ?? 0
+        let messagesBeforeEdit = Array(messages.prefix(editedIndex))
+        
+        // Delete from DB: the edited message and everything after
+        chatRepo.deleteMessagesFrom(sessionId: session.id, from: message.createdAt)
+        
+        // Update in-memory list
+        messages = messagesBeforeEdit
+        
+        // Insert new user message
+        let newUserMessage = chatRepo.addMessage(
+            role: "user",
+            content: newContent,
+            to: session
+        )
+        messages.append(newUserMessage)
+        
+        // Send to get new AI response
+        await sendMessage(newContent)
+    }
+    
+    /// Regenerate an AI message: delete it, find preceding user message, re-send.
+    func regenerateAiMessage(_ message: ChatMessage) async {
+        guard let session = currentSession else { return }
+        guard message.role == "assistant" else { return }
+        guard !isStreaming else { return }
+        
+        let aiIndex = messages.firstIndex(where: { $0.id == message.id }) ?? 0
+        if aiIndex == 0 { return }
+        
+        // Find the preceding user message
+        let precedingUserMessage = messages[aiIndex - 1]
+        guard precedingUserMessage.role == "user" else { return }
+        
+        // Delete the AI message from DB
+        chatRepo.deleteMessage(message)
+        
+        // Update in-memory list
+        messages.remove(at: aiIndex)
+        
+        // Re-send the preceding user message
+        await sendMessage(precedingUserMessage.content ?? "")
+    }
+    
     // MARK: - Private
     
     /// Default system prompt injected when user hasn't set a custom one.
@@ -156,6 +211,12 @@ final class ChatService {
         
         // System prompt: user custom > default
         var systemPrompt = session.systemPrompt.isEmpty ? Self.defaultSystemPrompt : session.systemPrompt
+        
+        // Inject memory context
+        if let memoryContext = memoryRepo?.buildMemoryContext() {
+            systemPrompt += "\n\n" + memoryContext
+        }
+        
         if let search = searchContext {
             systemPrompt += "\n\n" + search
         }

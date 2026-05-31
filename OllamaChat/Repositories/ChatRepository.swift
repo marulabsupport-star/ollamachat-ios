@@ -129,4 +129,26 @@ final class ChatRepository {
         message.isStreaming = false
         try? modelContext.save()
     }
+    
+    // MARK: - Delete Messages
+    
+    /// Delete a single message by ID.
+    func deleteMessage(_ message: ChatMessage) {
+        modelContext.delete(message)
+        try? modelContext.save()
+    }
+    
+    /// Delete a message and all messages after it (by timestamp within the session).
+    func deleteMessagesFrom(sessionId: UUID, from timestamp: Date) {
+        let descriptor = FetchDescriptor<ChatMessage>(
+            predicate: #Predicate {
+                $0.session?.id == sessionId && $0.createdAt >= timestamp
+            }
+        )
+        let messages = (try? modelContext.fetch(descriptor)) ?? []
+        for msg in messages {
+            modelContext.delete(msg)
+        }
+        try? modelContext.save()
+    }
 }
