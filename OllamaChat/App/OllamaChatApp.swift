@@ -22,7 +22,7 @@ struct LocalLLMCloudChatApp: App {
     
     init() {
         do {
-            let schema = Schema([ChatSession.self, ChatMessage.self])
+            let schema = Schema([ChatSession.self, ChatMessage.self, PersonaEntry.self])
             let config = ModelConfiguration(schema: schema)
             self.modelContainer = try ModelContainer(for: schema, configurations: [config])
         } catch {

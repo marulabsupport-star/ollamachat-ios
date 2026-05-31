@@ -13,6 +13,12 @@ struct SettingsScreen: View {
     @State private var showModelDropdown = false
     @State private var showThemeDropdown = false
     
+    // Persona state
+    @State private var personas: [PersonaEntry] = []
+    @State private var selectedPersonaId: UUID? = nil
+    @State private var editingPersona: PersonaEntry?
+    @State private var showAddPersonaSheet = false
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
@@ -69,7 +75,17 @@ struct SettingsScreen: View {
                     systemPromptContent
                 }
                 
-                // 6. Theme
+                // 6. Personas
+                ExpandableSettingsCard(
+                    title: "Personas",
+                    icon: "person.crop.circle.fill",
+                    cardId: "personas",
+                    expandedCard: $expandedCard
+                ) {
+                    personaContent
+                }
+                
+                // 7. Theme
                 ExpandableSettingsCard(
                     title: "Theme",
                     icon: "moon.fill",
@@ -79,7 +95,7 @@ struct SettingsScreen: View {
                     themeContent
                 }
                 
-                // 7. Backup & Restore
+                // 9. Backup & Restore
                 ExpandableSettingsCard(
                     title: "Backup & Restore",
                     icon: "internaldrive.fill",
@@ -89,7 +105,7 @@ struct SettingsScreen: View {
                     backupContent
                 }
                 
-                // 8. Privacy Policy
+                // 10. Privacy Policy
                 NavigationLink {
                     PrivacyPolicyView()
                 } label: {
@@ -106,7 +122,7 @@ struct SettingsScreen: View {
                 }
                 .padding(.horizontal, 16)
                 
-                // Clear Data
+                // 11. Clear Data
                 Button(role: .destructive) {
                     viewModel.clearAllData(modelContext: modelContext)
                 } label: {
@@ -134,6 +150,24 @@ struct SettingsScreen: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
+        .onAppear {
+            loadPersonas()
+        }
+        .sheet(item: $editingPersona) { persona in
+            PersonaEditSheet(mode: .edit(persona)) { name, prompt in
+                let repo = PersonaRepository(modelContext: modelContext)
+                repo.update(persona, name: name, systemPrompt: prompt)
+                loadPersonas()
+            }
+        }
+        .sheet(isPresented: $showAddPersonaSheet) {
+            PersonaEditSheet(mode: .add) { name, prompt in
+                let repo = PersonaRepository(modelContext: modelContext)
+                let persona = repo.create(name: name, systemPrompt: prompt)
+                loadPersonas()
+                selectedPersonaId = persona.id
+            }
+        }
     }
     
     // MARK: - Header Card
@@ -345,6 +379,70 @@ struct SettingsScreen: View {
             }
             .buttonStyle(.borderedProminent)
             .frame(maxWidth: .infinity)
+        }
+    }
+    
+    // MARK: - Persona Content
+    
+    private var personaContent: some View {
+        VStack(spacing: 12) {
+            if personas.isEmpty {
+                Text("No personas yet. Add one to customize AI behavior.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            } else {
+                ForEach(personas) { persona in
+                    PersonaRow(
+                        persona: persona,
+                        isSelected: selectedPersonaId == persona.id,
+                        onSelect: {
+                            if selectedPersonaId == persona.id {
+                                selectedPersonaId = nil
+                                viewModel.settings.systemPrompt = ""
+                            } else {
+                                selectedPersonaId = persona.id
+                                viewModel.settings.systemPrompt = persona.systemPrompt
+                            }
+                        },
+                        onEdit: { editingPersona = persona },
+                        onSetDefault: {
+                            let repo = PersonaRepository(modelContext: modelContext)
+                            repo.setDefault(persona)
+                            loadPersonas()
+                        },
+                        onDelete: {
+                            let repo = PersonaRepository(modelContext: modelContext)
+                            repo.delete(persona)
+                            if selectedPersonaId == persona.id {
+                                selectedPersonaId = nil
+                                viewModel.settings.systemPrompt = ""
+                            }
+                            loadPersonas()
+                        }
+                    )
+                }
+            }
+            
+            Button {
+                showAddPersonaSheet = true
+            } label: {
+                Label("Add Persona", systemImage: "plus.circle.fill")
+                    .font(.subheadline)
+            }
+            .buttonStyle(.bordered)
+        }
+    }
+    
+    private func loadPersonas() {
+        let repo = PersonaRepository(modelContext: modelContext)
+        repo.seedDefaultsIfNeeded()
+        personas = repo.fetchAll()
+        // Restore selected persona
+        if selectedPersonaId == nil {
+            if let defaultPersona = repo.fetchDefault() {
+                selectedPersonaId = defaultPersona.id
+                viewModel.settings.systemPrompt = defaultPersona.systemPrompt
+            }
         }
     }
 }
