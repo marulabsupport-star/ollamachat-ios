@@ -9,17 +9,21 @@
 /* Begin PBXBuildFile section */
 		089D580FE5111F6E61603C91 /* StreamParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8578D212AC989AF539481D76 /* StreamParser.swift */; };
 		18E7D7B43132D37AA029635B /* BackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A537F11F526C155B8F18B6D9 /* BackupService.swift */; };
+		19AB53B5F61DA8E47A604668 /* PersonaRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FEDFC2B9C5F2718A05C088 /* PersonaRepository.swift */; };
 		27C3E190DD50CD0ACD5F68D9 /* AttachmentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59E792A0684217AB12CC26E /* AttachmentMenu.swift */; };
 		29141B72C09E907BEE6FE315 /* ModelAttribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */; };
 		3580BBF878AC9BBF076C3A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00AA487200332172B3B97B47 /* Assets.xcassets */; };
 		382BA2A92BE51EA6546FC40F /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD0F06BC25E56B44F3918B /* ChatScreen.swift */; };
 		48BC5533560438DB562C886A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B79A4FD0FD5D8603BF4820 /* Theme.swift */; };
+		4A8B24BD18AB3844FBAD15E0 /* PersonaSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2779E893304CDFF4EF34997F /* PersonaSection.swift */; };
 		68F279AD7BD27E7F82F8CD78 /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7D36C3C8C9AC0D173EBB0B /* AvailableModels.swift */; };
 		6AAE3E89A2D3D874EB811E8B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */; };
 		6D59420EA828C7FF0B52097B /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */; };
 		709756681F9E3347DE27099F /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */; };
 		7B3646F5E77143E204D6A253 /* BackupRestoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */; };
+		7EE1F8890F0E909E9F99614E /* PersonaEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7EB8F502CA4563892A1712 /* PersonaEntry.swift */; };
 		94909469A92F6A9EC2543919 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */; };
+		962FDCBDAFEC10302D037366 /* ArtifactCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E21DA419604AF572CAF5F41 /* ArtifactCard.swift */; };
 		977D25361A84FA17B417AADE /* ConnectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770390F3070AD5439005A10 /* ConnectionConfig.swift */; };
 		995D5008E61DE7C9709A4D96 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C1F42D47B620D6B3B78488 /* SearchService.swift */; };
 		99A76D6E3D853BDA7584412D /* TavilyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A39AFBF04ACC963F966741 /* TavilyClient.swift */; };
@@ -36,6 +40,7 @@
 		D14337E20EF3EF5939B6987B /* OllamaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */; };
 		D350269BFADF3A8FABCA4599 /* RecentsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CC4638FC0E97769714C86D /* RecentsScreen.swift */; };
 		D932071DDA960AC43D075F26 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4F9E952F61B81CA86EB89D /* MessageBubble.swift */; };
+		DD623AF34505E441D93EC541 /* ArtifactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C50D8EC414EF22803498A /* ArtifactService.swift */; };
 		E95FDA0C5010CCE4F3597A9C /* SessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466442D8013150A192494FA /* SessionsViewModel.swift */; };
 		EC1096D8A30864FD56351248 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0580118ACEE07DB516272E /* ChatMessage.swift */; };
 		ED59B24D0F27909B8A2B5D53 /* StreamingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0496664AE8B3455F570284 /* StreamingIndicator.swift */; };
@@ -58,7 +63,9 @@
 		26234D2DD53F7CEBB3046484 /* LocalLLMCloudChat.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalLLMCloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269B34A42612D26DE0554EB9 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		26CC15982C8A1D9DB520811E /* WelcomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCard.swift; sourceTree = "<group>"; };
+		2779E893304CDFF4EF34997F /* PersonaSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaSection.swift; sourceTree = "<group>"; };
 		29220B921F7B406871C2EE79 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
+		32FEDFC2B9C5F2718A05C088 /* PersonaRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaRepository.swift; sourceTree = "<group>"; };
 		3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyConsentView.swift; sourceTree = "<group>"; };
 		3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaModels.swift; sourceTree = "<group>"; };
 		4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAttribution.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		6466442D8013150A192494FA /* SessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModel.swift; sourceTree = "<group>"; };
 		69CC4638FC0E97769714C86D /* RecentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsScreen.swift; sourceTree = "<group>"; };
 		7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		7E21DA419604AF572CAF5F41 /* ArtifactCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactCard.swift; sourceTree = "<group>"; };
 		8578D212AC989AF539481D76 /* StreamParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamParser.swift; sourceTree = "<group>"; };
 		85A39AFBF04ACC963F966741 /* TavilyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TavilyClient.swift; sourceTree = "<group>"; };
 		923E309985D2284C7ED6E878 /* ChatSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSession.swift; sourceTree = "<group>"; };
@@ -82,12 +90,14 @@
 		CECE37103C983355FB64836B /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRestoreScreen.swift; sourceTree = "<group>"; };
 		DC0496664AE8B3455F570284 /* StreamingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingIndicator.swift; sourceTree = "<group>"; };
+		DF7EB8F502CA4563892A1712 /* PersonaEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonaEntry.swift; sourceTree = "<group>"; };
 		E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
 		E901F4B33D5091055107CE14 /* DisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModel.swift; sourceTree = "<group>"; };
 		E9B79A4FD0FD5D8603BF4820 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EE72120B008DADB210E5F587 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
 		F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSettingsCard.swift; sourceTree = "<group>"; };
 		F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		FD5C50D8EC414EF22803498A /* ArtifactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -121,6 +131,7 @@
 		40E30FE699BCF18CE465BF23 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FD5C50D8EC414EF22803498A /* ArtifactService.swift */,
 				A537F11F526C155B8F18B6D9 /* BackupService.swift */,
 				29220B921F7B406871C2EE79 /* ChatService.swift */,
 				97C1F42D47B620D6B3B78488 /* SearchService.swift */,
@@ -140,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */,
+				32FEDFC2B9C5F2718A05C088 /* PersonaRepository.swift */,
 				6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */,
 			);
 			path = Repositories;
@@ -203,6 +215,7 @@
 		AE5059DEDB490F89D1448C26 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7E21DA419604AF572CAF5F41 /* ArtifactCard.swift */,
 				A59E792A0684217AB12CC26E /* AttachmentMenu.swift */,
 				D3200F06518BD91B56AE55B3 /* BackupRestoreScreen.swift */,
 				0CD57429BB6857F72CF9C5DC /* DrawerView.swift */,
@@ -210,6 +223,7 @@
 				C175B21D6F2BB4459AB7EA4D /* InputBar.swift */,
 				AE4F9E952F61B81CA86EB89D /* MessageBubble.swift */,
 				EE72120B008DADB210E5F587 /* ModelSelector.swift */,
+				2779E893304CDFF4EF34997F /* PersonaSection.swift */,
 				3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */,
 				CECE37103C983355FB64836B /* PrivacyPolicyView.swift */,
 				DC0496664AE8B3455F570284 /* StreamingIndicator.swift */,
@@ -235,6 +249,7 @@
 				4C0438F5FE7AC19C326602A7 /* ModelAttribution.swift */,
 				126D59951AA1A7581ED4DF87 /* OllamaError.swift */,
 				3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */,
+				DF7EB8F502CA4563892A1712 /* PersonaEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -322,6 +337,8 @@
 			files = (
 				ED7C014958A184ED205A404D /* ApiClient.swift in Sources */,
 				F19652F2EAF41E799DF659B8 /* AppSettings.swift in Sources */,
+				962FDCBDAFEC10302D037366 /* ArtifactCard.swift in Sources */,
+				DD623AF34505E441D93EC541 /* ArtifactService.swift in Sources */,
 				27C3E190DD50CD0ACD5F68D9 /* AttachmentMenu.swift in Sources */,
 				68F279AD7BD27E7F82F8CD78 /* AvailableModels.swift in Sources */,
 				7B3646F5E77143E204D6A253 /* BackupRestoreScreen.swift in Sources */,
@@ -344,6 +361,9 @@
 				9E31EEC5F23D4D858A3C1444 /* OllamaChatApp.swift in Sources */,
 				AA3E40814384FCC7AF503263 /* OllamaError.swift in Sources */,
 				D14337E20EF3EF5939B6987B /* OllamaModels.swift in Sources */,
+				7EE1F8890F0E909E9F99614E /* PersonaEntry.swift in Sources */,
+				19AB53B5F61DA8E47A604668 /* PersonaRepository.swift in Sources */,
+				4A8B24BD18AB3844FBAD15E0 /* PersonaSection.swift in Sources */,
 				FE2C2C5629655FB528C08347 /* PrivacyConsentView.swift in Sources */,
 				F029D599E9E5311F4602CBB1 /* PrivacyPolicyView.swift in Sources */,
 				D350269BFADF3A8FABCA4599 /* RecentsScreen.swift in Sources */,

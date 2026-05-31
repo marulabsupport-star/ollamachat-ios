@@ -67,6 +67,7 @@ func wrapForWebView(_ block: CodeBlock) -> String {
 struct MessageBubble: View {
     let message: ChatMessage
     let showThinking: Bool
+    var onArtifactTap: ((Artifact) -> Void)? = nil
     
     var isUser: Bool { message.role == "user" }
     
@@ -77,6 +78,14 @@ struct MessageBubble: View {
             return []
         }
         return extractCodeBlocks(content)
+    }
+    
+    /// Extract artifact from AI message content.
+    private var artifact: Artifact? {
+        guard !isUser, !message.isStreaming, let content = message.content, !content.isEmpty else {
+            return nil
+        }
+        return extractArtifact(from: content)
     }
     
     var body: some View {
@@ -115,7 +124,15 @@ struct MessageBubble: View {
                 } else if !codeBlocks.isEmpty {
                     // AI message with code blocks (not during streaming)
                     VStack(alignment: .leading, spacing: 4) {
-                        CodeBlockRichContent(content: content, codeBlocks: codeBlocks)
+                        let displayContent = artifact != nil ? stripArtifactBlocks(from: content) : content
+                        CodeBlockRichContent(content: displayContent, codeBlocks: codeBlocks)
+                        
+                        // Artifact card
+                        if let artifact {
+                            ArtifactCard(artifact: artifact) {
+                                onArtifactTap?(artifact)
+                            }
+                        }
                     }
                     .padding(.horizontal, 14)
                     .padding(.vertical, 10)

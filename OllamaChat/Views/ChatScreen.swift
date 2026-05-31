@@ -13,6 +13,9 @@ struct ChatScreen: View {
     @State private var showPhotoPicker = false
     @ObservedObject var attachmentManager = AttachmentManager.shared
     
+    // Artifact preview state
+    @State private var selectedArtifact: Artifact?
+    
     var body: some View {
         VStack(spacing: 0) {
             // Message list
@@ -29,7 +32,9 @@ struct ChatScreen: View {
                             MessageBubble(
                                 message: message,
                                 showThinking: viewModel.showThinkingSection
-                            )
+                            ) {
+                                selectedArtifact = $0
+                            }
                             .id(message.id)
                         }
                         
@@ -181,6 +186,9 @@ struct ChatScreen: View {
         }
         .sheet(isPresented: $viewModel.showModelPicker) {
             ModelPickerSheet(viewModel: viewModel)
+        }
+        .sheet(item: $selectedArtifact) { artifact in
+            ArtifactPreviewSheet(artifact: artifact)
         }
         .photosPicker(isPresented: $showPhotoPicker, selection: $selectedPhotoItem, matching: .images)
         .onChange(of: selectedPhotoItem) { _, newItem in
