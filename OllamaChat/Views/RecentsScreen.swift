@@ -181,6 +181,11 @@ struct SessionCard: View {
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
+            } else {
+                // Avoid accessing relationship when no preview
+                Text("No messages")
+                    .font(.subheadline)
+                    .foregroundStyle(.tertiary)
             }
             
             HStack(spacing: 8) {
