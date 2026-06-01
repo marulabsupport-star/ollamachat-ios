@@ -28,6 +28,10 @@ final class ChatService {
     var currentSession: ChatSession?
     var messages: [ChatMessage] = []
     var isStreaming: Bool = false
+    
+    // Streaming throttle — only update UI every ~80ms
+    private var lastUIUpdate: Date = .distantPast
+    private let uiUpdateInterval: TimeInterval = 0.08  // ~12 fps for smooth scrolling
     var errorMessage: String?
     
     // Incremental save timer
@@ -257,15 +261,23 @@ final class ChatService {
     
     private func handleStreamEvent(_ event: StreamEvent) {
         guard let message = streamingMessage else { return }
+        let now = Date()
+        let shouldUpdateUI = now.timeIntervalSince(lastUIUpdate) >= uiUpdateInterval
         
         switch event {
         case .token(let text):
             accumulatedContent += text
-            chatRepo.updateMessageInMemory(message, content: accumulatedContent)
+            if shouldUpdateUI {
+                chatRepo.updateMessageInMemory(message, content: accumulatedContent)
+                lastUIUpdate = now
+            }
             
         case .thinking(let text):
             accumulatedThinking += text
-            chatRepo.updateMessageInMemory(message, thinkingContent: accumulatedThinking)
+            if shouldUpdateUI {
+                chatRepo.updateMessageInMemory(message, thinkingContent: accumulatedThinking)
+                lastUIUpdate = now
+            }
             
         case .complete(let promptTokens, let completionTokens):
             // Persist token usage if available
@@ -307,6 +319,8 @@ final class ChatService {
             isStreaming = false
             return
         }
+        // Flush any remaining throttled content before finalizing
+        chatRepo.updateMessageInMemory(message, content: accumulatedContent, thinkingContent: accumulatedThinking)
         chatRepo.updateMessage(message, isStreaming: false)
         streamingMessage = nil
         isStreaming = false

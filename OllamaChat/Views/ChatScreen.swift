@@ -58,14 +58,17 @@ struct ChatScreen: View {
                 }
                 #if os(iOS)
                 .scrollDismissesKeyboard(.immediately)
+                .defaultScrollAnchor(.bottom)
                 #endif
-                // Only auto-scroll when a NEW message is added (not on every content update)
+                // Auto-scroll on new messages
                 .onChange(of: viewModel.messages.count) { oldCount, newCount in
                     if newCount > oldCount, let lastMessage = viewModel.messages.last {
-                        proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                        }
                     }
                 }
-                // Initial scroll when streaming starts
+                // Scroll during streaming — throttled
                 .onChange(of: viewModel.isStreaming) { _, isStreaming in
                     if isStreaming {
                         proxy.scrollTo("streaming", anchor: .bottom)

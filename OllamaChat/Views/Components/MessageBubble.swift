@@ -74,6 +74,11 @@ struct MessageBubble: View {
     @State private var showEditSheet = false
     @State private var editText = ""
     @State private var isSpeaking = false
+    // Cache code blocks to avoid re-parsing on every render
+    @State private var cachedCodeBlocks: [CodeBlock] = []
+    @State private var cachedContentHash: Int = 0
+    @State private var cachedArtifact: Artifact? = nil
+    @State private var cachedArtifactContentHash: Int = 0
     
     var isUser: Bool { message.role == "user" }
     
@@ -83,6 +88,8 @@ struct MessageBubble: View {
         guard !message.isStreaming, let content = message.content, !content.isEmpty else {
             return []
         }
+        let hash = content.hashValue
+        if hash == cachedContentHash { return cachedCodeBlocks }
         return extractCodeBlocks(content)
     }
     
@@ -91,6 +98,8 @@ struct MessageBubble: View {
         guard !isUser, !message.isStreaming, let content = message.content, !content.isEmpty else {
             return nil
         }
+        let hash = content.hashValue
+        if hash == cachedArtifactContentHash { return cachedArtifact }
         return extractArtifact(from: content)
     }
     
@@ -191,6 +200,28 @@ struct MessageBubble: View {
         }
         .onAppear {
             isSpeaking = TTSService.shared.speakingMessageId == message.id && TTSService.shared.isSpeaking
+            // Warm up caches
+            if !message.isStreaming, let content = message.content {
+                let hash = content.hashValue
+                if hash != cachedContentHash {
+                    cachedContentHash = hash
+                    cachedCodeBlocks = extractCodeBlocks(content)
+                }
+                if hash != cachedArtifactContentHash {
+                    cachedArtifactContentHash = hash
+                    cachedArtifact = extractArtifact(from: content)
+                }
+            }
+        }
+        .onChange(of: message.isStreaming) { _, isStreaming in
+            // When streaming finishes, parse code blocks and artifacts
+            if !isStreaming, let content = message.content, !content.isEmpty {
+                let hash = content.hashValue
+                cachedContentHash = hash
+                cachedCodeBlocks = extractCodeBlocks(content)
+                cachedArtifactContentHash = hash
+                cachedArtifact = extractArtifact(from: content)
+            }
         }
         .onChange(of: TTSService.shared.speakingMessageId) { _, newId in
             isSpeaking = newId == message.id
