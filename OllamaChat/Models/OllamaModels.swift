@@ -8,8 +8,8 @@ enum StreamEvent: Sendable {
     case token(String)
     /// Thinking/reasoning token (inside think tags)
     case thinking(String)
-    /// Stream completed successfully
-    case complete
+    /// Stream completed successfully with optional token counts
+    case complete(promptTokens: Int? = nil, completionTokens: Int? = nil)
     /// Stream cancelled by user
     case streamCancelled
     /// Stream error
@@ -77,12 +77,17 @@ struct OllamaStreamLine: Codable {
     let createdAt: String?
     let message: OllamaStreamMessage?
     let done: Bool?
+    // Token usage fields (present in final "done" response)
+    let promptEvalCount: Int?
+    let evalCount: Int?
     
     enum CodingKeys: String, CodingKey {
         case model
         case createdAt = "created_at"
         case message
         case done
+        case promptEvalCount = "prompt_eval_count"
+        case evalCount = "eval_count"
     }
 }
 

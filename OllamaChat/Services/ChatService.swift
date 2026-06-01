@@ -262,7 +262,21 @@ final class ChatService {
             accumulatedThinking += text
             chatRepo.updateMessageInMemory(message, thinkingContent: accumulatedThinking)
             
-        case .complete:
+        case .complete(let promptTokens, let completionTokens):
+            // Persist token usage if available
+            if let prompt = promptTokens, let completion = completionTokens {
+                let repo = TokenUsageRepository(modelContext: chatRepo.modelContext)
+                let weekId = TokenUsageRepository.currentWeekId()
+                let category: String
+                if let session = currentSession {
+                    category = session.connectionMode == "cloud" ? "cloud" : "local"
+                } else {
+                    category = "cloud"
+                }
+                repo.addTokens(weekId: weekId, category: category, direction: "input", count: prompt)
+                repo.addTokens(weekId: weekId, category: category, direction: "output", count: completion)
+                repo.deleteOldWeeks(keepWeekId: weekId)
+            }
             break  // Handled in finalize
             
         case .streamCancelled:

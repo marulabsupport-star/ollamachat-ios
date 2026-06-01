@@ -127,7 +127,10 @@ actor ApiClient {
                         for event in finalEvents {
                             continuation.yield(event)
                         }
-                        continuation.yield(.complete)
+                        continuation.yield(.complete(
+                            promptTokens: streamLine.promptEvalCount,
+                            completionTokens: streamLine.evalCount
+                        ))
                         continuation.finish()
                         return
                     }
@@ -137,7 +140,7 @@ actor ApiClient {
                 for event in finalEvents {
                     continuation.yield(event)
                 }
-                continuation.yield(.complete)
+                continuation.yield(.complete())
                 continuation.finish()
                 
             } catch is CancellationError {

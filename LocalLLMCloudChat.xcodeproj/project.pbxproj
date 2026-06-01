@@ -37,8 +37,10 @@
 		B6C39DBD18F9AE8F40B088F2 /* ModelSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE72120B008DADB210E5F587 /* ModelSelector.swift */; };
 		BFA63FF7EFF835B5724983DA /* DisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E901F4B33D5091055107CE14 /* DisplayModel.swift */; };
 		C11DCF1C808DEAF8D02332DD /* ExpandableSettingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */; };
+		C2DDBD2587359A10CBD0073F /* TokenUsageEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C703D51EC15066D8EDE243C /* TokenUsageEntry.swift */; };
 		C5E964C81B3388257534AB69 /* DrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD57429BB6857F72CF9C5DC /* DrawerView.swift */; };
 		CB33EDDEAF370D2BC4D6288F /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269B34A42612D26DE0554EB9 /* SettingsScreen.swift */; };
+		CE3352E738EF161830EDB319 /* TokenUsageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664D207ED5BFD4B83E48C2F5 /* TokenUsageBar.swift */; };
 		CF373B8933EBE2458F18712D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3B547FDD5FB4A9038818D9 /* ContentView.swift */; };
 		D08629C5BE408CB5DB021C3A /* MemoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA30C81B569B422C4F3A2FA /* MemoryEntry.swift */; };
 		D14337E20EF3EF5939B6987B /* OllamaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */; };
@@ -51,6 +53,7 @@
 		ED7C014958A184ED205A404D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011AAC648486ED1B81586A15 /* ApiClient.swift */; };
 		F029D599E9E5311F4602CBB1 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE37103C983355FB64836B /* PrivacyPolicyView.swift */; };
 		F19652F2EAF41E799DF659B8 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082E38D85E0332D112C33CD8 /* AppSettings.swift */; };
+		F2280F8CBC70AC0D44C2902C /* TokenUsageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C0DF08683A235D13C811C1 /* TokenUsageRepository.swift */; };
 		F2D41A1BC5C8C90F0056C794 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29220B921F7B406871C2EE79 /* ChatService.swift */; };
 		F636E887FE8D3DECBC7BAB38 /* ChatSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E309985D2284C7ED6E878 /* ChatSession.swift */; };
 		FE2C2C5629655FB528C08347 /* PrivacyConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */; };
@@ -64,6 +67,7 @@
 		126D59951AA1A7581ED4DF87 /* OllamaError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaError.swift; sourceTree = "<group>"; };
 		15CD0F06BC25E56B44F3918B /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		1770390F3070AD5439005A10 /* ConnectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConfig.swift; sourceTree = "<group>"; };
+		1C703D51EC15066D8EDE243C /* TokenUsageEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUsageEntry.swift; sourceTree = "<group>"; };
 		1DA30C81B569B422C4F3A2FA /* MemoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryEntry.swift; sourceTree = "<group>"; };
 		26234D2DD53F7CEBB3046484 /* LocalLLMCloudChat.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LocalLLMCloudChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		269B34A42612D26DE0554EB9 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		5D9F9FF3EFE52FBD9379221B /* OllamaChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OllamaChatApp.swift; sourceTree = "<group>"; };
 		6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		6466442D8013150A192494FA /* SessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModel.swift; sourceTree = "<group>"; };
+		664D207ED5BFD4B83E48C2F5 /* TokenUsageBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUsageBar.swift; sourceTree = "<group>"; };
 		69CC4638FC0E97769714C86D /* RecentsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsScreen.swift; sourceTree = "<group>"; };
 		7DC336B0E3216E9FC0BA4FD9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7E21DA419604AF572CAF5F41 /* ArtifactCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactCard.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		E9B79A4FD0FD5D8603BF4820 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EE72120B008DADB210E5F587 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
 		F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSettingsCard.swift; sourceTree = "<group>"; };
+		F2C0DF08683A235D13C811C1 /* TokenUsageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUsageRepository.swift; sourceTree = "<group>"; };
 		F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		FD5C50D8EC414EF22803498A /* ArtifactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +169,7 @@
 				CDF73C52801806A6F2217EB9 /* MemoryRepository.swift */,
 				32FEDFC2B9C5F2718A05C088 /* PersonaRepository.swift */,
 				6267D7AA33ED29F964A975F3 /* SettingsRepository.swift */,
+				F2C0DF08683A235D13C811C1 /* TokenUsageRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -238,6 +245,7 @@
 				3A4F47BB4A2043C205469FFA /* PrivacyConsentView.swift */,
 				CECE37103C983355FB64836B /* PrivacyPolicyView.swift */,
 				DC0496664AE8B3455F570284 /* StreamingIndicator.swift */,
+				664D207ED5BFD4B83E48C2F5 /* TokenUsageBar.swift */,
 				26CC15982C8A1D9DB520811E /* WelcomeCard.swift */,
 			);
 			path = Components;
@@ -262,6 +270,7 @@
 				126D59951AA1A7581ED4DF87 /* OllamaError.swift */,
 				3A60D3B7E837285D6C96D3A2 /* OllamaModels.swift */,
 				DF7EB8F502CA4563892A1712 /* PersonaEntry.swift */,
+				1C703D51EC15066D8EDE243C /* TokenUsageEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +401,9 @@
 				ABFAB8A5DA5EAB41898BEC99 /* TTSService.swift in Sources */,
 				99A76D6E3D853BDA7584412D /* TavilyClient.swift in Sources */,
 				48BC5533560438DB562C886A /* Theme.swift in Sources */,
+				CE3352E738EF161830EDB319 /* TokenUsageBar.swift in Sources */,
+				C2DDBD2587359A10CBD0073F /* TokenUsageEntry.swift in Sources */,
+				F2280F8CBC70AC0D44C2902C /* TokenUsageRepository.swift in Sources */,
 				B03470AF532DF4D3036D6FF0 /* WelcomeCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

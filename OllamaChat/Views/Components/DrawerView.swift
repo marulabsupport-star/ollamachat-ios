@@ -61,6 +61,9 @@ struct DrawerView: View {
             
             Spacer()
             
+            // Token usage bar
+            TokenUsageBar()
+            
             // Current model display
             HStack {
                 Image(systemName: "cpu")
