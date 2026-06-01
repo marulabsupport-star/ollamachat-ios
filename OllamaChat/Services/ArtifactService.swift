@@ -53,15 +53,46 @@ func extractArtifact(from content: String) -> Artifact? {
         }
     }
     
-    // Pattern 2: ```html ... ``` (only interactive)
+    // Pattern 2: ```html ... ``` (any HTML with style or content)
     if let match = ArtifactHelper.matchCodeBlock(content, language: "html") {
         let html = match.code.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !html.isEmpty && ArtifactHelper.isInteractiveHtml(html) {
-            let title = ArtifactHelper.extractTitle(from: html) ?? "HTML App"
+        if !html.isEmpty {
+            let title = ArtifactHelper.extractTitle(from: html) ?? "HTML Preview"
             return Artifact(
                 title: title,
                 htmlContent: ArtifactHelper.wrapInFullHtml(html),
                 rawContent: match.code,
+                type: .html
+            )
+        }
+    }
+    
+    // Pattern 2.5: ```css ... ``` with preceding ```html
+    // When AI outputs HTML and CSS as separate blocks, merge them
+    if let cssMatch = ArtifactHelper.matchCodeBlock(content, language: "css") {
+        let css = cssMatch.code.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !css.isEmpty {
+            // Try to find an HTML block to merge with
+            if let htmlMatch = ArtifactHelper.matchCodeBlock(content, language: "html") {
+                let html = htmlMatch.code.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !html.isEmpty {
+                    let merged = ArtifactHelper.injectCssIntoHtml(css, html: html)
+                    let title = ArtifactHelper.extractTitle(from: html) ?? "Web Page"
+                    return Artifact(
+                        title: title,
+                        htmlContent: ArtifactHelper.wrapInFullHtml(merged),
+                        rawContent: html + "\n\n/* CSS */\n" + css,
+                        type: .html
+                    )
+                }
+            }
+            // CSS only — wrap in basic HTML
+            let title = "CSS Preview"
+            let html = ArtifactHelper.wrapCssAsHtml(css)
+            return Artifact(
+                title: title,
+                htmlContent: html,
+                rawContent: css,
                 type: .html
             )
         }
@@ -100,7 +131,7 @@ func extractArtifact(from content: String) -> Artifact? {
 /// Strip artifact blocks from content for clean message text display.
 func stripArtifactBlocks(from content: String) -> String {
     var result = content
-    for lang in ["artifact", "html", "mermaid", "svg"] {
+    for lang in ["artifact", "html", "css", "mermaid", "svg"] {
         let pattern = "```\(lang)\n[\\s\\S]*?```"
         if let regex = try? NSRegularExpression(pattern: pattern) {
             let range = NSRange(result.startIndex..., in: result)
@@ -112,7 +143,7 @@ func stripArtifactBlocks(from content: String) -> String {
 
 /// Extract first few lines of code preview from artifact content.
 func extractCodePreview(from content: String, maxLines: Int = 3) -> String {
-    for lang in ["artifact", "html", "mermaid", "svg"] {
+    for lang in ["artifact", "html", "css", "mermaid", "svg"] {
         if let match = ArtifactHelper.matchCodeBlock(content, language: lang) {
             let lines = match.code
                 .components(separatedBy: .newlines)
@@ -233,6 +264,46 @@ struct ArtifactHelper {
             "</head>",
             "<body>",
             svgCode,
+            "</body>",
+            "</html>"
+        ]
+        return parts.joined(separator: "\n")
+    }
+    
+    /// Inject CSS into HTML. If HTML has <style>, append to it. If not, add <style> in <head>.
+    static func injectCssIntoHtml(_ css: String, html: String) -> String {
+        let styleBlock = "<style>\n" + css + "\n</style>"
+        // If HTML already has <style>, append CSS before the closing </style>
+        if let closingStyleRange = html.range(of: "</style>", options: .caseInsensitive) {
+            return html.replacingCharacters(in: closingStyleRange, with: css + "\n</style>")
+        }
+        // If HTML has <head>, inject <style> before </head>
+        if let closingHeadRange = html.range(of: "</head>", options: .caseInsensitive) {
+            return html.replacingCharacters(in: closingHeadRange, with: styleBlock + "\n</head>")
+        }
+        // If HTML has <body>, inject before <body>
+        if let bodyRange = html.range(of: "<body", options: .caseInsensitive) {
+            return html.replacingCharacters(in: bodyRange, with: styleBlock + "\n<body")
+        }
+        // No head/body — just prepend
+        return styleBlock + "\n" + html
+    }
+    
+    /// Wrap CSS-only content in a basic HTML page for preview.
+    static func wrapCssAsHtml(_ css: String) -> String {
+        let parts = [
+            "<!DOCTYPE html>",
+            "<html>",
+            "<head>",
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "<style>",
+            "* { box-sizing: border-box; margin: 0; padding: 0; }",
+            "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 16px; background: #0B1120; color: #E2E8F0; }",
+            css,
+            "</style>",
+            "</head>",
+            "<body>",
+            "<div class=\"preview\">CSS Preview — this stylesheet is active on this page.</div>",
             "</body>",
             "</html>"
         ]

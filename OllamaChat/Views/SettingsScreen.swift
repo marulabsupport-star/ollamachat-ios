@@ -306,17 +306,52 @@ struct SettingsScreen: View {
     // MARK: - Model Content
     
     private var modelContent: some View {
-        Picker("Default Model", selection: $viewModel.settings.defaultModel) {
+        VStack(alignment: .leading, spacing: 8) {
             let groups = AvailableModels.shared.modelGroups
             ForEach(groups, id: \.title) { group in
-                Section(group.title) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(group.title)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .padding(.top, 4)
+                    
                     ForEach(group.models) { model in
-                        Text(model.attributedDisplayName).tag(model.id)
+                        let isSelected = viewModel.settings.defaultModel == model.id
+                        Button {
+                            viewModel.settings.defaultModel = model.id
+                        } label: {
+                            HStack(spacing: 8) {
+                                if let imgName = AvailableModels.modelImageName(model.id) {
+                                    Image(imgName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 22, height: 22)
+                                }
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(model.attributedDisplayName)
+                                        .font(.subheadline)
+                                        .fontWeight(isSelected ? .semibold : .regular)
+                                    if !model.sizeLabel.isEmpty {
+                                        Text(model.sizeLabel)
+                                            .font(.caption2)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                                Spacer()
+                                if isSelected {
+                                    Image(systemName: "checkmark")
+                                        .font(.caption)
+                                        .foregroundStyle(.blue)
+                                }
+                            }
+                            .padding(.vertical, 4)
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
         }
-    }
     
     // MARK: - Web Search Content
     
