@@ -103,7 +103,14 @@ struct SettingsScreen: View {
                 }
                 
                 // 7. Memory
-                MemorySection()
+                ExpandableSettingsCard(
+                    title: "Memory",
+                    icon: "brain.head.profile",
+                    cardId: "memory",
+                    expandedCard: $expandedCard
+                ) {
+                    MemorySection()
+                }
                 
                 // 7. Theme
                 ExpandableSettingsCard(

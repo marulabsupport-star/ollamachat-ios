@@ -38,7 +38,16 @@ final class TTSService {
         let utterance = AVSpeechUtterance(string: cleanText)
         utterance.rate = AVSpeechUtteranceDefaultSpeechRate
         utterance.pitchMultiplier = 1.0
-        utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.language.languageCode?.identifier ?? "en")
+        
+        // Detect language from content: Korean text → Korean voice, else → device language
+        let languageCode = detectLanguage(for: cleanText)
+        
+        // Try to find a voice for the detected language, fallback to default
+        if let voice = AVSpeechSynthesisVoice(language: languageCode) {
+            utterance.voice = voice
+        } else {
+            utterance.voice = AVSpeechSynthesisVoice(language: Locale.current.language.languageCode?.identifier ?? "en")
+        }
         
         currentMessageId = message.id
         speakingMessageId = message.id
@@ -49,8 +58,7 @@ final class TTSService {
             self?.synthesizer.speak(utterance)
         }
         
-        // Use a timer to detect when speech finishes (AVSpeechSynthesizerDelegate is complex)
-        // Simpler: observe synthesizer.isSpeaking in a timer
+        // Use a timer to detect when speech finishes
         startCompletionTimer()
     }
     
@@ -66,6 +74,21 @@ final class TTSService {
     // MARK: - Private
     
     private var completionTimer: Timer?
+    
+    /// Detect language from text content. Returns BCP-47 language code.
+    private func detectLanguage(for text: String) -> String {
+        // Check for Korean characters (Hangul syllables, Jamo, compatibility Jamo)
+        let koreanRange = Character("\u{AC00}")...Character("\u{D7A3}")
+        let hasKorean = text.unicodeScalars.contains { scalar in
+            let c = Character(scalar)
+            return koreanRange.contains(c) || (scalar.value >= 0x3130 && scalar.value <= 0x318F) || (scalar.value >= 0x1100 && scalar.value <= 0x11FF)
+        }
+        if hasKorean {
+            return "ko-KR"
+        }
+        // Default to device locale language
+        return Locale.current.language.languageCode?.identifier ?? "en"
+    }
     
     private func startCompletionTimer() {
         completionTimer?.invalidate()

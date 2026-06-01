@@ -87,7 +87,7 @@ final class AppSettings {
         self.showWelcomeCard = UserDefaults.standard.object(forKey: "showWelcomeCard") as? Bool ?? true
         self.showThinkingByDefault = UserDefaults.standard.object(forKey: "showThinkingByDefault") as? Bool ?? false
         self.webSearchMode = UserDefaults.standard.string(forKey: "webSearchMode") ?? "auto"
-        self.followUpSuggestions = UserDefaults.standard.object(forKey: "followUpSuggestions") as? Bool ?? false
+        self.followUpSuggestions = UserDefaults.standard.object(forKey: "followUpSuggestions") as? Bool ?? true
         self.privacyConsentGiven = UserDefaults.standard.bool(forKey: "privacyConsentGiven")
     }
 }
