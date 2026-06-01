@@ -65,6 +65,23 @@ struct SettingsScreen: View {
                     webSearchContent
                 }
                 
+                // 4.5 Follow-up Suggestions
+                ExpandableSettingsCard(
+                    title: "Follow-up Suggestions",
+                    icon: "text.bubble.fill",
+                    cardId: "followup",
+                    expandedCard: $expandedCard
+                ) {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("When enabled, the AI will suggest follow-up questions at the end of each response.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Toggle("Enable Follow-up Suggestions", isOn: $viewModel.settings.followUpSuggestions)
+                            .tint(.accentColor)
+                    }
+                    .padding(.vertical, 4)
+                }
+                
                 // 5. System Prompt
                 ExpandableSettingsCard(
                     title: "System Prompt",

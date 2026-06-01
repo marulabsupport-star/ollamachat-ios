@@ -55,6 +55,13 @@ final class AppSettings {
         didSet { UserDefaults.standard.set(webSearchMode, forKey: "webSearchMode") }
     }
     
+    // MARK: - Follow-up Suggestions
+    
+    /// Whether to append follow-up suggestion instruction to system prompt
+    var followUpSuggestions: Bool {
+        didSet { UserDefaults.standard.set(followUpSuggestions, forKey: "followUpSuggestions") }
+    }
+    
     // MARK: - Privacy Consent
     
     var privacyConsentGiven: Bool {
@@ -80,6 +87,7 @@ final class AppSettings {
         self.showWelcomeCard = UserDefaults.standard.object(forKey: "showWelcomeCard") as? Bool ?? true
         self.showThinkingByDefault = UserDefaults.standard.object(forKey: "showThinkingByDefault") as? Bool ?? false
         self.webSearchMode = UserDefaults.standard.string(forKey: "webSearchMode") ?? "auto"
+        self.followUpSuggestions = UserDefaults.standard.object(forKey: "followUpSuggestions") as? Bool ?? false
         self.privacyConsentGiven = UserDefaults.standard.bool(forKey: "privacyConsentGiven")
     }
 }

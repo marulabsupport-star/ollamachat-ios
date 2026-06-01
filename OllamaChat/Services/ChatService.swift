@@ -217,6 +217,11 @@ final class ChatService {
             systemPrompt += "\n\n" + memoryContext
         }
         
+        // Inject follow-up suggestion instruction
+        if settings.followUpSuggestions {
+            systemPrompt += "\n\n[Follow-up Rule] Always end your response by naturally suggesting one specific follow-up question related to the topic you just answered. Format it as a conversational suggestion like \"혹시 ~해볼까?\" or \"Would you like me to ~?\" — not as a bullet or list item. The user can simply reply \"어\" or \"yes\" to proceed with your suggestion."
+        }
+        
         if let search = searchContext {
             systemPrompt += "\n\n" + search
         }

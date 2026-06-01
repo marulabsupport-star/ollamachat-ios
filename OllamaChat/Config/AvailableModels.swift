@@ -244,4 +244,28 @@ final class AvailableModels {
                 )
             }
     }
+    
+    // MARK: - Model Icons (Emoji)
+    
+    /// Returns an emoji icon for a model based on its ID.
+    static func modelIcon(_ modelId: String) -> String {
+        let base = modelId.components(separatedBy: ":").first?.lowercased() ?? modelId.lowercased()
+        if base.hasPrefix("gemma") || base.hasPrefix("gemini") { return "🔮" }
+        if base.hasPrefix("qwen") { return "🧠" }
+        if base.hasPrefix("deepseek") { return "🔍" }
+        if base.hasPrefix("mistral") || base.hasPrefix("ministral") { return "🌀" }
+        if base.hasPrefix("minimax") { return "✨" }
+        if base.hasPrefix("glm") { return "💎" }
+        if base.hasPrefix("kimi") { return "🌙" }
+        if base.hasPrefix("devstral") { return "⚡" }
+        if base.hasPrefix("nemotron") { return "💚" }
+        if base.hasPrefix("cogito") { return "🤔" }
+        if base.hasPrefix("llama") || base.hasPrefix("llm") { return "🦙" }
+        if base.hasPrefix("phi") { return "🔬" }
+        if base.hasPrefix("codellama") { return "💻" }
+        if base.hasPrefix("command") { return "📡" }
+        if base.hasPrefix("starcoder") { return "⭐" }
+        // Default
+        return "🤖"
+    }
 }

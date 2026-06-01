@@ -8,15 +8,25 @@ struct RecentsScreen: View {
     
     @State private var showingDeleteAlert = false
     @State private var sessionToDelete: ChatSession?
+    @State private var searchText = ""
     
     // MARK: - Computed
     
+    private var filteredSessions: [ChatSession] {
+        if searchText.isEmpty {
+            return viewModel.sessions
+        }
+        return viewModel.sessions.filter {
+            $0.title.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+    
     private var pinnedSessions: [ChatSession] {
-        viewModel.sessions.filter { $0.pinned && !isEmptyChat($0) }
+        filteredSessions.filter { $0.pinned && !isEmptyChat($0) }
     }
     
     private var unpinnedSessions: [ChatSession] {
-        viewModel.sessions.filter { !$0.pinned && !isEmptyChat($0) }
+        filteredSessions.filter { !$0.pinned && !isEmptyChat($0) }
     }
     
     private func isEmptyChat(_ session: ChatSession) -> Bool {
@@ -39,6 +49,7 @@ struct RecentsScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         #endif
+        .searchable(text: $searchText, prompt: "Search conversations...")
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: onOpenDrawer) {

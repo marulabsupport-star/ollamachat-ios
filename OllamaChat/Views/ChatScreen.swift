@@ -138,6 +138,8 @@ struct ChatScreen: View {
                             .font(.headline)
                             .lineLimit(1)
                         HStack(spacing: 4) {
+                            Text(AvailableModels.modelIcon(viewModel.selectedModel?.id ?? ""))
+                                .font(.caption2)
                             Circle()
                                 .fill(viewModel.selectedModel?.isCloud ?? true ? Color.blue : Color.green)
                                 .frame(width: 6, height: 6)
@@ -380,6 +382,8 @@ struct ModelPickerRow: View {
     
     var body: some View {
         HStack {
+            Text(AvailableModels.modelIcon(model.id))
+                .font(.body)
             Circle()
                 .fill(model.isCloud ? Color.blue : Color.green)
                 .frame(width: 8, height: 8)
