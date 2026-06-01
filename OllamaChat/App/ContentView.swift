@@ -60,7 +60,9 @@ struct ContentView: View {
                         onSelectSession: { session in
                             selectedSession = session
                             chatViewModel.loadSession(session)
-                            navigationPath.removeLast()
+                            DispatchQueue.main.async {
+                                navigationPath.removeLast()
+                            }
                         },
                         onNewChat: {
                             startNewChat()
@@ -154,10 +156,7 @@ struct ContentView: View {
     // MARK: - Computed
     
     private var selectedModelName: String {
-        if let session = selectedSession {
-            return session.modelName
-        }
-        return chatViewModel.selectedModel?.attributedDisplayName ?? "None"
+        chatViewModel.selectedModel?.attributedDisplayName ?? "None"
     }
     
     // MARK: - Factory Methods
