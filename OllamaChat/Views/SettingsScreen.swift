@@ -306,48 +306,12 @@ struct SettingsScreen: View {
     // MARK: - Model Content
     
     private var modelContent: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        Picker("Default Model", selection: $viewModel.settings.defaultModel) {
             let groups = AvailableModels.shared.modelGroups
             ForEach(groups, id: \.title) { group in
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(group.title)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .padding(.top, 4)
-                    
+                Section(group.title) {
                     ForEach(group.models) { model in
-                        let isSelected = viewModel.settings.defaultModel == model.id
-                        Button {
-                            viewModel.settings.defaultModel = model.id
-                        } label: {
-                            HStack(spacing: 8) {
-                                if let imgName = AvailableModels.modelImageName(model.id) {
-                                    Image(imgName)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 22, height: 22)
-                                }
-                                VStack(alignment: .leading, spacing: 1) {
-                                    Text(model.attributedDisplayName)
-                                        .font(.subheadline)
-                                        .fontWeight(isSelected ? .semibold : .regular)
-                                    if let size = model.sizeLabel, !size.isEmpty {
-                                        Text(size)
-                                            .font(.caption2)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                }
-                                Spacer()
-                                if isSelected {
-                                    Image(systemName: "checkmark")
-                                        .font(.caption)
-                                        .foregroundStyle(.blue)
-                                }
-                            }
-                            .padding(.vertical, 4)
-                            .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
+                        Text(model.attributedDisplayName).tag(model.id)
                     }
                 }
             }

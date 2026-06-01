@@ -146,10 +146,11 @@ struct ChatScreen: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 16, height: 16)
+                            } else {
+                                Circle()
+                                    .fill(viewModel.selectedModel?.isCloud ?? true ? Color.blue : Color.green)
+                                    .frame(width: 6, height: 6)
                             }
-                            Circle()
-                                .fill(viewModel.selectedModel?.isCloud ?? true ? Color.blue : Color.green)
-                                .frame(width: 6, height: 6)
                             Text(viewModel.selectedModel?.attributedDisplayName ?? "Select Model")
                                 .font(.caption2)
                                 .foregroundStyle(.secondary)
@@ -394,10 +395,11 @@ struct ModelPickerRow: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 22, height: 22)
+            } else {
+                Circle()
+                    .fill(model.isCloud ? Color.blue : Color.green)
+                    .frame(width: 8, height: 8)
             }
-            Circle()
-                .fill(model.isCloud ? Color.blue : Color.green)
-                .frame(width: 8, height: 8)
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 4) {
                     Text(model.attributedDisplayName)
