@@ -17,6 +17,7 @@
 		382BA2A92BE51EA6546FC40F /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CD0F06BC25E56B44F3918B /* ChatScreen.swift */; };
 		48BC5533560438DB562C886A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B79A4FD0FD5D8603BF4820 /* Theme.swift */; };
 		4A8B24BD18AB3844FBAD15E0 /* PersonaSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2779E893304CDFF4EF34997F /* PersonaSection.swift */; };
+		5FF1252097D894476CA2D358 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29615960C4EC72F3CAA8DF6 /* LaunchScreen.swift */; };
 		68F279AD7BD27E7F82F8CD78 /* AvailableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7D36C3C8C9AC0D173EBB0B /* AvailableModels.swift */; };
 		6AAE3E89A2D3D874EB811E8B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */; };
 		6D59420EA828C7FF0B52097B /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DA7EA478BC13CC2E7B4A18 /* ChatRepository.swift */; };
@@ -109,6 +110,7 @@
 		E9B79A4FD0FD5D8603BF4820 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EE72120B008DADB210E5F587 /* ModelSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSelector.swift; sourceTree = "<group>"; };
 		F0DE321435035424E6539F73 /* ExpandableSettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSettingsCard.swift; sourceTree = "<group>"; };
+		F29615960C4EC72F3CAA8DF6 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		F2C0DF08683A235D13C811C1 /* TokenUsageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUsageRepository.swift; sourceTree = "<group>"; };
 		F4C9205ADCFF32896E9A8620 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		FD5C50D8EC414EF22803498A /* ArtifactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtifactService.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				15CD0F06BC25E56B44F3918B /* ChatScreen.swift */,
+				F29615960C4EC72F3CAA8DF6 /* LaunchScreen.swift */,
 				69CC4638FC0E97769714C86D /* RecentsScreen.swift */,
 				269B34A42612D26DE0554EB9 /* SettingsScreen.swift */,
 				AE5059DEDB490F89D1448C26 /* Components */,
@@ -376,6 +379,7 @@
 				C5E964C81B3388257534AB69 /* DrawerView.swift in Sources */,
 				C11DCF1C808DEAF8D02332DD /* ExpandableSettingsCard.swift in Sources */,
 				AF43378E81942DFA404BD16E /* InputBar.swift in Sources */,
+				5FF1252097D894476CA2D358 /* LaunchScreen.swift in Sources */,
 				D08629C5BE408CB5DB021C3A /* MemoryEntry.swift in Sources */,
 				6DB892E557FF21DC421CF2A4 /* MemoryRepository.swift in Sources */,
 				1D8C1804ECB91F46CD33E1BF /* MemorySection.swift in Sources */,

@@ -14,9 +14,10 @@ struct LocalLLMCloudChatApp: App {
     static let connectionConfig = ConnectionConfig()
     static let availableModels = AvailableModels.shared
     
-    // MARK: - Privacy Consent
+    // MARK: - Privacy Consent & Launch
     
     @AppStorage("privacyConsentGiven") private var privacyConsentGiven = false
+    @State private var showSplash = true
     
     // MARK: - Init
     
@@ -57,17 +58,33 @@ struct LocalLLMCloudChatApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if privacyConsentGiven {
-                ContentView()
-                    .environment(Self.settings)
-                    .environment(Self.connectionConfig)
-                    .environment(Self.availableModels)
-            } else {
-                PrivacyConsentView(onConsentGiven: {
-                    withAnimation {
-                        privacyConsentGiven = true
-                    }
-                })
+            ZStack {
+                if privacyConsentGiven {
+                    ContentView()
+                        .environment(Self.settings)
+                        .environment(Self.connectionConfig)
+                        .environment(Self.availableModels)
+                } else {
+                    PrivacyConsentView(onConsentGiven: {
+                        withAnimation {
+                            privacyConsentGiven = true
+                        }
+                    })
+                }
+                
+                // Splash screen overlay
+                if showSplash {
+                    LaunchScreen()
+                        .transition(.opacity)
+                        .zIndex(1)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    showSplash = false
+                                }
+                            }
+                        }
+                }
             }
         }
         .modelContainer(modelContainer)
