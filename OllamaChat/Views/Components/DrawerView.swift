@@ -5,6 +5,7 @@ import SwiftUI
 struct DrawerView: View {
     let currentRoute: String
     let selectedModelName: String
+    let selectedModelId: String
     let onNewChat: () -> Void
     let onRecents: () -> Void
     let onSettings: () -> Void
@@ -66,9 +67,16 @@ struct DrawerView: View {
             
             // Current model display
             HStack {
-                Image(systemName: "cpu")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                if let imgName = AvailableModels.modelImageName(selectedModelId) {
+                    Image(imgName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
+                } else {
+                    Image(systemName: "cpu")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
                 Text("Model: \(selectedModelName)")
                     .font(.caption)
                     .foregroundStyle(.secondary)

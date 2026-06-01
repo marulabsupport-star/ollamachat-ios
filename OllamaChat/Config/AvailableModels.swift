@@ -245,27 +245,25 @@ final class AvailableModels {
             }
     }
     
-    // MARK: - Model Icons (Emoji)
+    // MARK: - Model Icons
     
-    /// Returns an emoji icon for a model based on its ID.
-    static func modelIcon(_ modelId: String) -> String {
+    /// Returns the asset catalog image name for a model based on its ID.
+    /// Returns nil if no specific logo exists (caller should use a fallback).
+    static func modelImageName(_ modelId: String) -> String? {
         let base = modelId.components(separatedBy: ":").first?.lowercased() ?? modelId.lowercased()
-        if base.hasPrefix("gemma") || base.hasPrefix("gemini") { return "🔮" }
-        if base.hasPrefix("qwen") { return "🧠" }
-        if base.hasPrefix("deepseek") { return "🔍" }
-        if base.hasPrefix("mistral") || base.hasPrefix("ministral") { return "🌀" }
-        if base.hasPrefix("minimax") { return "✨" }
-        if base.hasPrefix("glm") { return "💎" }
-        if base.hasPrefix("kimi") { return "🌙" }
-        if base.hasPrefix("devstral") { return "⚡" }
-        if base.hasPrefix("nemotron") { return "💚" }
-        if base.hasPrefix("cogito") { return "🤔" }
-        if base.hasPrefix("llama") || base.hasPrefix("llm") { return "🦙" }
-        if base.hasPrefix("phi") { return "🔬" }
-        if base.hasPrefix("codellama") { return "💻" }
-        if base.hasPrefix("command") { return "📡" }
-        if base.hasPrefix("starcoder") { return "⭐" }
-        // Default
-        return "🤖"
+        if base.hasPrefix("gemma") || base.hasPrefix("gemini") { return "ic_model_google" }
+        if base.hasPrefix("qwen") { return "ic_model_qwen" }
+        if base.hasPrefix("deepseek") { return "ic_model_deepseek" }
+        if base.hasPrefix("mistral") || base.hasPrefix("ministral") { return "ic_model_mistral" }
+        if base.hasPrefix("minimax") { return "ic_model_minimax" }
+        if base.hasPrefix("glm") { return "ic_model_glm" }
+        if base.hasPrefix("kimi") { return "ic_model_kimi" }
+        if base.hasPrefix("devstral") { return "ic_model_devstral" }
+        if base.hasPrefix("nemotron") { return "ic_model_nvidia" }
+        if base.hasPrefix("cogito") { return "ic_model_cogito" }
+        if base.hasPrefix("llama") || base.hasPrefix("llm") { return "ic_model_meta" }
+        if base.hasPrefix("gpt") { return "ic_model_gpt_oss" }
+        // Default: local/unknown models
+        return nil
     }
 }

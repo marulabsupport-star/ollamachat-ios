@@ -84,6 +84,7 @@ struct ContentView: View {
                     DrawerView(
                         currentRoute: navigationPath.isEmpty ? "chat" : "recents",
                         selectedModelName: selectedModelName,
+                        selectedModelId: chatViewModel.selectedModel?.id ?? "",
                         onNewChat: {
                             withAnimation(.easeInOut(duration: 0.25)) { showDrawer = false }
                             startNewChat()
