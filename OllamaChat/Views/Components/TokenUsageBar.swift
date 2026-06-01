@@ -1,7 +1,8 @@
 import SwiftUI
 import SwiftData
 
-/// Shows weekly token usage as a compact bar chart in the drawer.
+/// Shows weekly token usage as a stacked bar chart in the drawer.
+/// Output tokens fill the bar fully, input tokens overlay on top in a different color.
 struct TokenUsageBar: View {
     @Environment(\.modelContext) private var modelContext
     @State private var usage = TokenUsageRepository.WeekUsage()
@@ -23,23 +24,48 @@ struct TokenUsageBar: View {
             }
             
             if usage.total > 0 {
-                // Proportional bar
-                HStack(spacing: 1) {
-                    BarSegment(count: usage.cloudInput, total: usage.total, color: .blue)
-                    BarSegment(count: usage.cloudOutput, total: usage.total, color: .cyan)
-                    BarSegment(count: usage.localInput, total: usage.total, color: .orange)
-                    BarSegment(count: usage.localOutput, total: usage.total, color: .yellow)
+                // Stacked bar: output fills bar, input overlays on top
+                VStack(spacing: 3) {
+                    // Cloud bar
+                    if usage.totalCloud > 0 {
+                        StackedBar(
+                            input: usage.cloudInput,
+                            output: usage.cloudOutput,
+                            inputColor: .cyan,
+                            outputColor: .blue,
+                            total: usage.total
+                        )
+                    }
+                    // Local bar
+                    if usage.totalLocal > 0 {
+                        StackedBar(
+                            input: usage.localInput,
+                            output: usage.localOutput,
+                            inputColor: .yellow,
+                            outputColor: .orange,
+                            total: usage.total
+                        )
+                    }
                 }
-                .frame(height: 10)
-                .clipShape(RoundedRectangle(cornerRadius: 4))
+                .frame(height: usage.totalCloud > 0 && usage.totalLocal > 0 ? 22 : 12)
                 
                 // Legend
                 HStack(spacing: 12) {
                     if usage.totalCloud > 0 {
-                        LegendDot(color: .blue, label: "Cloud \(usage.totalCloud)")
+                        HStack(spacing: 4) {
+                            LegendDot(color: .blue, label: "Out")
+                            LegendDot(color: .cyan, label: "In")
+                            Text("Cloud")
+                                .foregroundStyle(.secondary)
+                        }
                     }
                     if usage.totalLocal > 0 {
-                        LegendDot(color: .orange, label: "Local \(usage.totalLocal)")
+                        HStack(spacing: 4) {
+                            LegendDot(color: .orange, label: "Out")
+                            LegendDot(color: .yellow, label: "In")
+                            Text("Local")
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
                 .font(.caption2)
@@ -60,17 +86,29 @@ struct TokenUsageBar: View {
     }
 }
 
-struct BarSegment: View {
-    let count: Int
+/// A single stacked bar where output fills the full width and input overlays on top.
+struct StackedBar: View {
+    let input: Int
+    let output: Int
+    let inputColor: Color
+    let outputColor: Color
     let total: Int
-    let color: Color
     
     var body: some View {
-        if count > 0, total > 0 {
-            Rectangle()
-                .fill(color)
-                .frame(maxWidth: .infinity)
-                .frame(minWidth: 2)
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                // Output fills full width (background)
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(outputColor.opacity(0.85))
+                
+                // Input overlays from left (proportional width)
+                if input > 0, total > 0 {
+                    let inputWidth = max(CGFloat(input) / CGFloat(total) * geo.size.width, 2)
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(inputColor.opacity(0.85))
+                        .frame(width: inputWidth)
+                }
+            }
         }
     }
 }
@@ -80,7 +118,7 @@ struct LegendDot: View {
     let label: String
     
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: 3) {
             Circle()
                 .fill(color)
                 .frame(width: 6, height: 6)
