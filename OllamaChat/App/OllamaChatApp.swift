@@ -23,7 +23,7 @@ struct LocalLLMCloudChatApp: App {
     init() {
         do {
             let schema = Schema([ChatSession.self, ChatMessage.self, PersonaEntry.self, MemoryEntry.self, TokenUsageEntry.self])
-            let config = ModelConfiguration(schema: schema)
+            let config = ModelConfiguration(schema: schema, allowsSave: true)
             self.modelContainer = try ModelContainer(for: schema, configurations: [config])
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")

@@ -12,16 +12,19 @@ final class ChatSession {
     var createdAt: Date
     var updatedAt: Date
     
+    // Cached values to avoid touching @Relationship on list render
+    var cachedMessageCount: Int
+    var cachedPreview: String?
+    
     @Relationship(deleteRule: .cascade, inverse: \ChatMessage.session)
     var messages: [ChatMessage]
     
     var lastMessagePreview: String? {
-        guard let content = messages.last?.content else { return nil }
-        return String(content.prefix(100))
+        cachedPreview ?? String((messages.last?.content ?? "").prefix(100))
     }
     
     var messageCount: Int {
-        messages.count
+        cachedMessageCount >= 0 ? cachedMessageCount : messages.count
     }
     
     init(
@@ -43,6 +46,14 @@ final class ChatSession {
         self.pinned = pinned
         self.createdAt = createdAt
         self.updatedAt = updatedAt
+        self.cachedMessageCount = messages.count
+        self.cachedPreview = nil
         self.messages = messages
+    }
+    
+    /// Call after adding/removing messages to keep cached values in sync.
+    func updateCachedValues() {
+        cachedMessageCount = messages.count
+        cachedPreview = messages.last?.content.map { String($0.prefix(100)) }
     }
 }

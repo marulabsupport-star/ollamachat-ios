@@ -78,6 +78,7 @@ final class ChatRepository {
         )
         modelContext.insert(message)
         session.updatedAt = Date()
+        session.updateCachedValues()
         try? modelContext.save()
         return message
     }
@@ -134,7 +135,9 @@ final class ChatRepository {
     
     /// Delete a single message by ID.
     func deleteMessage(_ message: ChatMessage) {
+        let session = message.session
         modelContext.delete(message)
+        session?.updateCachedValues()
         try? modelContext.save()
     }
     
@@ -148,6 +151,13 @@ final class ChatRepository {
         let messages = (try? modelContext.fetch(descriptor)) ?? []
         for msg in messages {
             modelContext.delete(msg)
+        }
+        // Find session and update cache
+        let sessionDescriptor = FetchDescriptor<ChatSession>(
+            predicate: #Predicate { $0.id == sessionId }
+        )
+        if let session = try? modelContext.fetch(sessionDescriptor).first {
+            session.updateCachedValues()
         }
         try? modelContext.save()
     }
