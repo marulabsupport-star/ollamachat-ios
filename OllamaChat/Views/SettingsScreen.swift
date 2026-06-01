@@ -331,8 +331,8 @@ struct SettingsScreen: View {
                                     Text(model.attributedDisplayName)
                                         .font(.subheadline)
                                         .fontWeight(isSelected ? .semibold : .regular)
-                                    if !model.sizeLabel.isEmpty {
-                                        Text(model.sizeLabel)
+                                    if let size = model.sizeLabel, !size.isEmpty {
+                                        Text(size)
                                             .font(.caption2)
                                             .foregroundStyle(.secondary)
                                     }
@@ -352,6 +352,7 @@ struct SettingsScreen: View {
                 }
             }
         }
+    }
     
     // MARK: - Web Search Content
     
@@ -506,5 +507,4 @@ struct SettingsScreen: View {
                 viewModel.settings.systemPrompt = defaultPersona.systemPrompt
             }
         }
-    }
-}
+    }}
