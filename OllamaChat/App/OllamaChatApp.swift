@@ -22,11 +22,34 @@ struct LocalLLMCloudChatApp: App {
     
     init() {
         do {
-            let schema = Schema([ChatSession.self, ChatMessage.self, PersonaEntry.self, MemoryEntry.self, TokenUsageEntry.self])
-            let config = ModelConfiguration(schema: schema, allowsSave: true)
-            self.modelContainer = try ModelContainer(for: schema, configurations: [config])
+            let schema = Schema([
+                ChatSession.self,
+                ChatMessage.self,
+                PersonaEntry.self,
+                MemoryEntry.self,
+                TokenUsageEntry.self
+            ])
+            self.modelContainer = try ModelContainer(for: schema)
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            // Schema mismatch (e.g. after adding new fields) — delete and recreate
+            print("ModelContainer error: \(error). Resetting database...")
+            do {
+                let schema = Schema([
+                    ChatSession.self,
+                    ChatMessage.self,
+                    PersonaEntry.self,
+                    MemoryEntry.self,
+                    TokenUsageEntry.self
+                ])
+                // Delete existing database and recreate
+                let url = URL.applicationSupportDirectory.appending(path: "default.store")
+                try? FileManager.default.removeItem(at: url)
+                try? FileManager.default.removeItem(at: url.appendingPathExtension("wal"))
+                try? FileManager.default.removeItem(at: url.appendingPathExtension("shm"))
+                self.modelContainer = try ModelContainer(for: schema)
+            } catch {
+                fatalError("Failed to create ModelContainer even after reset: \(error)")
+            }
         }
     }
     
