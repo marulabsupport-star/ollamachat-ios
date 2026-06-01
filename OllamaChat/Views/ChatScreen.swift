@@ -123,7 +123,10 @@ struct ChatScreen: View {
         #endif
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Button(action: onOpenDrawer) {
+                Button(action: {
+                    dismissKeyboard()
+                    onOpenDrawer()
+                }) {
                     Image(systemName: "line.3.horizontal")
                         .font(.title3)
                 }

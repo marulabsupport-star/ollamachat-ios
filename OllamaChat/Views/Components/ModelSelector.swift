@@ -10,6 +10,12 @@ struct ModelSelectorButton: View {
     var body: some View {
         Button(action: { isPresented.toggle() }) {
             HStack(spacing: 4) {
+                if let imgName = AvailableModels.modelImageName(selectedModel?.id ?? "") {
+                    Image(imgName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 16, height: 16)
+                }
                 Circle()
                     .fill((selectedModel?.isCloud ?? true) ? Color.blue : Color.green)
                     .frame(width: 8, height: 8)
@@ -67,6 +73,12 @@ struct ModelRow: View {
     
     var body: some View {
         HStack {
+            if let imgName = AvailableModels.modelImageName(model.id) {
+                Image(imgName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 22, height: 22)
+            }
             VStack(alignment: .leading, spacing: 2) {
                 Text(model.attributedDisplayName)
                     .font(.subheadline)

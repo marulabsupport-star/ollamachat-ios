@@ -46,7 +46,10 @@ struct ContentView: View {
         NavigationStack(path: $navigationPath) {
             ChatScreen(
                 viewModel: chatViewModel,
-                onOpenDrawer: { showDrawer = true },
+                onOpenDrawer: {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    showDrawer = true
+                },
                 onNavigateToSettings: { navigationPath.append(Route.settings) }
             )
             .navigationDestination(for: Route.self) { route in
@@ -63,7 +66,10 @@ struct ContentView: View {
                             startNewChat()
                             navigationPath.removeLast()
                         },
-                        onOpenDrawer: { showDrawer = true }
+                        onOpenDrawer: {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            showDrawer = true
+                        }
                     )
                 case .settings:
                     SettingsScreen(
