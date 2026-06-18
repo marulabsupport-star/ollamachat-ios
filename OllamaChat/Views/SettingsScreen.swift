@@ -219,6 +219,21 @@ struct SettingsScreen: View {
     
     private var apiKeyContent: some View {
         VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("New to Ollama?")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                Text("You'll need an API key to use cloud models. It's free to get started!")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Link("Get your API key → ollama.com/settings/keys", destination: URL(string: "https://ollama.com/settings/keys")!)
+                    .font(.caption)
+                    .tint(.accentColor)
+            }
+            .padding(10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Color.accentColor.opacity(0.08)))
+            
             HStack {
                 if showApiKey {
                     TextField("Cloud API Key", text: $viewModel.ollamaKeyInput)
@@ -322,6 +337,21 @@ struct SettingsScreen: View {
     
     private var webSearchContent: some View {
         VStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Want to enable web search?")
+                    .font(.subheadline)
+                    .fontWeight(.medium)
+                Text("Sign up for a free API key at Tavily — it's designed for AI apps and includes a generous free tier.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Link("Get your free API key → tavily.com", destination: URL(string: "https://tavily.com")!)
+                    .font(.caption)
+                    .tint(.accentColor)
+            }
+            .padding(10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Color.accentColor.opacity(0.08)))
+            
             HStack {
                 if showTavilyKey {
                     TextField("Tavily API Key", text: $viewModel.tavilyKeyInput)
