@@ -74,7 +74,7 @@ struct MemorySection: View {
         guard !key.isEmpty, !content.isEmpty else { return }
         
         let repo = MemoryRepository(modelContext: modelContext)
-        repo.add(key: key, content: content)
+        _ = repo.add(key: key, content: content)
         newKey = ""
         newContent = ""
     }

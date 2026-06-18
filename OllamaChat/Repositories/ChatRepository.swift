@@ -27,7 +27,7 @@ final class ChatRepository {
     }
     
     func fetchSessions() -> [ChatSession] {
-        var descriptor = FetchDescriptor<ChatSession>(
+        let descriptor = FetchDescriptor<ChatSession>(
             sortBy: [
                 SortDescriptor(\.updatedAt, order: .reverse)
             ]

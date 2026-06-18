@@ -172,7 +172,7 @@ final class ChatService {
     
     /// Regenerate an AI message: delete it, find preceding user message, re-send.
     func regenerateAiMessage(_ message: ChatMessage) async {
-        guard let session = currentSession else { return }
+        guard currentSession != nil else { return }
         guard message.role == "assistant" else { return }
         guard !isStreaming else { return }
         
